@@ -5,7 +5,7 @@
 window.GT_CONFIG = {
   siteName: 'G TRADERS',
   tagline: 'Trading tools for MetaTrader 5 — build, test and run your own robots.',
-  email: 'gtraderslk@gmail.com',
+  email: 'supportgtraders@gmail.com',
   year: new Date().getFullYear(),
   build: 'v4.0',
 
@@ -23,7 +23,7 @@ window.GT_CONFIG = {
   firebase: null,
 
   // Who may open the control panel (admin.html). Use the same list in firestore.rules.
-  adminEmails: ['gtraderslk@gmail.com'],
+  adminEmails: ['supportgtraders@gmail.com'],
 
   // Login protection: wrong passwords allowed, then a lock of this many minutes
   lockAttempts: 3,
