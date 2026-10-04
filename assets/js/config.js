@@ -21,7 +21,7 @@ window.GT_CONFIG = {
   //   firebase: { apiKey: '...', authDomain: '...', projectId: '...', appId: '...' },
   // The apiKey of a Firebase web app is not a secret — the security comes from firestore.rules.
   firebase: {
-    apiKey: 'AIzaSyCvD18te7vFr27r2u8QF2Nc5uRaSNHTALc',
+    apiKey: 'AIzaSyD_KKFkMIq_ITwReQQT0CnZJOjEsstOBPQ',
     authDomain: 'gtraders-47a0f.firebaseapp.com',
     projectId: 'gtraders-47a0f',
     storageBucket: 'gtraders-47a0f.firebasestorage.app',
