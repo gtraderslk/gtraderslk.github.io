@@ -8,7 +8,7 @@ service cloud.firestore {
     function signedIn() { return request.auth != null; }
     function isAdmin() {
       return signedIn() && request.auth.token.email_verified == true
-        && request.auth.token.email in ['gtraderslk@gmail.com'];
+        && request.auth.token.email in ['supportgtraders@gmail.com'];
     }
     function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
 
