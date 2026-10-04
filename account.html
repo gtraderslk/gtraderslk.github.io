@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your account — G TRADERS</title>
+<meta name="description" content="Create a free G TRADERS account or log in.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.gtraders.lk/account.html">
+<meta name="theme-color" content="#060b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G TRADERS">
+<meta property="og:title" content="Your account — G TRADERS">
+<meta property="og:description" content="Create a free G TRADERS account or log in.">
+<meta property="og:url" content="https://www.gtraders.lk/account.html">
+<meta property="og:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your account — G TRADERS">
+<meta name="twitter:description" content="Create a free G TRADERS account or log in.">
+<meta name="twitter:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</head>
+<body class="">
+<div id="site-header"></div>
+<section class="section"><div class="wrap">
+  <div id="acc-out" style="display:none">
+    <div class="card form-card">
+      <div style="display:flex;gap:6px;margin-bottom:8px" class="seg" id="acc-tabs">
+        <button type="button" data-t="signup">Create account</button><button type="button" data-t="login">Log in</button></div>
+      <form id="f-signup" autocomplete="on">
+        <h2 style="margin-top:14px">Create your free account</h2>
+        <p class="muted small"><span id="trial-days">30</span>-day free trial: EA Bot Studio in the browser, bot downloads, signals and the $10,000 demo.</p>
+        <label>Full name</label><input name="name" autocomplete="name" maxlength="60" required>
+        <label>E-mail</label><input name="email" type="email" autocomplete="email" required>
+        <label>WhatsApp number <span class="muted small">(with country code)</span></label><input name="whatsapp" type="tel" autocomplete="tel" placeholder="+94 77 123 4567">
+        <label>Country</label><input name="country" autocomplete="country-name" maxlength="40">
+        <label>Password <span class="muted small">(8+ characters, letters and numbers)</span></label><input name="password" type="password" autocomplete="new-password" minlength="8" required>
+        <label>Repeat the password</label><input name="password2" type="password" autocomplete="new-password" minlength="8" required>
+        <label style="display:flex;gap:8px;align-items:flex-start;font-weight:500"><input type="checkbox" name="agree" required style="width:auto;margin-top:4px">
+          <span>I have read the <a href="legal.html" target="_blank">risk disclosure, terms and privacy policy</a> and I am of legal age.</span></label>
+        <button class="btn primary" style="width:100%;margin-top:16px">Create account</button>
+      </form>
+      <form id="f-login" style="display:none">
+        <h2 style="margin-top:14px">Log in</h2>
+        <label>E-mail</label><input name="email" type="email" autocomplete="email" required>
+        <label>Password</label><input name="password" type="password" autocomplete="current-password" required>
+        <button class="btn primary" style="width:100%;margin-top:16px">Log in</button>
+        <p class="small" style="margin:12px 0 0;text-align:center"><a href="#" id="go-reset">Forgot your password?</a></p>
+      </form>
+      <form id="f-reset" style="display:none">
+        <h2 style="margin-top:14px">Reset your password</h2>
+        <p class="muted small">Enter the e-mail of your account. We send you a link to choose a new password.</p>
+        <label>E-mail</label><input name="email" type="email" autocomplete="email" required>
+        <button class="btn primary" style="width:100%;margin-top:16px">Send the reset link</button>
+        <p class="small" style="margin:12px 0 0;text-align:center"><a href="#" id="back-login">Back to log in</a></p>
+      </form>
+      <p class="err red small" id="acc-err" style="margin-top:10px"></p>
+      <p class="green small" id="acc-ok" style="margin-top:10px"></p>
+      <div class="notice teal small" id="local-note" style="margin-top:12px;display:none">Test version: accounts are saved only in this browser. Real accounts that work on every device switch on when the site is connected to Firebase (see README).</div>
+    </div>
+  </div>
+
+  <div id="acc-in" style="display:none;max-width:980px;margin:0 auto">
+    <div class="prof-head">
+      <label class="prof-av" title="Change your photo"><span id="p-av"></span><input type="file" id="p-file" accept="image/*" hidden><i>📷</i></label>
+      <div><span class="eyebrow">My profile</span><h1 id="acc-hello" style="font-size:32px;margin:2px 0"></h1><p class="muted small" id="p-sub"></p></div>
+      <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"><a class="btn ghost small" id="p-admin" href="admin.html" style="display:none">⚙ Control panel</a><button class="btn ghost small" id="acc-logout" type="button">Log out</button></div>
+    </div>
+    <div id="p-verify" class="notice gold small" style="display:none;margin:12px 0">Please confirm your e-mail — we sent you a link when you signed up.</div>
+    <div id="acc-ended" class="notice" style="display:none;margin:12px 0"><b>Your trial has ended.</b> The web EA Bot Studio is paused.
+      Keep building inside MetaTrader 5 with <a href="studio.html">GTM EA Bot Studio</a>.</div>
+    <div class="grid g4" style="margin:16px 0">
+      <div class="kpi"><div class="l">Plan</div><div class="v" id="k-plan"></div></div>
+      <div class="kpi"><div class="l">Trial days left</div><div class="v" id="k-days"></div></div>
+      <div class="kpi"><div class="l">Downloads (today / week / month)</div><div class="v" id="k-dl"></div></div>
+      <div class="kpi"><div class="l">Bots saved</div><div class="v" id="k-bots"></div></div>
+    </div>
+    <div class="grid g2">
+      <form class="card" id="f-prof"><h3>Profile</h3>
+        <label>Full name</label><input name="name" maxlength="60" required>
+        <label>E-mail</label><input name="email" disabled>
+        <label>WhatsApp number</label><input name="whatsapp" type="tel" placeholder="+94 77 123 4567">
+        <label>Country</label><input name="country" maxlength="40">
+        <button class="btn primary" style="margin-top:14px">Save profile</button> <span class="small green" id="p-saved"></span>
+        <p class="muted small" style="margin:10px 0 0">The photo is made small (160 px) before it is saved.</p></form>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <form class="card" id="f-pass"><h3>Change password</h3>
+          <label>Current password</label><input name="old" type="password" autocomplete="current-password" required>
+          <label>New password</label><input name="pw" type="password" autocomplete="new-password" minlength="8" required>
+          <button class="btn ghost" style="margin-top:14px">Change password</button> <span class="small" id="pw-msg"></span></form>
+        <div class="card"><h3>Your activity</h3><div id="p-act" class="small"></div></div>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <a class="card hover" href="editor.html" style="color:inherit"><div class="ico">🧩</div><h3>EA Bot Studio</h3><p>Build, test and download a robot.</p></a>
+      <a class="card hover" href="demo.html" style="color:inherit"><div class="ico">💵</div><h3>Demo accounts</h3><p>Practise with virtual money and a journal.</p></a>
+      <a class="card hover" href="signals.html" style="color:inherit"><div class="ico">📡</div><h3>Signals</h3><p>Live signals on any market.</p></a>
+    </div>
+    <details class="card" style="margin-top:16px"><summary class="small muted" style="cursor:pointer">Delete my account</summary>
+      <p class="small muted">This removes your profile and your saved data. It cannot be undone.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><input type="password" id="del-pw" placeholder="Your password" style="max-width:240px;margin:0"><button class="btn sell small" id="del-btn" type="button">Delete my account</button></div>
+      <p class="small red" id="del-msg"></p></details>
+  </div>
+</div></section>
+<div id="site-footer"></div>
+<script>
+(function(){
+  const $ = id => document.getElementById(id), u = GT.auth.current(), err = $('acc-err'), ok = $('acc-ok');
+  if (u) {
+    $('acc-in').style.display = 'block';
+    const paint = () => {
+      const me = GT.auth.current();
+      $('p-av').innerHTML = GT.avatar(me, 84);
+      $('acc-hello').textContent = me.name;
+      $('p-sub').textContent = me.email + (me.whatsapp ? ' · ' + me.whatsapp : '') + ' · member since ' + new Date(me.created).toLocaleDateString();
+      $('k-plan').textContent = me.plan === 'pro' ? 'Pro' : 'Free trial';
+      $('k-days').textContent = me.plan === 'pro' ? '—' : GT.auth.trialLeft(me);
+      $('k-dl').textContent = [1, 7, 30].map(d => GT.usage(me, 'downloads', d)).join(' / ');
+      $('k-bots').textContent = Object.keys(GT.store.get('gt_bots_' + me.email, {})).length;
+      const t = (me.stats && me.stats.total) || {};
+      $('p-act').innerHTML = [['Logins', t.logins], ['Days visited', t.visits], ['Bots saved', t.bots], ['Quick tests', t.tests], ['Bots run on demo', t.liveRuns], ['Demo trades', t.trades], ['Signal views', t.signals], ['Downloads', t.downloads]]
+        .map(([k, v]) => `<div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:5px 0"><span class="muted">${k}</span><b>${v || 0}</b></div>`).join('');
+    };
+    paint();
+    if (GT.isAdmin(u)) $('p-admin').style.display = '';
+    if (GT.auth.mode === 'firebase' && u.verified === false) $('p-verify').style.display = 'block';
+    if (!GT.auth.active(u)) $('acc-ended').style.display = 'block';
+    const f = $('f-prof'); f.name.value = u.name || ''; f.email.value = u.email; f.whatsapp.value = u.whatsapp || ''; f.country.value = u.country || '';
+    f.onsubmit = e => {
+      e.preventDefault();
+      try { if (f.whatsapp.value && !/^\+?[0-9][0-9 \-]{6,17}$/.test(f.whatsapp.value)) throw new Error('Write the WhatsApp number with the country code.'); }
+      catch (x) { $('p-saved').className = 'small red'; $('p-saved').textContent = x.message; return; }
+      GT.auth.update({ name: f.name.value.trim().slice(0, 60) || u.name, whatsapp: f.whatsapp.value.trim(), country: f.country.value.trim() });
+      $('p-saved').className = 'small green'; $('p-saved').textContent = 'Saved'; paint();
+    };
+    // photo: shrink to 160 px JPEG in the browser
+    $('p-file').onchange = e => {
+      const file = e.target.files[0]; if (!file) return;
+      if (!/^image\//.test(file.type)) return GT.toast('Choose a picture file.');
+      const img = new Image(), url = URL.createObjectURL(file);
+      img.onload = () => {
+        const S = 160, cv = document.createElement('canvas'); cv.width = S; cv.height = S;
+        const k = Math.max(S / img.width, S / img.height), w = img.width * k, h = img.height * k;
+        cv.getContext('2d').drawImage(img, (S - w) / 2, (S - h) / 2, w, h);
+        GT.auth.update({ photo: cv.toDataURL('image/jpeg', 0.82) }); URL.revokeObjectURL(url); paint(); GT.toast('Photo saved');
+      };
+      img.src = url;
+    };
+    $('f-pass').onsubmit = async e => {
+      e.preventDefault(); const p = e.target, m = $('pw-msg');
+      try { await GT.auth.changePassword(p.old.value, p.pw.value); m.className = 'small green'; m.textContent = 'Password changed'; p.reset(); }
+      catch (x) { m.className = 'small red'; m.textContent = x.message; }
+    };
+    $('del-btn').onclick = async () => {
+      if (!confirm('Delete your G TRADERS account for good?')) return;
+      try { await GT.auth.deleteAccount($('del-pw').value); location.href = 'index.html'; } catch (x) { $('del-msg').textContent = x.message; }
+    };
+    $('acc-logout').onclick = () => { GT.auth.logout(); location.href = 'index.html'; };
+    return;
+  }
+  $('acc-out').style.display = 'block';
+  $('trial-days').textContent = GT.site().limits.trialDays;
+  if (GT.auth.mode === 'local') $('local-note').style.display = 'block';
+  const show = t => {
+    ['signup', 'login', 'reset'].forEach(k => $('f-' + k).style.display = t === k ? '' : 'none');
+    GT.$$('#acc-tabs button').forEach(b => b.classList.toggle('on', b.dataset.t === t)); err.textContent = ''; ok.textContent = '';
+  };
+  GT.$$('#acc-tabs button').forEach(b => b.onclick = () => show(b.dataset.t));
+  $('go-reset').onclick = e => { e.preventDefault(); show('reset'); $('f-reset').email.value = $('f-login').email.value; };
+  $('back-login').onclick = e => { e.preventDefault(); show('login'); };
+  show(GT.qs('tab') === 'login' ? 'login' : 'signup');
+  const next = () => { const n = GT.qs('next') || 'account.html'; location.href = /^[a-z0-9_\-]+\.html(\?[^:]*)?$/i.test(n) ? n : 'account.html'; };
+  $('f-signup').onsubmit = async e => {
+    e.preventDefault(); const f = e.target; err.textContent = '';
+    if (f.password.value !== f.password2.value) { err.textContent = 'The two passwords are not the same.'; return; }
+    try { await GT.auth.signup({ name: f.name.value, email: f.email.value, password: f.password.value, country: f.country.value, whatsapp: f.whatsapp.value }); next(); }
+    catch (x) { err.textContent = x.message; }
+  };
+  $('f-login').onsubmit = async e => {
+    e.preventDefault(); const f = e.target; err.textContent = '';
+    try { await GT.auth.login(f.email.value, f.password.value); next(); } catch (x) { err.textContent = x.message; }
+  };
+  $('f-reset').onsubmit = async e => {
+    e.preventDefault(); err.textContent = ''; ok.textContent = '';
+    try {
+      const r = await GT.auth.resetPassword(e.target.email.value);
+      if (r.local) err.textContent = 'This test version has no e-mail server yet — the reset e-mail switches on with real accounts (Firebase). Ask the site owner for help meanwhile.';
+      else ok.textContent = 'If an account uses this e-mail, a reset link is on its way. Check your inbox and spam folder.';
+    } catch (x) { err.textContent = x.message; }
+  };
+})();
+</script>
+</body>
+</html>

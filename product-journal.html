@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTM Journal — trading journal and analytics for MetaTrader 5 | G TRADERS</title>
+<meta name="description" content="MT5 trading journal: calendar, dashboard, trade log, R-multiples, analytics, reports, screenshots and an AI coach.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.gtraders.lk/product-journal.html">
+<meta name="theme-color" content="#060b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G TRADERS">
+<meta property="og:title" content="GTM Journal — trading journal and analytics for MetaTrader 5 | G TRADERS">
+<meta property="og:description" content="MT5 trading journal: calendar, dashboard, trade log, R-multiples, analytics, reports, screenshots and an AI coach.">
+<meta property="og:url" content="https://www.gtraders.lk/product-journal.html">
+<meta property="og:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GTM Journal — trading journal and analytics for MetaTrader 5 | G TRADERS">
+<meta name="twitter:description" content="MT5 trading journal: calendar, dashboard, trade log, R-multiples, analytics, reports, screenshots and an AI coach.">
+<meta name="twitter:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "GTM Journal", "description": "MT5 trading journal: calendar, dashboard, trade log, R-multiples, analytics, reports, screenshots and an AI coach.", "operatingSystem": "Windows (MetaTrader 5)", "applicationCategory": "FinanceApplication", "url": "https://www.mql5.com/en/market/product/196039", "image": "https://www.gtraders.lk/assets/img/og-image.jpg", "offers": {"@type": "Offer", "price": "49", "priceCurrency": "USD", "url": "https://www.mql5.com/en/market/product/196039"}, "publisher": {"@type": "Organization", "name": "G TRADERS", "url": "https://www.gtraders.lk/"}}</script>
+</head>
+<body class="">
+<div id="site-header"></div>
+<div id="pd"></div>
+<section class="section tight"><div class="wrap">
+  <h2 class="center" style="margin-bottom:22px">More products</h2>
+  <div class="grid g3" id="pd-more"></div>
+</div></section>
+<script>
+(function(){
+  const P = GT_CONFIG.products, key = 'journal' || GT.qs('p'), p = P.find(x => x.key === key) || P[1];
+  if (p.key === 'studio') { location.replace('studio.html'); return; }
+  document.getElementById('pd').innerHTML = `
+  <section class="phero"><div class="wrap">
+    <div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill dim">${GT.esc(p.type)}</span>${p.badge ? `<span class="pill">${p.badge}</span>` : ''}</div>
+      <h1 style="font-size:clamp(28px,4vw,44px);margin-top:12px">${GT.esc(p.full)}</h1>
+      <p class="muted" style="font-size:18px">${GT.esc(p.text)}</p>
+      <div class="pd-price"><span class="muted small">Price on the MQL5 Market</span><b class="gold-text">${GT.esc(p.price)}</b></div>
+      <div class="cta" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <a class="btn primary" href="${p.url}" target="_blank" rel="noopener">Get it on the MQL5 Market ↗</a>
+        <a class="btn ghost" href="${p.reviews}" target="_blank" rel="noopener">Read the reviews ↗</a>
+      </div>
+      <div class="mw-one"><a href="${p.url}" target="_blank" rel="noopener"><img src="${p.widget}" alt="MQL5 Market widget" loading="lazy" onerror="this.parentNode.style.display='none'"></a></div>
+    </div>
+    <img class="pic glow-gold" src="${p.img}" alt="${GT.esc(p.name)}">
+  </div></section>
+  <section class="section tight"><div class="wrap"><div class="grid g2">
+    <div class="card"><h3>What it does</h3><ul class="list-check">${p.features.map(f => `<li>${GT.esc(f)}</li>`).join('')}</ul></div>
+    <div class="card"><h3>How to get it</h3>
+      <ol class="small" style="line-height:1.9;padding-left:18px;margin:0">
+        <li>Open MetaTrader 5 → <b>Navigator</b> → <b>Market</b> (or press the button above).</li>
+        <li>Find <b>${GT.esc(p.full)}</b> and press <b>Free Demo</b> to try it in the Strategy Tester${p.price === 'Free' ? '' : ', or <b>Buy / Rent</b>'}.</li>
+        <li>It installs into MetaTrader 5 automatically; updates arrive the same way.</li>
+        <li>Questions? Write to <a href="mailto:${GT_CONFIG.email}">${GT_CONFIG.email}</a> or leave a comment on the product page.</li></ol>
+      ${GT.docs(p).length ? `<h3 style="margin-top:18px">Guides &amp; manuals</h3>${GT.docsHtml(p)}` : ''}
+      <div class="notice teal" style="margin-top:16px">Bought it already? A short review on the MQL5 product page helps other traders a lot — thank you.</div>
+    </div>
+  </div></div></section>`;
+  document.getElementById('pd-more').innerHTML = P.filter(x => x.key !== p.key).slice(0, 3).map(x => `
+    <a class="card product hover" href="${x.page}" style="color:inherit"><img class="thumb" src="${x.img}" alt="" loading="lazy">
+      <div class="body"><h3>${GT.esc(x.name)}</h3><p>${GT.esc(x.text)}</p><span class="gold small"><b>${GT.esc(x.price)}</b></span></div></a>`).join('');
+})();
+</script>
+<div id="site-footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live TradingView charts — forex, crypto, stocks and indices | G TRADERS</title>
+<meta name="description" content="Full TradingView charts with indicators and drawing tools, technical analysis gauges and an economic calendar.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.gtraders.lk/charts.html">
+<meta name="theme-color" content="#060b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G TRADERS">
+<meta property="og:title" content="Live TradingView charts — forex, crypto, stocks and indices | G TRADERS">
+<meta property="og:description" content="Full TradingView charts with indicators and drawing tools, technical analysis gauges and an economic calendar.">
+<meta property="og:url" content="https://www.gtraders.lk/charts.html">
+<meta property="og:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Live TradingView charts — forex, crypto, stocks and indices | G TRADERS">
+<meta name="twitter:description" content="Full TradingView charts with indicators and drawing tools, technical analysis gauges and an economic calendar.">
+<meta name="twitter:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</head>
+<body class="">
+<div id="site-header"></div>
+<section class="page-head" style="padding-bottom:0"><div class="wrap">
+  <span class="eyebrow">Analysis</span>
+  <h1 style="font-size:clamp(28px,4vw,42px)">Live charts &amp; analysis</h1>
+  <p>Full TradingView charts with every indicator and drawing tool. Crypto, forex, metals, indices and stocks — pick a group, search, or type any TradingView symbol. Use the Auto / Log buttons at the chart's bottom-right for the price scale.</p>
+</div></section>
+<div class="wrap">
+  <div class="panel tv-panel" style="margin-top:14px" id="tv-panel">
+    <div class="bar"><span class="title">Market</span>
+      <div class="sympick" id="tvpick"><button class="cur" type="button" id="tv-cur">Bitcoin ▾</button>
+        <div class="drop"><input type="text" id="tv-q" placeholder="Search or type any symbol — e.g. BINANCE:WIFUSDT, NASDAQ:AAPL"><div class="items" id="tv-items"></div></div></div>
+      <div class="seg" id="tv-tf"></div>
+      <div class="seg" id="tv-sz"><button type="button" data-z="s">S</button><button type="button" data-z="m">M</button><button type="button" data-z="l">L</button></div>
+      <button class="btn ghost small" id="tv-full" type="button">⛶ Full screen</button>
+      <a class="btn ghost small" id="tv-open" href="#" target="_blank" rel="noopener">Open on TradingView ↗</a></div>
+    <div class="bar bar2 cats-bar" id="tv-cats"></div>
+    <div style="height:680px" id="tv-adv"></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="panel"><div class="h">Technical analysis — <span id="ta-name"></span></div><div id="tv-ta" style="height:460px"></div></div>
+    <div class="panel"><div class="h">Economic calendar</div><div id="tv-cal" style="height:460px"></div></div>
+  </div>
+  <p class="small muted" style="margin-top:10px">Charts and analysis widgets by <a href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView</a>.
+    The technical analysis gauge is an automatic summary of indicators, not advice.</p>
+</div>
+<div id="site-footer"></div>
+<script src="assets/js/charts.js"></script>
+</body>
+</html>

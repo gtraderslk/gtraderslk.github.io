@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free live trading signals — forex, gold, crypto and Deriv volatility indices | G TRADERS</title>
+<meta name="description" content="Free live signals on crypto, forex, gold and Deriv synthetic indices: SMC, GTM and Multi signal engines, trend on six timeframes and a market scanner.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.gtraders.lk/signals.html">
+<meta name="theme-color" content="#060b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G TRADERS">
+<meta property="og:title" content="Free live trading signals — forex, gold, crypto and Deriv volatility indices | G TRADERS">
+<meta property="og:description" content="Free live signals on crypto, forex, gold and Deriv synthetic indices: SMC, GTM and Multi signal engines, trend on six timeframes and a market scanner.">
+<meta property="og:url" content="https://www.gtraders.lk/signals.html">
+<meta property="og:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free live trading signals — forex, gold, crypto and Deriv volatility indices | G TRADERS">
+<meta name="twitter:description" content="Free live signals on crypto, forex, gold and Deriv synthetic indices: SMC, GTM and Multi signal engines, trend on six timeframes and a market scanner.">
+<meta name="twitter:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</head>
+<body class="smc">
+<div id="site-header"></div>
+<section class="sig-head"><div class="wrap">
+  <div><span class="pill teal">Free during the launch · live prices</span>
+    <h1>GTM <span style="color:var(--teal)">Signal Engine</span></h1>
+    <p class="muted">Search any market — crypto, forex, metals, indices or Deriv synthetics — pick a timeframe and an engine.
+      Arrows, entry, stop, three targets in a live TP / SL box, support / resistance and the trend on six timeframes update live.</p>
+    <div class="eng-cards">
+      <div class="ec"><b>SMC signal</b><span>Break of structure, CHoCH, order blocks and fair value gaps. Fires on the retest.</span></div>
+      <div class="ec"><b>GTM signal</b><span>Trend break of the last 10 candles with EMA, RSI and MACD all agreeing.</span></div>
+      <div class="ec"><b>Multi signal</b><span>Only when 2 of 4 engines agree within 3 candles — fewer, stronger signals.</span></div>
+    </div></div>
+  <img class="pic glow-smc sig-banner" src="assets/img/gt-analytics-banner.jpg" alt="G TRADERS analytics">
+</div></section>
+<div class="wrap"><div class="app sig-app" id="sig-app">
+  <div class="panel">
+    <div class="bar"><div id="pick"></div><div id="tf"></div><div class="seg" id="eng"></div><span class="status" id="st"><span class="dot"></span>…</span></div>
+    <div class="bar bar2"><div id="show" class="chks"></div>
+      <select class="inline" id="lower" title="Lower pane"><option value="macd">MACD</option><option value="rsi">RSI</option><option value="ao">Awesome osc.</option><option value="off">No lower pane</option></select>
+      <div class="seg" id="sz"><button type="button" data-z="s">S</button><button type="button" data-z="m">M</button><button type="button" data-z="l">L</button></div>
+      <button class="btn ghost small" id="b-fit" type="button" title="Fit the chart">Auto</button>
+      <button class="btn ghost small" id="b-log" type="button" title="Log price scale">Log</button>
+      <button class="btn ghost small" id="b-full" type="button">⛶ Full screen</button></div>
+    <div id="msg" class="notice" style="display:none;margin:10px"></div>
+    <div class="chart-row"><div id="draw"></div><div class="chart-box rs"><div id="chart"></div></div></div>
+    <div class="osc-box" id="osc-wrap"><div id="osc"></div></div>
+    <div class="small muted" style="padding:8px 12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span id="ohlc"></span><span id="eng-name" class="teal"></span></div>
+  </div>
+  <div class="side">
+    <div class="panel"><div class="h">Signal by timeframe</div><div class="tfgrid" id="sgrid"></div></div>
+    <div class="panel"><div class="h">Trend by timeframe</div><div class="tfgrid" id="tfgrid"></div></div>
+    <div class="panel"><div class="h">Market pressure <span class="muted small">(last 50 candles)</span></div><div id="press" style="padding:10px 12px"></div></div>
+    <div class="panel"><div class="h">AI bot advisor</div><div id="adv" style="padding:10px 12px;font-size:14px"></div>
+      <div class="tiles" style="padding-top:0"><div class="kpi"><div class="l">Price</div><div class="v" id="t-price">—</div></div>
+        <div class="kpi"><div class="l">Signals</div><div class="v"><span class="green" id="t-b">—</span> / <span class="red" id="t-s">—</span></div></div></div></div>
+    <div class="panel"><div class="h">Latest signals</div><div class="siglist" id="list"></div></div>
+  </div>
+</div>
+
+<div class="panel" style="margin-top:18px" id="scanner">
+  <div class="bar"><span class="title">Signal scanner</span>
+    <select class="inline" id="sc-cat"><option value="crypto">Crypto — top 40 by volume</option><option value="forex">Forex &amp; metals</option><option value="deriv">Deriv synthetic indices</option><option value="indices">Stock indices</option></select>
+    <button class="btn primary small" id="sc-run" type="button">Scan now</button>
+    <label class="chk"><input type="checkbox" id="sc-fresh" checked> Fresh only (last 5 candles)</label>
+    <label class="chk"><input type="checkbox" id="sc-auto"> Re-scan every 5 min</label>
+    <span class="small muted" id="sc-st">Uses the chart's timeframe and engine.</span></div>
+  <div style="overflow:auto"><table class="t" id="sc-tbl"></table></div>
+</div>
+<p class="small muted" style="margin-top:12px">Crypto prices come from Binance, everything else from Deriv. Signals are generated automatically and are information only — not financial advice.
+  For deep analysis with TradingView's own tools open the <a href="charts.html">Charts</a> page.</p>
+</div>
+<div id="site-footer"></div>
+<script src="assets/js/lib/lightweight-charts.js"></script>
+<script src="assets/js/deriv.js"></script>
+<script src="assets/js/indicators.js"></script>
+<script src="assets/js/strategies/ema-cross.js"></script><script src="assets/js/strategies/bollinger.js"></script>
+<script src="assets/js/strategies/smc.js"></script><script src="assets/js/strategies/gtm.js"></script><script src="assets/js/strategies/multi.js"></script>
+<script src="assets/js/chartdraw.js"></script><script src="assets/js/signals.js"></script>
+</body>
+</html>

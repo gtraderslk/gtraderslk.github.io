@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MetaTrader 5 tools — EA builders, trade panels and a trading journal | G TRADERS</title>
+<meta name="description" content="GTM EA Bot Studio, GTM Bot Maker, GTM Panel Pro, Trade Manager, GTM Journal and more MetaTrader 5 products on the MQL5 Market.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.gtraders.lk/products.html">
+<meta name="theme-color" content="#060b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G TRADERS">
+<meta property="og:title" content="MetaTrader 5 tools — EA builders, trade panels and a trading journal | G TRADERS">
+<meta property="og:description" content="GTM EA Bot Studio, GTM Bot Maker, GTM Panel Pro, Trade Manager, GTM Journal and more MetaTrader 5 products on the MQL5 Market.">
+<meta property="og:url" content="https://www.gtraders.lk/products.html">
+<meta property="og:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MetaTrader 5 tools — EA builders, trade panels and a trading journal | G TRADERS">
+<meta name="twitter:description" content="GTM EA Bot Studio, GTM Bot Maker, GTM Panel Pro, Trade Manager, GTM Journal and more MetaTrader 5 products on the MQL5 Market.">
+<meta name="twitter:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</head>
+<body class="">
+<div id="site-header"></div>
+<section class="phero"><div class="wrap">
+  <div><span class="pill">MQL5 Market</span>
+    <h1 style="font-size:clamp(30px,4.4vw,48px);margin-top:12px">MetaTrader 5 <span class="gold-text">products</span></h1>
+    <p class="muted" style="font-size:18px">Every product is sold and delivered through the official MQL5 Market — install it straight from MetaTrader 5,
+      try the free demo in the Strategy Tester, and get updates automatically.</p></div>
+  <img class="pic glow-gold" src="assets/img/gt-logo-banner.jpg" alt="G TRADERS">
+</div></section>
+<section class="section tight"><div class="wrap">
+  
+<div class="grid g3" id="prod-grid"></div>
+<script>
+(function(){
+  document.getElementById('prod-grid').innerHTML = GT_CONFIG.products.slice(0, 99).map(p => `
+  <div class="card product hover">
+    <img class="thumb" src="${p.img}" alt="${GT.esc(p.name)}" loading="lazy">
+    <div class="body">
+      <div class="meta"><span class="pill dim">${GT.esc(p.type)}</span>${p.badge?`<span class="pill">${p.badge}</span>`:''}</div>
+      <h3>${GT.esc(p.name)}</h3><p>${GT.esc(p.text)}</p>
+      <div class="small" style="margin:-4px 0 12px"><b class="gold">${GT.esc(p.price||'')}</b></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn primary small" href="${p.page}">Details</a>
+        <a class="btn ghost small" href="${p.url}" target="_blank" rel="noopener">Buy on MQL5 ↗</a>
+        <a class="btn ghost small" href="${p.reviews}" target="_blank" rel="noopener">Reviews ↗</a>
+      </div>
+    </div>
+  </div>`).join('');
+})();
+</script>
+  <p class="center" style="margin-top:30px"><a class="btn ghost" href="#" id="seller-link" target="_blank" rel="noopener">See all on my MQL5 seller page</a></p>
+  <script>document.getElementById('seller-link').href = GT_CONFIG.mql5Seller;</script>
+</div></section>
+<section class="section tight"><div class="wrap">
+  <div class="notice teal"><b>How to install from the MQL5 Market:</b> open MetaTrader 5 → <b>Navigator</b> → <b>Market</b>, find the product and press
+    <b>Install</b> (or <b>Free Demo</b> to try it in the Strategy Tester). Purchases are tied to your MQL5 account.</div>
+</div></section>
+<div id="site-footer"></div>
+
+</body>
+</html>

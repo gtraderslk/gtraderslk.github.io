@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free $10,000 demo trading account with a trading journal | G TRADERS</title>
+<meta name="description" content="Practise trading with $10,000 of virtual money on live Deriv prices. BUY, SELL, stop loss and take profit on a live chart.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.gtraders.lk/demo.html">
+<meta name="theme-color" content="#060b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G TRADERS">
+<meta property="og:title" content="Free $10,000 demo trading account with a trading journal | G TRADERS">
+<meta property="og:description" content="Practise trading with $10,000 of virtual money on live Deriv prices. BUY, SELL, stop loss and take profit on a live chart.">
+<meta property="og:url" content="https://www.gtraders.lk/demo.html">
+<meta property="og:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free $10,000 demo trading account with a trading journal | G TRADERS">
+<meta name="twitter:description" content="Practise trading with $10,000 of virtual money on live Deriv prices. BUY, SELL, stop loss and take profit on a live chart.">
+<meta name="twitter:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</head>
+<body class="">
+<div id="site-header"></div>
+<section class="phero"><div class="wrap">
+  <div><span class="pill teal">Virtual money · live prices · free for members</span>
+    <h1 style="font-size:clamp(30px,4.4vw,48px);margin-top:12px"><span class="gold-text">$10,000</span> demo account</h1>
+    <p class="muted" style="font-size:18px">Trade crypto, forex, gold and Deriv synthetics on live prices with real lot sizes, leverage and margin —
+      TP / SL boxes and drawing tools on the chart, a TradingView tab and a free trading journal. Nothing real is at risk.</p></div>
+  <img class="pic glow-gold" src="assets/img/gtm-panel-hero.jpg" alt="Trade panel">
+</div></section>
+<div id="demo-area">
+<div class="wrap"><div class="app">
+  <div class="panel">
+    <div class="bar"><div id="pick"></div><div id="tf"></div>
+      <div class="seg" id="cv-tabs"><button type="button" data-v="live" class="on">Live chart</button><button type="button" data-v="tv">TradingView analysis</button></div>
+      <span class="status" id="st"><span class="dot"></span>…</span></div>
+    <div id="msg" class="notice" style="display:none;margin:10px"></div>
+    <div id="live-view"><div class="chart-row"><div id="draw"></div><div class="chart-box rs" style="height:520px"><div id="chart"></div></div></div></div>
+    <div id="tv-view" style="display:none;height:560px"></div>
+    <div class="panel" style="border:0;border-top:1px solid var(--line);border-radius:0">
+      <div class="h" style="display:flex;justify-content:space-between"><span>Open trades</span><span id="open-n"></span></div>
+      <div style="overflow:auto"><table class="t" id="pos"></table></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+    <div class="panel"><div class="h" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span>Demo account</span>
+        <span><button class="btn ghost small" id="b-top" type="button">+ Deposit</button> <button class="btn ghost small" id="b-reset" type="button">Reset</button></span></div>
+      <div class="accbar"><select id="acc-sel" class="inline" title="Your demo accounts"></select><button class="btn ghost small" id="acc-new" type="button" title="New demo account">+ New</button>
+        <button class="btn ghost small" id="acc-ren" type="button" title="Rename">✎</button><button class="btn ghost small" id="acc-del" type="button" title="Delete this account">🗑</button></div>
+      <div class="tiles tiles3x">
+        <div class="kpi"><div class="l">Balance</div><div class="v" id="a-bal">—</div></div>
+        <div class="kpi"><div class="l">Equity</div><div class="v" id="a-eq">—</div></div>
+        <div class="kpi"><div class="l">Floating P/L</div><div class="v" id="a-pl">—</div></div>
+        <div class="kpi"><div class="l">Margin</div><div class="v" id="a-mg">—</div></div>
+        <div class="kpi"><div class="l">Free margin</div><div class="v" id="a-free">—</div></div>
+        <div class="kpi"><div class="l">Margin level</div><div class="v" id="a-lvl">—</div></div></div>
+      <div id="a-low" class="notice gold small" style="display:none;margin:0 12px 12px">Your demo money is almost gone. <button class="btn primary small" id="b-top2" type="button">Deposit more</button></div></div>
+    <div class="panel"><div class="h">New order</div>
+      <div class="ticket">
+        <div class="ba"><div><span>SELL at</span><b id="o-bid">—</b></div><div><span>BUY at</span><b id="o-ask">—</b></div></div>
+        <label>Volume (lots)</label>
+        <div class="lotrow"><button type="button" id="o-minus">−</button><input id="o-lots" type="number" value="0.01" step="0.01" min="0.01"><button type="button" id="o-plus">+</button></div>
+        <p class="small muted" id="o-spec" style="margin:6px 0 0"></p>
+        <div class="grid g2" style="gap:10px;margin-top:8px">
+          <div><label>Stop loss (price)</label><input id="o-sl" type="number" step="any" placeholder="none"></div>
+          <div><label>Take profit (price)</label><input id="o-tp" type="number" step="any" placeholder="none"></div></div>
+        <div class="quick"><select id="o-dir" class="inline" title="Helpers are for"><option>BUY</option><option>SELL</option></select>
+          <button type="button" data-quick="sl:0.5">SL 0.5%</button><button type="button" data-quick="sl:1">SL 1%</button><button type="button" data-quick="tp:1">TP 1%</button><button type="button" data-quick="tp:2">TP 2%</button><button type="button" id="o-clr">clear</button></div>
+        <p class="small" id="o-calc" style="margin:10px 0 0;line-height:1.6"></p>
+        <div class="grid g2" style="gap:10px;margin-top:12px"><button class="btn sell" id="b-sell">SELL</button><button class="btn buy" id="b-buy">BUY</button></div>
+      </div></div>
+    <div class="panel"><div class="h">History</div><div class="siglist" id="hist"></div></div>
+  </div>
+</div>
+<p class="small muted">Lots, contract sizes, leverage and margin follow typical MT5 specifications; P/L is in USD (crosses use an approximate rate). Spread is simulated, no swap or commission.
+  Demo money only — simulated results do not represent real trading.</p>
+
+<div class="jr-wrap" id="jr-wrap">
+  <div class="jr-title"><span class="eyebrow">Free with the demo</span><h2>Your demo trading journal</h2>
+    <p class="muted">Every closed trade of the selected demo account lands in a web version of <a href="product-journal.html">GTM Journal</a> — Calendar, Dashboard and Open trades are free.</p></div>
+  <div id="journal"></div>
+</div>
+</div>
+</div>
+<div id="site-footer"></div>
+<script src="assets/js/lib/lightweight-charts.js"></script>
+<script src="assets/js/deriv.js"></script><script src="assets/js/chartdraw.js"></script><script src="assets/js/journal.js"></script><script src="assets/js/demo.js"></script>
+</body>
+</html>
