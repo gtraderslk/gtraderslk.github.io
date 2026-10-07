@@ -71,7 +71,14 @@
       <div><span class="eyebrow">My profile</span><h1 id="acc-hello" style="font-size:32px;margin:2px 0"></h1><p class="muted small" id="p-sub"></p></div>
       <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap"><a class="btn ghost small" id="p-admin" href="admin.html" style="display:none">⚙ Control panel</a><button class="btn ghost small" id="acc-logout" type="button">Log out</button></div>
     </div>
-    <div id="p-verify" class="notice gold small" style="display:none;margin:12px 0">Please confirm your e-mail — we sent you a link when you signed up.</div>
+    <div id="p-verify" class="notice gold small" style="display:none;margin:12px 0">
+      <b>Please confirm your e-mail.</b> We sent a link to <b id="pv-mail"></b>. Not in your inbox? Look in <b>Spam</b> / <b>Promotions</b> for a message from <i>noreply@gtraders-47a0f.firebaseapp.com</i>.
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn primary small" id="pv-send" type="button">✉ Send the link again</button>
+        <button class="btn ghost small" id="pv-check" type="button">✔ I clicked the link</button>
+      </div>
+      <div class="small" id="pv-msg" style="margin-top:8px"></div>
+    </div>
     <div id="acc-ended" class="notice" style="display:none;margin:12px 0"><b>Your trial has ended.</b> The web EA Bot Studio is paused.
       Keep building inside MetaTrader 5 with <a href="studio.html">GTM EA Bot Studio</a>.</div>
     <div class="grid g4" style="margin:16px 0">
@@ -128,7 +135,24 @@
     };
     paint();
     if (GT.isAdmin(u)) $('p-admin').style.display = '';
-    if (GT.auth.mode === 'firebase' && u.verified === false) $('p-verify').style.display = 'block';
+    if (GT.auth.mode === 'firebase' && u.verified === false) {
+      $('p-verify').style.display = 'block'; $('pv-mail').textContent = u.email;
+      const msg = (t, cls) => { $('pv-msg').className = 'small ' + (cls || ''); $('pv-msg').textContent = t; };
+      $('pv-send').onclick = async () => {
+        $('pv-send').disabled = true; msg('Sending…');
+        try {
+          const r = await GT.auth.resendVerify();
+          if (r.already) { msg('Your e-mail is already confirmed. Reloading…', 'green'); setTimeout(() => location.reload(), 800); }
+          else msg('Sent to ' + r.email + '. It can take a few minutes — check Spam too.', 'green');
+        } catch (x) { msg(x.message, 'red'); }
+        setTimeout(() => { $('pv-send').disabled = false; }, 3000);
+      };
+      $('pv-check').onclick = async () => {
+        msg('Checking…');
+        if (await GT.auth.checkVerified()) { msg('Confirmed. Reloading…', 'green'); setTimeout(() => location.reload(), 600); }
+        else msg('Not confirmed yet. Open the link in the e-mail first, then press this button again.', 'red');
+      };
+    }
     if (!GT.auth.active(u)) $('acc-ended').style.display = 'block';
     const f = $('f-prof'); f.name.value = u.name || ''; f.email.value = u.email; f.whatsapp.value = u.whatsapp || ''; f.country.value = u.country || '';
     f.onsubmit = e => {
