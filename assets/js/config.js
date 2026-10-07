@@ -7,15 +7,15 @@ window.GT_CONFIG = {
   tagline: 'Trading tools for MetaTrader 5 — build, test and run your own robots.',
   email: 'supportgtraders@gmail.com',
   year: new Date().getFullYear(),
-  build: 'v4.0',
- 
+  build: 'v4.1',
+
   // Deriv: market data for charts, signals and the demo.
   // 1089 is Deriv's public test app id. Register your own free app id at
   // https://developers.deriv.com (Dashboard > Register application) and put it here.
   derivAppId: 1089,
   // Your Deriv partner link (a=9011 from your old site)
   derivPartnerUrl: 'https://partner-tracking.deriv.com/click?a=9011&o=1&c=4&link_id=1',
- 
+
   // Accounts. Empty = test mode (accounts saved only in this browser).
   // Paste your Firebase web-app settings here to switch on real accounts (see README, "Real accounts"):
   //   firebase: { apiKey: '...', authDomain: '...', projectId: '...', appId: '...' },
@@ -28,25 +28,25 @@ window.GT_CONFIG = {
     messagingSenderId: '373951258573',
     appId: '1:373951258573:web:10d18dd2e446bc3a112e84'
   },
- 
+
   // Who may open the control panel (admin.html). Use the same list in firestore.rules.
   adminEmails: ['supportgtraders@gmail.com'],
- 
+
   // Login protection: wrong passwords allowed, then a lock of this many minutes
   lockAttempts: 3,
   lockMinutes: 15,
- 
+
   // Default bot download limits (the control panel can change them for everyone or one user)
   dlDay: 1, dlWeek: 7, dlMonth: 30,
- 
+
   // Free plan rules
   trialDays: 30,            // sign-up trial length
   demoStartBalance: 10000,  // virtual money in the demo
- 
+
   // MQL5 Market
   mql5Seller: 'https://www.mql5.com/en/users/gayanindika.rox/seller',
   studioGuide: 'https://www.mql5.com/en/blogs/post/776823',
- 
+
   // id      = MQL5 product number (used for the live MQL5 widget and reviews)
   // page    = the Details page on this site
   products: [
@@ -149,4 +149,3 @@ window.GT_CONFIG.products.forEach(p => {
   p.reviews = p.url + '#!tab=reviews';
   p.widget = 'https://www.mql5.com/en/market/widget/' + p.id + '/mid?f=1&fw=html';   // official MQL5 Market widget (live price + rating)
 });
- 

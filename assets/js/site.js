@@ -167,7 +167,7 @@
   if (C.firebase && C.firebase.apiKey) {
     const v = '10.12.5';
     ['app', 'auth', 'firestore'].forEach(m => document.write(`<script src="https://www.gstatic.com/firebasejs/${v}/firebase-${m}-compat.js"><\/script>`));
-    document.write('<script src="assets/js/fb.js"><\/script>');
+    document.write('<script src="assets/js/fb.js?v=' + encodeURIComponent(C.build || '') + '"><\/script>');
   }
 
   /* ---------- header & footer ---------- */
