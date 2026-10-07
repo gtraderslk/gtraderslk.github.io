@@ -24,7 +24,11 @@
     if (c.includes('weak-password')) return 'Use a stronger password (at least 8 characters with letters and numbers).';
     if (c.includes('too-many-requests')) return 'Too many tries from this device. Wait a few minutes or reset your password.';
     if (c.includes('network')) return 'No connection to the account server. Check your internet and try again.';
-    return (e && e.message || 'Something went wrong').replace(/^Firebase: /, '').replace(/\(auth\/[^)]+\)\.?/, '').trim();
+    if (/referer|api-key|unauthorized-domain|operation-not-allowed|app-not-authorized/.test(c)) return 'The account server refused this website (' + c + '). The site owner must check the Firebase / API key settings.';
+    if (c.includes('permission-denied')) return 'The database refused the request (permission-denied). The site owner must check the Firestore rules.';
+    try { console.error('[G TRADERS] account error', c, e && e.message); } catch (x) { }
+    const m = (e && e.message || 'Something went wrong').replace(/^Firebase: /, '').replace(/\(auth\/[^)]+\)\.?/, '').trim();
+    return (m && m !== 'Error') ? m + (c ? ' (' + c + ')' : '') : 'Something went wrong (' + (c || 'unknown') + '). Please try again.';
   };
   async function loadMe(fu) {
     const snap = await userDoc(fu.uid).get();
@@ -52,7 +56,8 @@
       const now = Date.now(), days = Math.min(400, GT.site().limits.trialDays || 30);
       const data = { name, email, country: country || '', whatsapp: (whatsapp || '').trim(), photo: '', created: now, lastLogin: now,
         trialEnds: now + days * DAY, plan: 'trial', status: 'active', downloads: 0, stats: GT.bump(null, 'logins') };
-      await userDoc(cred.user.uid).set(data);
+      try { await userDoc(cred.user.uid).set(data); }
+      catch (e) { try { await cred.user.delete(); } catch (x) { } throw new Error(errMsg(e)); }   // no half-made accounts
       try { await cred.user.updateProfile({ displayName: name }); await cred.user.sendEmailVerification(); } catch (e) { }
       const u = Object.assign({ id: cred.user.uid }, data, { verified: false }); setCache(u); return u;
     },
