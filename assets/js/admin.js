@@ -11,7 +11,7 @@
       <div class="row"><a class="btn ghost" href="index.html">Home</a>${me ? '' : '<a class="btn primary" href="account.html?tab=login&next=admin.html">Log in</a>'}</div></div>`;
     return;
   }
-  if (GT.auth.mode === 'firebase' && me.verified === false) { $('adm').innerHTML = '<div class="gate"><div class="lock">✉️</div><h2>Confirm your e-mail first</h2><p class="muted">The control panel opens only for a confirmed admin e-mail.</p></div>'; return; }
+  if (GT.auth.mode === 'firebase' && me.verified === false) { $('adm').innerHTML = '<div class="gate"><div class="lock">✉️</div><h2>Confirm your e-mail first</h2><p class="muted">The control panel opens only for a confirmed admin e-mail.</p><div class="row"><a class="btn primary" href="account.html">Send the link again</a></div></div>'; return; }
   $('adm-mode').innerHTML = GT.auth.mode === 'firebase' ? '<span class="pill teal">Live · Firebase</span>' : '<span class="pill">Test mode · accounts in this browser only</span>';
   let users = [], sel = null, tab = GT.store.get('gt_adm_tab', 'overview');
   const EV = [['visits', 'Visits'], ['logins', 'Logins'], ['bots', 'Bots saved'], ['tests', 'Tests'], ['liveRuns', 'Bot runs'], ['trades', 'Demo trades'], ['signals', 'Signal views'], ['scans', 'Scans'], ['downloads', 'Downloads']];

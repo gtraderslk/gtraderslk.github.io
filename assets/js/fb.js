@@ -44,9 +44,37 @@
     } catch (e) { return GT.store.get(IK, []); }
   }
 
+  // the confirm-your-e-mail message; the link brings the user back to the account page
+  async function sendVerify(fu) {
+    try { await fu.sendEmailVerification({ url: location.origin + location.pathname.replace(/[^/]*$/, '') + 'account.html' }); }
+    catch (e) {
+      if (/unauthorized-continue-uri|invalid-continue-uri|missing-continue-uri/.test(e.code || '')) await fu.sendEmailVerification();
+      else throw e;
+    }
+  }
+
   const FbAuth = {
     mode: 'firebase',
     current() { return cache(); },
+    // send the confirm link again (at most once a minute from this browser)
+    async resendVerify() {
+      const fu = auth.currentUser; if (!fu) throw new Error('Log in first.');
+      try { await fu.reload(); } catch (e) { }
+      if (auth.currentUser && auth.currentUser.emailVerified) return { already: true };
+      const last = +GT.store.get('gt_verify_sent', 0), wait = 60000 - (Date.now() - last);
+      if (wait > 0) throw new Error('A link was sent a moment ago. You can send another in ' + Math.ceil(wait / 1000) + ' seconds.');
+      try { await sendVerify(auth.currentUser || fu); } catch (e) { throw new Error(errMsg(e)); }
+      GT.store.set('gt_verify_sent', Date.now());
+      return { sent: true, email: fu.email };
+    },
+    // after clicking the link in the e-mail: check without logging out
+    async checkVerified() {
+      const fu = auth.currentUser; if (!fu) return false;
+      try { await fu.reload(); } catch (e) { }
+      const ok = !!(auth.currentUser && auth.currentUser.emailVerified);
+      if (ok) { try { await auth.currentUser.getIdToken(true); } catch (e) { } const u = cache(); if (u) { u.verified = true; setCache(u); } }
+      return ok;
+    },
     async signup({ name, email, password, country, whatsapp }) {
       email = String(email || '').trim().toLowerCase(); name = String(name || '').trim().slice(0, 60);
       GT.checkFields({ name, email, password, whatsapp });
@@ -58,7 +86,8 @@
         trialEnds: now + days * DAY, plan: 'trial', status: 'active', downloads: 0, stats: GT.bump(null, 'logins') };
       try { await userDoc(cred.user.uid).set(data); }
       catch (e) { try { await cred.user.delete(); } catch (x) { } throw new Error(errMsg(e)); }   // no half-made accounts
-      try { await cred.user.updateProfile({ displayName: name }); await cred.user.sendEmailVerification(); } catch (e) { }
+      try { await cred.user.updateProfile({ displayName: name }); } catch (e) { }
+      try { await sendVerify(cred.user); } catch (e) { }
       const u = Object.assign({ id: cred.user.uid }, data, { verified: false }); setCache(u); return u;
     },
     async login(email, password) {
@@ -151,7 +180,7 @@
     try { if (fu.reload) { await fu.reload(); fu = auth.currentUser || fu; } } catch (e) { }   // fresh e-mail-verified flag
     const u = await loadMe(fu).catch(() => null);
     if (!u) return;
-    if (had && had.verified === false && u.verified) { location.reload(); return; }
+    if (had && had.verified === false && u.verified) { try { await fu.getIdToken(true); } catch (e) { } location.reload(); return; }
     const before = GT.store.get(IK, []).map(x => x.id).join();
     const inbox = await loadInbox(fu.uid);
     if (!had || u.status !== had.status || (first && inbox.map(x => x.id).join() !== before)) {
