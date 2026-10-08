@@ -67,6 +67,11 @@ You do **not** need a public GitHub repository.
 
 Alternative: Firebase Hosting (`firebase.json` is ready: `firebase deploy`), or GitHub Pages (`CNAME` is ready).
 
+## When the domain is ready
+
+The pages now point search engines to `https://gtraderslk.github.io`. When www.gtraders.lk works, replace
+`https://gtraderslk.github.io` with `https://www.gtraders.lk` in every `.html` file, `sitemap.xml` and `robots.txt`.
+
 ## Never upload
 
 The old `api/` folder, `config.php`, database passwords, private API keys, licence secrets or the key generator.

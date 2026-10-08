@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /account.html
 
-Sitemap: https://www.gtraders.lk/sitemap.xml
+Sitemap: https://gtraderslk.github.io/sitemap.xml
