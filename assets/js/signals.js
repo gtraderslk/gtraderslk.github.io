@@ -2,25 +2,26 @@
    live chart (Binance crypto + Deriv forex / synthetics), three engines (SMC, GTM, Multi),
    signal + trend on six timeframes, market pressure, advisor, scanner, resizable / full-screen chart */
 (function () {
-  const ENG = {
-    smc: window.SMCStrategy, gtm: window.GTMStrategy, multi: window.MultiConfirmStrategy,
-    ema: window.EMACrossStrategy, bb: window.BollingerStrategy
-  };
+  // engines and their settings come from the control panel (engines.js)
+  const ENGS = GT.signalEngines ? GT.signalEngines() : { map: { smc: window.SMCStrategy, gtm: window.GTMStrategy, multi: window.MultiConfirmStrategy, ema: window.EMACrossStrategy, bb: window.BollingerStrategy },
+    order: [['smc', 'SMC', 1], ['gtm', 'GTM', 1], ['multi', 'Multi', 1], ['ema', 'EMA cross', 0], ['bb', 'Bollinger', 0]].map(([key, label, main]) => ({ key, label, main: !!main })) };
+  const ENG = ENGS.map, VIS = ENGS.order.filter(e => !e.hidden && ENG[e.key]);
   const $ = id => document.getElementById(id);
   const me = GT.auth.current();
   if (!GT.feature('signals', me)) { $('sig-app').innerHTML = '<div class="gate" style="grid-column:1/-1"><div class="lock">🛠</div><h2 style="font-size:24px">The signal engine is paused</h2><p class="muted">It is switched off for a short while. Please check back soon.</p></div>'; $('scanner').style.display = 'none'; return; }
   if (me) GT.auth.track('signals');
   if (!GT.feature('scanner', me)) $('scanner').style.display = 'none';
-  let eng = GT.store.get('gt_sig_eng', 'gtm'); if (!ENG[eng]) eng = 'gtm';
+  let eng = GT.store.get('gt_sig_eng', 'gtm'); if (!VIS.some(e => e.key === eng)) eng = (VIS.find(e => e.key === 'gtm') || VIS[0] || { key: 'gtm' }).key;
   let lower = GT.store.get('gt_sig_lower', 'macd');
   const show = Object.assign({ lines: true, sr: true, zones: true, trade: true, struct: true }, GT.store.get('gt_sig_show', {}));
   let lines = [], plines = [], signals = [], smcInfo = null, mtf = {}, mtfTimer = null, mtfSeq = 0;
   const MTF = [['4H', 14400], ['1H', 3600], ['30m', 1800], ['15m', 900], ['5m', 300], ['1m', 60]];
 
   /* ---------- toolbar ---------- */
-  $('eng').innerHTML = [['smc', 'SMC'], ['gtm', 'GTM'], ['multi', 'Multi']].map(([k, n]) => `<button type="button" data-e="${k}" title="${ENG[k].name}">${n} signal</button>`).join('')
-    + `<select id="eng-more" title="More engines"><option value="">More…</option><option value="ema">EMA cross</option><option value="bb">Bollinger</option></select>`;
-  const paintEng = () => { $('eng').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.e === eng)); $('eng-more').value = ENG[eng] && ['ema', 'bb'].includes(eng) ? eng : ''; $('eng-name').textContent = ENG[eng].name; };
+  const MAIN = VIS.filter(e => e.main), MORE = VIS.filter(e => !e.main);
+  $('eng').innerHTML = MAIN.map(e => `<button type="button" data-e="${e.key}" title="${GT.esc(ENG[e.key].name)}">${GT.esc(e.label)}${e.custom ? '' : ' signal'}</button>`).join('')
+    + (MORE.length ? `<select id="eng-more" title="More engines"><option value="">More…</option>${MORE.map(e => `<option value="${e.key}">${GT.esc(e.label)}</option>`).join('')}</select>` : '<select id="eng-more" style="display:none"></select>');
+  const paintEng = () => { $('eng').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.e === eng)); $('eng-more').value = MORE.some(e => e.key === eng) ? eng : ''; $('eng-name').textContent = ENG[eng] ? ENG[eng].name : ''; };
   $('eng').querySelectorAll('button').forEach(b => b.onclick = () => setEng(b.dataset.e));
   $('eng-more').onchange = e => e.target.value && setEng(e.target.value);
   function setEng(k) { eng = k; GT.store.set('gt_sig_eng', k); paintEng(); render(); runMTF(); }

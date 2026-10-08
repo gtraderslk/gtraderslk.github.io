@@ -164,17 +164,47 @@
   GT.auth.active = (u) => !!u && u.status !== 'disabled' && u.status !== 'removed' && (u.plan === 'pro' || GT.auth.trialLeft(u) > 0);
   GT.isAdmin = (u) => !!u && (C.adminEmails || []).map(e => e.toLowerCase()).includes(String(u.email).toLowerCase());
   // Firebase (real accounts on every device): load its scripts before the page scripts run
+  const VQ = '?v=' + encodeURIComponent(C.build || '');
   if (C.firebase && C.firebase.apiKey) {
     const v = '10.12.5';
     ['app', 'auth', 'firestore'].forEach(m => document.write(`<script src="https://www.gstatic.com/firebasejs/${v}/firebase-${m}-compat.js"><\/script>`));
-    document.write('<script src="assets/js/fb.js?v=' + encodeURIComponent(C.build || '') + '"><\/script>');
+    document.write('<script src="assets/js/fb.js' + VQ + '"><\/script>');
   }
+  // products, PDF files and Updates posts managed from the control panel
+  document.write('<script src="assets/js/content.js' + VQ + '"><\/script>');
+
+  /* ---------- products: config.js + the changes saved in the control panel ---------- */
+  const BASE_PRODUCTS = JSON.parse(JSON.stringify(C.products || []));
+  const PRODUCT_FIELDS = ['name', 'full', 'type', 'badge', 'price', 'text', 'features', 'img', 'id', 'order', 'hidden', 'deleted', 'mql5Url', 'more'];
+  GT.baseProducts = () => JSON.parse(JSON.stringify(BASE_PRODUCTS));
+  GT.applyProducts = (ov) => {
+    const list = GT.baseProducts();
+    (ov || []).forEach(o => {
+      if (!o || !o.key) return;
+      let p = list.find(x => x.key === o.key);
+      if (!p) { p = { key: o.key, features: [], docs: [], page: 'product.html?p=' + o.key, isNew: true }; list.push(p); }
+      PRODUCT_FIELDS.forEach(f => { if (o[f] !== undefined && o[f] !== null && o[f] !== '') p[f] = o[f]; });
+      if (o.badge === '') p.badge = '';
+    });
+    const out = list.filter(p => !p.deleted && !p.hidden).map((p, i) => Object.assign(p, { order: p.order != null ? +p.order : i }))
+      .sort((a, b) => a.order - b.order);
+    out.forEach(p => {
+      p.url = p.mql5Url || ('https://www.mql5.com/en/market/product/' + p.id);
+      p.reviews = p.url + '#!tab=reviews';
+      p.widget = 'https://www.mql5.com/en/market/widget/' + p.id + '/mid?f=1&fw=html';
+      if (!p.page) p.page = 'product.html?p=' + p.key;
+      p.full = p.full || p.name; p.features = Array.isArray(p.features) ? p.features : [];
+    });
+    C.products.length = 0; out.forEach(p => C.products.push(p));
+    GT.allProducts = list;   // including hidden ones (control panel)
+  };
+  GT.applyProducts(GT.store.get('gt_products_ov', []));
 
   /* ---------- header & footer ---------- */
   const NAV = [
     ['index.html', 'Home'], ['products.html', 'Products'],
     ['editor.html', 'EA Bot Studio'], ['charts.html', 'Charts'], ['signals.html', 'Signals'],
-    ['demo.html', 'Demo $10k'], ['partner.html', 'Deriv']
+    ['demo.html', 'Demo $10k'], ['updates.html', 'Updates'], ['partner.html', 'Deriv']
   ];
   function page() { const p = location.pathname.split('/').pop(); return p || 'index.html'; }
 
@@ -300,20 +330,22 @@
   const DEF_SITE = {
     features: { signals: true, scanner: true, charts: true, demo: true, journal: true, editor: true, downloads: true, signup: true },
     limits: { dlDay: C.dlDay || 1, dlWeek: C.dlWeek || 7, dlMonth: C.dlMonth || 30, trialDays: C.trialDays || 30, demoAccounts: 5, demoMaxDeposit: 1000000, bots: 0 },
-    maintenance: '', announcement: null
+    maintenance: '', maintStyle: 'gold', announcement: null, engines: {}
   };
   GT.FEATURES = { signals: 'Signal engine', scanner: 'Signal scanner', charts: 'TradingView charts', demo: '$10k demo', journal: 'Demo journal', editor: 'EA Bot Studio (web)', downloads: 'Bot downloads', signup: 'New sign-ups' };
   GT.LIMITS = { dlDay: 'Downloads per day', dlWeek: 'Downloads per week', dlMonth: 'Downloads per month', trialDays: 'Free trial days (new accounts)', demoAccounts: 'Demo accounts per user', demoMaxDeposit: 'Largest demo deposit ($)', bots: 'Saved bots (0 = no limit)' };
   GT.site = () => {
     const s = GT.store.get('gt_site', {}) || {};
-    return { features: Object.assign({}, DEF_SITE.features, s.features), limits: Object.assign({}, DEF_SITE.limits, s.limits), maintenance: s.maintenance || '', announcement: s.announcement || null };
+    return { features: Object.assign({}, DEF_SITE.features, s.features), limits: Object.assign({}, DEF_SITE.limits, s.limits), maintenance: s.maintenance || '',
+      maintStyle: s.maintStyle || 'gold', announcement: s.announcement || null, engines: s.engines || {} };
   };
   // PDF guides of a product: the control panel's list replaces the one in config.js
   GT.docs = p => { const o = (GT.store.get('gt_site', {}) || {}).productDocs; return (o && o[p.key]) ? o[p.key] : (p.docs || []); };
   GT.docsHtml = p => {
-    const d = GT.docs(p); if (!d.length) return '';
-    return `<div class="docs">${d.map(x => `<div class="doc"><span class="pdf">PDF</span><b>${GT.esc(x.title)}</b>
-      <a class="btn ghost small" href="${GT.esc(x.url)}" target="_blank" rel="noopener">View</a><a class="btn ghost small" href="${GT.esc(x.url)}" download>Download</a></div>`).join('')}</div>`;
+    const d = GT.docs(p).filter(x => x && (x.url || x.file)); if (!d.length) return '';
+    return `<div class="docs">${d.map(x => `<div class="doc"><span class="pdf">PDF</span><b>${GT.esc(x.title)}</b>${x.file
+      ? `<button class="btn ghost small" type="button" onclick="GT.content.openFile('${GT.esc(x.file)}',false,this)">View</button><button class="btn ghost small" type="button" onclick="GT.content.openFile('${GT.esc(x.file)}',true,this)">Download</button>`
+      : `<a class="btn ghost small" href="${GT.esc(x.url)}" target="_blank" rel="noopener">View</a><a class="btn ghost small" href="${GT.esc(x.url)}" download>Download</a>`}</div>`).join('')}</div>`;
   };
   GT.limit = (u, k) => (u && u.limits && u.limits[k] != null && u.limits[k] !== '') ? +u.limits[k] : +GT.site().limits[k];
   GT.feature = (k, u) => { const me = GT.auth.current(); if (me && GT.isAdmin(me)) return true; return GT.site().features[k] !== false && !(u && u.features && u.features[k] === false); };
@@ -328,7 +360,10 @@
   function afterLoad() {
     const s = GT.site(), u = GT.auth.current();
     if (s.maintenance && !(u && GT.isAdmin(u)) && !document.querySelector('.gt-maint')) {
-      const b = document.createElement('div'); b.className = 'gt-maint'; b.textContent = s.maintenance; document.body.prepend(b);
+      const b = document.createElement('div'); b.className = 'gt-maint ' + (['gold', 'teal', 'red'].includes(s.maintStyle) ? s.maintStyle : 'gold');
+      b.innerHTML = `<div class="wrap"><span class="mi">${s.maintStyle === 'red' ? '⚠' : s.maintStyle === 'teal' ? 'ℹ' : '🛠'}</span><span class="mt">${GT.esc(s.maintenance)}</span><button type="button" class="mx" aria-label="Hide">×</button></div>`;
+      b.querySelector('.mx').onclick = () => b.remove();
+      document.body.prepend(b);
     }
     if (!u) return;
     if (u.status === 'disabled' || u.status === 'removed') {

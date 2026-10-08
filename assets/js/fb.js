@@ -45,8 +45,9 @@
   }
 
   // the confirm-your-e-mail message; the link brings the user back to the account page
+  const here = p => location.origin + location.pathname.replace(/[^/]*$/, '') + p;
   async function sendVerify(fu) {
-    try { await fu.sendEmailVerification({ url: location.origin + location.pathname.replace(/[^/]*$/, '') + 'account.html' }); }
+    try { await fu.sendEmailVerification({ url: here('account.html') }); }
     catch (e) {
       if (/unauthorized-continue-uri|invalid-continue-uri|missing-continue-uri/.test(e.code || '')) await fu.sendEmailVerification();
       else throw e;
@@ -126,8 +127,31 @@
       } catch (e) { throw new Error(/wrong-password|invalid-credential/.test(e.code || '') ? 'The current password is wrong.' : errMsg(e)); }
     },
     async resetPassword(email) {
-      try { await auth.sendPasswordResetEmail(String(email || '').trim().toLowerCase()); } catch (e) { if (!/user-not-found/.test(e.code || '')) throw new Error(errMsg(e)); }
+      email = String(email || '').trim().toLowerCase();
+      const settings = { url: here('account.html?tab=login') };
+      try { await auth.sendPasswordResetEmail(email, settings); }
+      catch (e) {
+        const c = e.code || '';
+        if (/continue-uri/.test(c)) { try { await auth.sendPasswordResetEmail(email); } catch (x) { if (!/user-not-found/.test(x.code || '')) throw new Error(errMsg(x)); } }
+        else if (!/user-not-found/.test(c)) throw new Error(errMsg(e));
+      }
       return { sent: true };   // the same answer whether or not the e-mail exists
+    },
+    // the link in the reset e-mail: check it, then save the new password typed two times on account.html
+    async checkResetCode(code) {
+      try { return await auth.verifyPasswordResetCode(code); }
+      catch (e) { throw new Error(/expired|invalid-action-code/.test(e.code || '') ? 'This link is old or was already used. Ask for a new one on the log-in page.' : errMsg(e)); }
+    },
+    async confirmReset(code, pw, email) {
+      GT.checkFields({ name: 'x', email: email || 'a@b.co', password: pw });
+      try { await auth.confirmPasswordReset(code, pw); }
+      catch (e) { throw new Error(/expired|invalid-action-code/.test(e.code || '') ? 'This link is old or was already used. Ask for a new one on the log-in page.' : errMsg(e)); }
+    },
+    // the link in the confirm-your-e-mail message
+    async applyCode(code) {
+      try { await auth.applyActionCode(code); }
+      catch (e) { throw new Error(/expired|invalid-action-code/.test(e.code || '') ? 'This link is old or was already used. Log in and press “Send the link again”.' : errMsg(e)); }
+      if (auth.currentUser) { try { await auth.currentUser.reload(); await auth.currentUser.getIdToken(true); } catch (e) { } const u = cache(); if (u) { u.verified = true; setCache(u); } }
     },
     track(ev, n) {
       const u = cache(); if (!u) return; n = n || 1;
@@ -161,7 +185,8 @@
     async message(id, text, kind) { await userDoc(id).collection('inbox').add({ text, kind: kind || 'info', created: Date.now(), read: 0, from: 'admin' }); },
     async broadcast(text, kind) { await db.collection('site').doc('settings').set({ announcement: text ? { id: Date.now(), text, kind: kind || 'info' } : null }, { merge: true }); await refreshSite(); },
     async getSite() { await refreshSite(); return GT.site(); },
-    async saveSite(st) { await db.collection('site').doc('settings').set(st, { merge: true }); await refreshSite(); },
+    // each field given here is replaced as a whole (so removed products / engine settings really go away)
+    async saveSite(st) { const ref = db.collection('site').doc('settings'); await ref.set({ updated: Date.now() }, { merge: true }); await ref.update(st); await refreshSite(); },
     // the login itself can only be deleted in the Firebase console; "removed" blocks it everywhere
     async remove(id) { await userDoc(id).update({ status: 'removed' }); }
   };
