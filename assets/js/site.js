@@ -329,11 +329,11 @@
      GT.feature(key, u)   -> false when the admin switched it off for everyone or for this user */
   const DEF_SITE = {
     features: { signals: true, scanner: true, charts: true, demo: true, journal: true, editor: true, downloads: true, signup: true },
-    limits: { dlDay: C.dlDay || 1, dlWeek: C.dlWeek || 7, dlMonth: C.dlMonth || 30, trialDays: C.trialDays || 30, demoAccounts: 5, demoMaxDeposit: 1000000, bots: 0 },
+    limits: { dlDay: C.dlDay || 1, dlWeek: C.dlWeek || 7, dlMonth: C.dlMonth || 30, trialDays: C.trialDays || 30, demoAccounts: 5, demoMaxDeposit: 1000000, bots: 0, guestSignalMin: 3 },
     maintenance: '', maintStyle: 'gold', announcement: null, engines: {}
   };
   GT.FEATURES = { signals: 'Signal engine', scanner: 'Signal scanner', charts: 'TradingView charts', demo: '$10k demo', journal: 'Demo journal', editor: 'EA Bot Studio (web)', downloads: 'Bot downloads', signup: 'New sign-ups' };
-  GT.LIMITS = { dlDay: 'Downloads per day', dlWeek: 'Downloads per week', dlMonth: 'Downloads per month', trialDays: 'Free trial days (new accounts)', demoAccounts: 'Demo accounts per user', demoMaxDeposit: 'Largest demo deposit ($)', bots: 'Saved bots (0 = no limit)' };
+  GT.LIMITS = { dlDay: 'Downloads per day', dlWeek: 'Downloads per week', dlMonth: 'Downloads per month', trialDays: 'Free trial days (new accounts)', demoAccounts: 'Demo accounts per user', demoMaxDeposit: 'Largest demo deposit ($)', bots: 'Saved bots (0 = no limit)', guestSignalMin: 'Free signal look without an account (minutes a day, 0 = none)' };
   GT.site = () => {
     const s = GT.store.get('gt_site', {}) || {};
     return { features: Object.assign({}, DEF_SITE.features, s.features), limits: Object.assign({}, DEF_SITE.limits, s.limits), maintenance: s.maintenance || '',

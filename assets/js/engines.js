@@ -8,6 +8,58 @@
    and returns signals: [{ index, signal: 'BUY' | 'SELL', entry, sl, tp, reason }]
    ============================================================ */
 (function () {
+  /* ---- the code of the 5 built-in engines can be replaced from the control panel ----
+     The saved code is a whole strategy file (like assets/js/strategies/gtm.js). It is run and the engine
+     object is updated in place, so the Signals page, the Multi engine and the scanner all use the new code.
+     If the new code fails, the original engine keeps working. */
+  const NAMES = { smc: 'SMCStrategy', gtm: 'GTMStrategy', multi: 'MultiConfirmStrategy', ema: 'EMACrossStrategy', bb: 'BollingerStrategy' };
+  const FILES = { smc: 'smc.js', gtm: 'gtm.js', multi: 'multi.js', ema: 'ema-cross.js', bb: 'bollinger.js' };
+  const SNAP = {};   // the original engines, to go back to
+  Object.keys(NAMES).forEach(k => { const o = window[NAMES[k]]; if (o) SNAP[k] = Object.assign({}, o); });
+  GT.ENGINE_FILES = FILES; GT.ENGINE_NAMES = NAMES;
+  function evalSource(k, src) {
+    const name = NAMES[k], keep = window[name];
+    let fresh;
+    try {
+      fresh = new Function('"use strict";\n' + String(src) + `\n;return (typeof ${name} !== 'undefined') ? ${name} : window.${name};`)();
+    } finally { window[name] = keep; }   // the file may have set window.X itself
+    if (!fresh || typeof fresh.detect !== 'function') throw new Error(`The code must define ${name} with a detect(candles) function.`);
+    if (fresh === keep) throw new Error(`The code must create a new ${name} = { … }.`);
+    return fresh;
+  }
+  function patch(k, fresh) {   // update the engine object in place (other code holds references to it)
+    const o = window[NAMES[k]]; if (!o) return;
+    Object.keys(o).forEach(x => { if (!(x in fresh)) delete o[x]; });
+    Object.assign(o, fresh);
+  }
+  function restore(k) { if (SNAP[k]) patch(k, SNAP[k]); }
+  GT.restoreEngine = restore;
+  // test a replacement code without keeping it
+  GT.testEngineSource = (k, src) => {
+    let r;
+    try {
+      const fresh = evalSource(k, src); patch(k, fresh);
+      const cs = testCandles(), t0 = performance.now(), s = window[NAMES[k]].detect(cs) || [], ms = Math.round(performance.now() - t0);
+      if (!Array.isArray(s)) throw new Error('detect() must return a list of signals.');
+      const bad = s.find(x => !x || !Number.isInteger(x.index) || (x.signal !== 'BUY' && x.signal !== 'SELL'));
+      if (bad) throw new Error('Each signal needs index (candle number) and signal: "BUY" or "SELL".');
+      if (ms > 2500) throw new Error('The code is too slow (' + ms + ' ms on 600 candles).');
+      r = { count: s.length, buy: s.filter(x => x.signal === 'BUY').length, sell: s.filter(x => x.signal === 'SELL').length, ms };
+    } catch (e) { r = { error: e.message }; }
+    restore(k); applySaved();   // back to what is saved
+    return r;
+  };
+  function applySaved() {
+    const E = (GT.site && GT.site().engines) || {};
+    Object.keys(NAMES).forEach(k => {
+      const src = E[k] && E[k].source;
+      if (!src) { restore(k); return; }
+      try { patch(k, evalSource(k, src)); window[NAMES[k]].__custom = true; }
+      catch (e) { restore(k); console.warn('[G TRADERS] engine code of', k, 'failed — using the original:', e.message); }
+    });
+  }
+  applySaved();
+
   const ORIG = {};
   const BUILT = {
     smc: { obj: () => window.SMCStrategy, label: 'SMC', about: 'Break of structure / change of character, order blocks and fair value gaps.' },
@@ -16,7 +68,7 @@
     ema: { obj: () => window.EMACrossStrategy, label: 'EMA cross', about: 'Fast EMA crossing the slow EMA, filtered with RSI.' },
     bb: { obj: () => window.BollingerStrategy, label: 'Bollinger', about: 'Price leaving and coming back into the Bollinger bands, filtered with RSI.' }
   };
-  Object.keys(BUILT).forEach(k => { const o = BUILT[k].obj(); if (o) { ORIG[k] = Object.assign({}, o.defaults || {}); BUILT[k].defaults = ORIG[k]; } });
+  Object.keys(BUILT).forEach(k => { const o = SNAP[k] || BUILT[k].obj(); if (o) { ORIG[k] = Object.assign({}, o.defaults || {}); BUILT[k].defaults = ORIG[k]; } });
   GT.SIGNAL_ENGINES = BUILT;
 
   // indicator helpers given to custom code
@@ -75,11 +127,15 @@ return out;`;
       lines() { return []; }
     };
   };
+  function testCandles() {
+    const cs = []; let p = 100, t = Math.floor(Date.now() / 1000) - 600 * 300;
+    for (let i = 0; i < 600; i++) { const o = p; p = Math.max(1, p + (Math.sin(i / 25) * 0.4 + (Math.random() - .5) * 1.2)); cs.push({ time: t + i * 300, open: o, close: p, high: Math.max(o, p) + Math.random() * .4, low: Math.min(o, p) - Math.random() * .4 }); }
+    return cs;
+  }
   // run the code on 600 made-up candles (control panel "Test" button)
   GT.testEngine = (c) => {
     try {
-      const e = GT.compileEngine(c), cs = []; let p = 100, t = Math.floor(Date.now() / 1000) - 600 * 300;
-      for (let i = 0; i < 600; i++) { const o = p; p = Math.max(1, p + (Math.sin(i / 25) * 0.4 + (Math.random() - .5) * 1.2)); cs.push({ time: t + i * 300, open: o, close: p, high: Math.max(o, p) + Math.random() * .4, low: Math.min(o, p) - Math.random() * .4 }); }
+      const e = GT.compileEngine(c), cs = testCandles();
       const fn = new Function('c', 'I', 'P', '"use strict";\n' + String(c.code || ''));
       const t0 = performance.now(); const raw = fn(cs, I, c.params || {}); const ms = Math.round(performance.now() - t0);
       if (!Array.isArray(raw)) return { error: 'The code must return a list, e.g. return out;' };
@@ -96,7 +152,8 @@ return out;`;
     Object.keys(BUILT).forEach(k => {
       const o = BUILT[k].obj(); if (!o) return;
       const set = E[k] || {};
-      o.defaults = Object.assign({}, ORIG[k], set.params || {});
+      if (o.__custom && !o.__defaults0) o.__defaults0 = Object.assign({}, o.defaults || {});
+      o.defaults = Object.assign({}, o.__custom ? o.__defaults0 : ORIG[k], set.params || {});
       map[k] = o;
       order.push({ key: k, label: set.label || BUILT[k].label, hidden: !!set.hidden, main: ['smc', 'gtm', 'multi'].includes(k) });
     });

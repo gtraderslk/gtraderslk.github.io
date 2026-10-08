@@ -10,6 +10,34 @@
   const me = GT.auth.current();
   if (!GT.feature('signals', me)) { $('sig-app').innerHTML = '<div class="gate" style="grid-column:1/-1"><div class="lock">🛠</div><h2 style="font-size:24px">The signal engine is paused</h2><p class="muted">It is switched off for a short while. Please check back soon.</p></div>'; $('scanner').style.display = 'none'; return; }
   if (me) GT.auth.track('signals');
+  // visitors without an account: a short free look each day, then "create a free account"
+  if (!me) {
+    const mins = +GT.site().limits.guestSignalMin, KEY = 'gt_guest_sig';
+    const lock = () => {
+      ['sig-app', 'scanner'].forEach(id => { const el = $(id); if (el && !el.classList.contains('sig-lock')) { el.classList.add('sig-lock'); if (id === 'sig-app') el.insertAdjacentHTML('beforeend', `<div class="lock-over"><div class="gate"><div class="lock">📈</div><h2 style="font-size:24px">Your free look has ended</h2>
+        <p class="muted">Create a free G TRADERS account to keep using the live signals, the scanner, the $10,000 demo and EA Bot Studio. No card, no payment.</p>
+        <div class="row"><a class="btn primary" href="account.html?tab=signup&next=signals.html">Create free account</a><a class="btn ghost" href="account.html?tab=login&next=signals.html">Log in</a></div></div></div>`); } });
+      const p = document.querySelector('.guest-pill'); if (p) p.remove();
+    };
+    if (!(mins > 0)) { lock(); }
+    else {
+      let st = GT.store.get(KEY, null); if (!st || st.day !== GT.dkey()) st = { day: GT.dkey(), used: 0 };
+      const total = mins * 60000;
+      if (st.used >= total) lock();
+      else {
+        document.body.insertAdjacentHTML('beforeend', `<div class="guest-pill">👀 Free look: <b id="gp-t"></b> left <a href="account.html?tab=signup&next=signals.html">Sign up free →</a></div>`);
+        let last = Date.now();
+        const tick = () => {
+          const now = Date.now(); if (!document.hidden) st.used += Math.min(5000, now - last); last = now;
+          GT.store.set(KEY, st);
+          const left = Math.max(0, total - st.used), s = Math.ceil(left / 1000);
+          const t = $('gp-t'); if (t) t.textContent = Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+          if (left <= 0) { clearInterval(h); lock(); }
+        };
+        const h = setInterval(tick, 1000); tick();
+      }
+    }
+  }
   if (!GT.feature('scanner', me)) $('scanner').style.display = 'none';
   let eng = GT.store.get('gt_sig_eng', 'gtm'); if (!VIS.some(e => e.key === eng)) eng = (VIS.find(e => e.key === 'gtm') || VIS[0] || { key: 'gtm' }).key;
   let lower = GT.store.get('gt_sig_lower', 'macd');

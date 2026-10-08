@@ -34,7 +34,11 @@
     ({ overview, users: usersTab, site: siteTab, products: productsTab, updates: updatesTab, signals: signalsTab, security: securityTab }[tab] || overview)();
   }
   // Edge / Windows spell-check and "Editor" made typing in the boxes slow: switch them off in the control panel
-  const noSpell = root => (root || document).querySelectorAll('input,textarea').forEach(x => { x.spellcheck = false; x.setAttribute('autocomplete', 'off'); x.setAttribute('data-gramm', 'false'); });
+  const noSpell = root => (root || document).querySelectorAll('input,textarea,[contenteditable]').forEach(x => {
+    if (x.dataset.ns) return; x.dataset.ns = '1';
+    x.spellcheck = false; ['autocomplete', 'autocorrect', 'autocapitalize'].forEach(a => x.setAttribute(a, 'off'));
+    x.setAttribute('writingsuggestions', 'false'); x.setAttribute('data-gramm', 'false'); x.setAttribute('data-ms-editor', 'false');
+  });
   ['adm-body', 'drawer'].forEach(id => new MutationObserver(() => noSpell($(id))).observe($(id), { childList: true, subtree: true }));
   const fmtSize = b => b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
   const closeDrawer = () => $('drawer').classList.remove('open');
@@ -102,7 +106,7 @@
         <label>Quick<div style="display:flex;gap:4px"><button type="button" class="btn ghost small" data-add="7">+7 d</button><button type="button" class="btn ghost small" data-add="30">+30 d</button><button type="button" class="btn ghost small" data-add="0">End now</button></div></label>
         <label style="grid-column:1/-1">Private note (only you see it)<input id="d-note" value="${esc(u.note || '')}" maxlength="200"></label></div></div>
       <div class="dr-sec"><h4>Limits for this user <span class="muted small">(empty = site default)</span></h4><div class="dr-grid">
-        ${Object.entries(GT.LIMITS).filter(([k]) => k !== 'trialDays').map(([k, lab]) => `<label>${lab}<input type="number" min="0" data-lim="${k}" value="${L[k] ?? ''}" placeholder="${S.limits[k]}"></label>`).join('')}</div></div>
+        ${Object.entries(GT.LIMITS).filter(([k]) => k !== 'trialDays' && k !== 'guestSignalMin').map(([k, lab]) => `<label>${lab}<input type="number" min="0" data-lim="${k}" value="${L[k] ?? ''}" placeholder="${S.limits[k]}"></label>`).join('')}</div></div>
       <div class="dr-sec"><h4>Features for this user</h4><div class="feats">${Object.entries(GT.FEATURES).filter(([k]) => k !== 'signup').map(([k, lab]) => `<label class="chk"><input type="checkbox" data-feat="${k}" ${F[k] === false ? '' : 'checked'}> ${lab}</label>`).join('')}</div></div>
       <div class="dr-row"><button class="btn primary" id="d-save" type="button">Save changes</button><button class="btn sell small" id="d-remove" type="button">Remove account</button></div>
       <div class="dr-sec"><h4>Send a popup message</h4>
@@ -399,7 +403,8 @@
       <div class="grid g2">${Object.entries(BUILT).map(([k, b]) => `<div class="card eng-c" data-k="${k}"><h3>${esc((E[k] && E[k].label) || b.label)} <span class="muted small">${esc(k)}</span></h3>
         <p class="muted small">${esc(b.about || '')}</p>
         <div class="dr-grid"><label>Button name<input data-lab="${k}" value="${esc((E[k] && E[k].label) || '')}" placeholder="${esc(b.label)}"></label><label class="chk" style="align-self:end"><input type="checkbox" data-hid="${k}" ${E[k] && E[k].hidden ? '' : 'checked'}> Shown on the Signals page</label>
-        ${prm(k, b.defaults)}</div></div>`).join('')}</div>
+        ${prm(k, b.defaults)}</div>
+        <div class="dr-row"><button class="btn ghost small" data-code="${k}" type="button">{ } Edit the code</button>${E[k] && E[k].source ? '<span class="tagst pro">your code</span>' : '<span class="muted small">original code</span>'}</div></div>`).join('')}</div>
       <div class="card" style="margin-top:14px"><div class="adm-tools" style="margin:0"><h3 style="margin:0">Your own engines</h3><button class="btn ghost small" id="ce-add" type="button">+ New engine</button></div><div id="ce-list"></div></div>
       <div class="dr-row" style="margin-top:14px"><button class="btn primary" id="eng-save" type="button">Save the engines</button><button class="btn ghost" id="eng-reset" type="button">All engines back to original</button></div>`;
     const drawCustom = () => {
@@ -436,16 +441,53 @@
       Object.keys(BUILT).forEach(k => {
         const params = {}; document.querySelectorAll(`[data-eng="${k}"]`).forEach(i => { if (i.value !== '' && +i.value !== +i.placeholder) params[i.dataset.p] = +i.value; });
         out[k] = { label: (document.querySelector(`[data-lab="${k}"]`) || {}).value || '', hidden: !document.querySelector(`[data-hid="${k}"]`).checked, params };
+        if (E[k] && E[k].source) out[k].source = E[k].source;
       });
       for (const c of custom) {
         if (!c.name || !c.code) return GT.toast('Every engine needs a name and code.');
         const r = GT.testEngine ? GT.testEngine(c) : {};
         if (r.error) return GT.toast(c.name + ': ' + r.error, 6000);
-        out.custom.push({ key: c.key, name: c.name.slice(0, 60), short: (c.short || c.name).slice(0, 12), on: c.on !== false, main: !!c.main, params: c.params || {}, code: String(c.code).slice(0, 40000) });
+        out.custom.push({ key: c.key, name: c.name.slice(0, 60), short: (c.short || c.name).slice(0, 12), on: c.on !== false, main: !!c.main, params: c.params || {}, code: String(c.code).slice(0, 300000) });
       }
       try { await GT.admin.saveSite({ engines: out }); GT.toast('Engines saved — the Signals page uses them now'); } catch (e) { GT.toast('Could not save: ' + e.message, 5000); }
     };
-    $('eng-reset').onclick = async () => { if (!confirm('Put every engine back to the original settings? Your own engines are kept.')) return; await GT.admin.saveSite({ engines: { custom } }); signalsTab(); };
+    $('eng-reset').onclick = async () => { if (!confirm('Put every engine back to the original settings and the original code? Your own engines are kept.')) return; await GT.admin.saveSite({ engines: { custom } }); signalsTab(); };
+    document.querySelectorAll('[data-code]').forEach(b => b.onclick = () => editEngineCode(b.dataset.code, E, BUILT));
+  }
+  // the whole code of a built-in engine
+  async function editEngineCode(k, E, BUILT) {
+    const file = 'assets/js/strategies/' + GT.ENGINE_FILES[k], name = GT.ENGINE_NAMES[k];
+    let orig = '';
+    try { orig = await fetch(file + '?v=' + encodeURIComponent(C.build || ''), { cache: 'no-store' }).then(r => r.ok ? r.text() : ''); } catch (e) { }
+    const cur = (E[k] && E[k].source) || orig;
+    $('drawer').innerHTML = `<div class="dr-in"><div class="dr-h"><div><h3 style="margin:0">${esc(BUILT[k].label)} engine — code</h3>
+        <div class="muted small">The whole engine. It must define <code>${name}</code> with <code>detect(candles)</code>. Saved code is used on the Signals page instead of the original.</div></div><button class="x" id="dr-x" type="button">×</button></div>
+      <textarea id="ec-code" class="code" rows="28" style="width:100%;min-height:58vh"></textarea>
+      <div class="small muted" id="ec-size" style="margin-top:4px"></div>
+      <div class="dr-row"><button class="btn ghost" id="ec-test" type="button">▶ Test</button><button class="btn primary" id="ec-save" type="button">Save the code</button>
+        <button class="btn ghost small" id="ec-orig" type="button">Load the original code</button>${E[k] && E[k].source ? '<button class="btn sell small" id="ec-reset" type="button">Use the original again</button>' : ''}</div>
+      <div class="small" id="ec-out"></div></div>`;
+    $('drawer').classList.add('open'); $('dr-x').onclick = closeDrawer;
+    const ta = $('ec-code'); ta.value = cur;
+    const size = () => { $('ec-size').textContent = Math.round(ta.value.length / 1024) + ' KB of 300 KB'; }; ta.oninput = size; size();
+    ta.onkeydown = e => { if (e.key === 'Tab') { e.preventDefault(); const a = ta.selectionStart; ta.setRangeText('  ', a, ta.selectionEnd, 'end'); } };
+    const out = (t, ok) => { $('ec-out').className = 'small ' + (ok ? 'green' : 'red'); $('ec-out').textContent = t; };
+    const test = () => { const r = GT.testEngineSource(k, ta.value); if (r.error) out('✕ ' + r.error, false); else out(`✓ Works: ${r.count} signal(s) on 600 test candles (${r.buy} buy / ${r.sell} sell) in ${r.ms} ms.`, true); return !r.error; };
+    $('ec-test').onclick = test;
+    $('ec-orig').onclick = () => { if (!orig) return GT.toast('Could not load the original file.'); if (ta.value !== orig && !confirm('Replace the box with the original code?')) return; ta.value = orig; size(); };
+    $('ec-save').onclick = async () => {
+      if (ta.value.length > 300000) return out('✕ The code is too big (max 300 KB).', false);
+      if (!test()) return;
+      const s = await GT.admin.getSite(), en = JSON.parse(JSON.stringify(s.engines || {}));
+      en[k] = Object.assign({}, en[k] || {}, { source: ta.value.trim() === orig.trim() ? '' : ta.value });
+      if (!en[k].source) delete en[k].source;
+      try { await GT.admin.saveSite({ engines: en }); GT.toast('Code saved — the Signals page uses it now'); closeDrawer(); signalsTab(); } catch (e) { out('✕ Could not save: ' + e.message, false); }
+    };
+    if ($('ec-reset')) $('ec-reset').onclick = async () => {
+      if (!confirm('Delete your code and use the original engine again?')) return;
+      const s = await GT.admin.getSite(), en = JSON.parse(JSON.stringify(s.engines || {})); if (en[k]) delete en[k].source;
+      await GT.admin.saveSite({ engines: en }); GT.toast('Original code is used again'); closeDrawer(); signalsTab();
+    };
   }
 
   /* ---------------- security ---------------- */
