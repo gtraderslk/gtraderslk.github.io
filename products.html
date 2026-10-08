@@ -21,9 +21,9 @@
 <meta name="twitter:image" content="https://www.gtraders.lk/assets/img/og-image.jpg">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
-<link rel="stylesheet" href="assets/css/site.css?v=41">
-<script src="assets/js/config.js?v=41"></script>
-<script src="assets/js/site.js?v=41"></script>
+<link rel="stylesheet" href="assets/css/site.css?v=42">
+<script src="assets/js/config.js?v=42"></script>
+<script src="assets/js/site.js?v=42"></script>
 </head>
 <body class="">
 <div id="site-header"></div>
@@ -41,9 +41,9 @@
 (function(){
   document.getElementById('prod-grid').innerHTML = GT_CONFIG.products.slice(0, 99).map(p => `
   <div class="card product hover">
-    <img class="thumb" src="${p.img}" alt="${GT.esc(p.name)}" loading="lazy">
+    <img class="thumb" src="${GT.esc(p.img)}" alt="${GT.esc(p.name)}" loading="lazy">
     <div class="body">
-      <div class="meta"><span class="pill dim">${GT.esc(p.type)}</span>${p.badge?`<span class="pill">${p.badge}</span>`:''}</div>
+      <div class="meta"><span class="pill dim">${GT.esc(p.type)}</span>${p.badge?`<span class="pill">${GT.esc(p.badge)}</span>`:''}</div>
       <h3>${GT.esc(p.name)}</h3><p>${GT.esc(p.text)}</p>
       <div class="small" style="margin:-4px 0 12px"><b class="gold">${GT.esc(p.price||'')}</b></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">

@@ -18,6 +18,43 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // products (texts / pictures changed in the control panel): everyone reads, only the admin writes
+    match /products/{key} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // PDF guides uploaded from the control panel, kept in pieces of < 1 MB
+    match /files/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+      match /chunks/{n} {
+        allow read: if true;
+        allow write: if isAdmin();
+      }
+    }
+
+    // Updates page: posts by the admin; members may like (only their own like) and comment
+    match /posts/{id} {
+      allow read: if true;
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin() || (signedIn()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'commentCount'])
+        && request.resource.data.get('likes', {}).diff(resource.data.get('likes', {})).affectedKeys().hasOnly([request.auth.uid])
+        && (request.resource.data.get('commentCount', 0) - resource.data.get('commentCount', 0)) in [-1, 0, 1]);
+
+      match /comments/{cid} {
+        allow read: if true;
+        allow create: if signedIn()
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.keys().hasOnly(['uid', 'name', 'photo', 'text', 'created'])
+          && request.resource.data.text is string && request.resource.data.text.size() > 0 && request.resource.data.text.size() <= 1000
+          && request.resource.data.name is string && request.resource.data.name.size() <= 60
+          && request.resource.data.get('photo', '').size() < 60000;
+        allow delete: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      }
+    }
+
     match /users/{uid} {
       allow read: if isOwner(uid) || isAdmin();
       // a new account starts as an active free trial and cannot give itself limits, features or a long trial
