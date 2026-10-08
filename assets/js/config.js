@@ -7,7 +7,7 @@ window.GT_CONFIG = {
   tagline: 'Trading tools for MetaTrader 5 — build, test and run your own robots.',
   email: 'supportgtraders@gmail.com',
   year: new Date().getFullYear(),
-  build: 'v4.3',
+  build: 'v4.4',
 
   // Deriv: market data for charts, signals and the demo.
   // 1089 is Deriv's public test app id. Register your own free app id at

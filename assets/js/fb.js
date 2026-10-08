@@ -91,6 +91,35 @@
       try { await sendVerify(cred.user); } catch (e) { }
       const u = Object.assign({ id: cred.user.uid }, data, { verified: false }); setCache(u); return u;
     },
+    // "Continue with Google": one button for both new and old accounts
+    google: true,
+    async loginGoogle() {
+      const prov = new firebase.auth.GoogleAuthProvider(); prov.setCustomParameters({ prompt: 'select_account' });
+      let cred;
+      try { cred = await auth.signInWithPopup(prov); }
+      catch (e) {
+        const c = e.code || '';
+        if (/popup-closed|cancelled-popup/.test(c)) throw new Error('The Google window was closed. Try again.');
+        if (/popup-blocked/.test(c)) throw new Error('Your browser blocked the Google window. Allow pop-ups for this site and try again.');
+        if (/operation-not-allowed/.test(c)) throw new Error('Google sign-in is not switched on yet. Please use e-mail and password for now.');
+        if (/account-exists-with-different-credential/.test(c)) throw new Error('This e-mail already has a password account. Log in with the e-mail and password.');
+        throw new Error(errMsg(e));
+      }
+      const fu = cred.user, email = String(fu.email || '');
+      let u = await loadMe(fu);
+      if (!u) {   // first time with Google: make the profile
+        if (!GT.feature('signup')) { await auth.signOut(); throw new Error('New sign-ups are paused for a short while. Please try again later.'); }
+        const now = Date.now(), days = Math.min(400, GT.site().limits.trialDays || 30);
+        const data = { name: String(fu.displayName || email.split('@')[0]).slice(0, 60), email, country: '', whatsapp: '', photo: (fu.photoURL || '').slice(0, 500), created: now, lastLogin: now,
+          trialEnds: now + days * DAY, plan: 'trial', status: 'active', downloads: 0, stats: GT.bump(null, 'logins'), via: 'google' };
+        try { await userDoc(fu.uid).set(data); } catch (e) { await auth.signOut(); throw new Error(errMsg(e)); }
+        u = Object.assign({ id: fu.uid }, data, { verified: true }); setCache(u); u.isNew = true; return u;
+      }
+      if (u.status === 'disabled' || u.status === 'removed') { await auth.signOut(); setCache(null); throw new Error('This account has been switched off. Contact ' + C.email + '.'); }
+      await userDoc(fu.uid).update({ lastLogin: Date.now(), 'stats.total.logins': FV.increment(1), ['stats.days.' + GT.dkey() + '.logins']: FV.increment(1) }).catch(() => { });
+      u.stats = GT.bump(u.stats, 'logins'); setCache(u); await loadInbox(fu.uid);
+      return u;
+    },
     async login(email, password) {
       email = String(email || '').trim().toLowerCase();
       GT.lock.check(email);
@@ -166,8 +195,12 @@
     },
     async deleteAccount(pw) {
       const fu = auth.currentUser; if (!fu) return;
-      try { await fu.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(fu.email, pw)); }
-      catch (e) { throw new Error('The password is wrong.'); }
+      const isGoogle = (fu.providerData || []).some(p => p && p.providerId === 'google.com') && !(fu.providerData || []).some(p => p && p.providerId === 'password');
+      try {
+        if (isGoogle) await fu.reauthenticateWithPopup(new firebase.auth.GoogleAuthProvider());
+        else await fu.reauthenticateWithCredential(firebase.auth.EmailAuthProvider.credential(fu.email, pw));
+      }
+      catch (e) { throw new Error(isGoogle ? 'Please confirm with your Google account to delete.' : 'The password is wrong.'); }
       await userDoc(fu.uid).delete().catch(() => { });
       await fu.delete(); setCache(null);
     }
