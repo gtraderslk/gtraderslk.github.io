@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTM AI Trade Core — try the AI trading assistant for MT5 live in your browser | G TRADERS</title>
+<meta name="description" content="Try GTM AI Trade Core in your browser: the real MT5 panel with live prices in simulator mode — six AI agents, your own entry models, AI chat, Account Guard, trade replay and voice alerts. Get it on the MQL5 Market.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://gtraderslk.github.io/gtm-ai.html">
+<meta name="google-site-verification" content="VCCE-J6S0ECXzWjLn3fM_LVrRn1MB8L_iUGMQut0rzI">
+<meta name="theme-color" content="#060b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="G TRADERS">
+<meta property="og:title" content="GTM AI Trade Core — AI trading assistant for MT5 (try it live)">
+<meta property="og:description" content="The real GTM AI panel in your browser with live prices: six AI agents, entry models, AI chat, Account Guard, replay and voice. Simulator only — no money needed.">
+<meta property="og:url" content="https://gtraderslk.github.io/gtm-ai.html">
+<meta property="og:image" content="https://gtraderslk.github.io/assets/img/gtm-ai.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GTM AI Trade Core — AI trading assistant for MT5 (try it live)">
+<meta name="twitter:description" content="The real GTM AI panel in your browser with live prices. Simulator only.">
+<meta name="twitter:image" content="https://gtraderslk.github.io/assets/img/gtm-ai.jpg">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=45">
+<link rel="stylesheet" href="assets/gtmai/gtmai.css?v=45">
+<style>.gtm-cover{background:linear-gradient(rgba(2,6,15,.72),rgba(2,6,15,.86)),url(assets/img/gtm-ai-dashboard.jpg) center/cover}</style>
+<script src="assets/js/config.js?v=45"></script>
+<script src="assets/js/site.js?v=45"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "GTM AI Trade Core", "description": "AI trading assistant for MetaTrader 5: multi-symbol entry models, SMC rules, AI chat, Account Guard and Telegram remote control.", "operatingSystem": "Windows (MetaTrader 5)", "applicationCategory": "FinanceApplication", "url": "https://www.mql5.com/en/market/product/200540", "image": "https://gtraderslk.github.io/assets/img/gtm-ai.jpg", "offers": {"@type": "Offer", "price": "149", "priceCurrency": "USD", "url": "https://www.mql5.com/en/market/product/200540"}, "publisher": {"@type": "Organization", "name": "G TRADERS", "url": "https://gtraderslk.github.io/"}}</script>
+</head>
+<body class="">
+<div id="site-header"></div>
+
+<section class="section tight"><div class="wrap gtm-hero">
+  <div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill dim">Expert Advisor · MT5</span><span class="pill">New</span><span class="pill dim">Try it live ↓</span></div>
+    <h1>GTM AI Trade Core — your <span>AI trading team</span> on one screen</h1>
+    <p class="muted" style="font-size:18px">Six AI agents scan your symbols, check the risk rules, open and protect trades from <b>your own entry model per symbol</b>. Talk to the AI to build setups (SMC too), back-test them before you apply, and control everything from the panel or Telegram.</p>
+    <div class="pd-price"><span class="muted small">Price on the MQL5 Market</span><b class="gold-text" id="gtm-price">$149 · rent from $39 / month</b></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+      <a class="btn primary" href="https://www.mql5.com/en/market/product/200540" target="_blank" rel="noopener">Get it on the MQL5 Market ↗</a>
+      <a class="btn teal" href="#try">▶ Try the live simulator</a>
+    </div>
+    <div class="mw-one"><a href="https://www.mql5.com/en/market/product/200540" target="_blank" rel="noopener"><img src="https://www.mql5.com/en/market/widget/200540/mid?f=1&amp;fw=html" alt="MQL5 Market widget" loading="lazy" onerror="this.parentNode.style.display='none'"></a></div>
+  </div>
+  <img class="pic" src="assets/img/gtm-ai.jpg" alt="GTM AI Trade Core panel in MetaTrader 5">
+</div></section>
+
+<section class="section tight" id="try"><div class="gtm-wrap">
+  <div class="wrap" style="padding:0"><h2 style="margin:0 0 6px">Try the real panel — live prices, simulator money</h2>
+  <p class="muted" style="margin:0 0 14px">This is the same GTM AI code that runs in MetaTrader 5, running in your browser. Prices are live market prices; every trade here is a <b>simulator trade with a virtual $1,000</b> — no account, no money. Click the tabs, drag SL / TP on LIVE TRADES, replay trades on HISTORY, add symbols on SETTINGS and talk to the AI on AI CHAT.</p></div>
+  <div class="gtm-bar">
+    <span class="ai-state" id="ai-state">AI: Demo AI (no key needed)</span>
+    <input type="password" id="ai-key" placeholder="Optional: paste your own AI key (Gemini, OpenAI, Claude, Groq...)" autocomplete="off">
+    <button class="btn small ghost" id="ai-save" type="button">Use my key</button>
+    <button class="btn small ghost" id="ai-demo" type="button">Demo AI</button>
+    <span class="grow"></span>
+    <button class="btn small ghost" id="snd" type="button">🔊 Sound on</button>
+    <button class="btn small ghost" id="fs" type="button">⛶ Full screen</button>
+    <button class="btn small ghost" id="rst" type="button">↺ Reset</button>
+  </div>
+  <div id="gtm-sim"></div>
+  <p class="gtm-note"><b>Tip:</b> on a phone, turn it sideways and press Full screen — the panel is made for a computer screen. Your simulator trades and settings stay in this browser only. An AI key you paste is kept in this browser and sent only to that AI service. In MetaTrader 5 you also get LIVE trading, Telegram text / voice control, chart pictures and voice alerts in more languages. Signals and AI answers are predictions, not promises.</p>
+</div></section>
+
+<section class="section tight"><div class="wrap">
+  <h2 class="center" style="margin-bottom:18px">What it does</h2>
+  <div class="gtm-feats">
+    <div class="card"><span class="ic">🤖</span><h3>Six agents, one dashboard</h3><p>RADAR scans, ORACLE finds signals, JUDGE checks the risk rules, STRIKER opens, GUARD moves the stop (break-even + trailing), VAULT keeps the account — every step live.</p></div>
+    <div class="card"><span class="ic">🎯</span><h3>Your entry model per symbol</h3><p>11 entry types (MA, RSI, MACD, breakout, Bollinger, Stochastic, CCI, SAR, ADX, AI rule), trend filter, higher-timeframe confirmation, wait for a pullback, SL / TP in $, points or ATR.</p></div>
+    <div class="card"><span class="ic">🧩</span><h3>Rule language with SMC</h3><p>BOS, CHoCH, structure, order blocks, fair value gaps and liquidity sweeps — e.g. <i>EMA(50,H1) &gt; EMA(200,H1) AND BOS(3) == 1</i>.</p></div>
+    <div class="card"><span class="ic">💬</span><h3>AI CHAT with any AI key</h3><p>Gemini, OpenAI, Claude, Groq, OpenRouter, DeepSeek or Grok. The AI builds and back-tests setups and waits for your APPLY before anything risky.</p></div>
+    <div class="card"><span class="ic">🛡</span><h3>Account Guard</h3><p>Daily loss limit, profit target, max drawdown, smart lot after losses, cool-down, max trades — for the account and per symbol. Each rule on or off.</p></div>
+    <div class="card"><span class="ic">📱</span><h3>Telegram remote (text + voice)</h3><p>In MT5: close trades, break-even, trailing, reports and chart pictures from your phone. Close ALL and EMERGENCY STOP ask for YES first.</p></div>
+    <div class="card"><span class="ic">🔁</span><h3>See why each trade was taken</h3><p>Entry confirmation on the chart: indicator lines, the cross, FVG / order-block boxes, BOS / CHoCH lines. Replay any closed trade on any timeframe.</p></div>
+    <div class="card"><span class="ic">📊</span><h3>Data Analyzer</h3><p>Calendar with the P/L of each day, profit curve, win rate, profit factor, results by symbol, by hour and buy vs sell.</p></div>
+    <div class="card"><span class="ic">🔊</span><h3>Voice and languages</h3><p>Male voice alerts built in (English, Hindi, Spanish, Portuguese, Italian); the panel can show any language with your AI key.</p></div>
+  </div>
+</div></section>
+
+<section class="section tight"><div class="wrap"><div class="grid g2">
+  <div class="card"><h3>Set it up in MetaTrader 5 (two charts)</h3>
+    <div class="gtm-two" style="margin:10px 0 14px">
+      <div class="gtm-chart"><b>Chart 1 — PANEL</b><br><span class="small muted">Role = PANEL (default). The full-screen panel. It watches the symbols and is the only one that trades.</span></div>
+      <div class="gtm-chart"><b>Chart 2 — BRIDGE</b><br><span class="small muted">Role = BRIDGE. Talks to the AI and Telegram so the panel never freezes. Optional.</span></div>
+    </div>
+    <ol class="gtm-steps small">
+      <li>Drag GTM AI Trade Core onto any chart, keep <b>Role = PANEL</b>, switch on <b>Algo Trading</b>.</li>
+      <li><b>SETTINGS → + ADD / REMOVE SYMBOLS</b>, then set the entry model of each symbol and the Account Guard.</li>
+      <li>Watch it in <b>SIMULATOR</b>; switch to LIVE only when you are ready (it asks you to confirm).</li>
+      <li>For AI and Telegram: Tools → Options → Expert Advisors → allow WebRequest for <i>https://api.telegram.org</i> and your AI service, then put GTM AI on a <b>second chart</b> with <b>Role = BRIDGE</b>, your AI key and bot token. Send <b>/start</b> to your bot.</li>
+    </ol>
+  </div>
+  <div class="card"><h3>Get it</h3>
+    <ol class="small" style="line-height:1.9;padding-left:18px;margin:0">
+      <li>Open MetaTrader 5 → <b>Navigator</b> → <b>Market</b>, or press the button below.</li>
+      <li>Find <b>GTM AI Trade Core</b> — press <b>Free Demo</b> to test it in the Strategy Tester, or <b>Buy / Rent</b>.</li>
+      <li>It installs into MetaTrader 5 automatically; updates arrive the same way.</li>
+      <li>Questions? Write to <a href="mailto:supportgtraders@gmail.com">supportgtraders@gmail.com</a> or comment on the product page.</li>
+    </ol>
+    <div style="margin-top:16px"><a class="btn primary" href="https://www.mql5.com/en/market/product/200540" target="_blank" rel="noopener">Get it on the MQL5 Market ↗</a></div>
+    <div class="gtm-risk" style="margin-top:16px"><b>Risk warning:</b> trading leveraged products carries a high risk of losing money. Simulator results and back-tests do not guarantee future results. Practise in SIMULATOR mode and on a demo account first, and only trade money you can afford to lose.</div>
+  </div>
+</div></div></section>
+
+<section class="section tight"><div class="wrap">
+  <h2 class="center" style="margin-bottom:22px">More products</h2>
+  <div class="grid g3" id="pd-more"></div>
+</div></section>
+<div id="site-footer"></div>
+
+<script src="assets/js/deriv.js?v=45"></script>
+<script src="assets/gtmai/rt.js?v=45"></script>
+<script src="assets/gtmai/canvas.js?v=45"></script>
+<script src="assets/gtmai/market.js?v=45"></script>
+<script src="assets/gtmai/ea.js?v=45"></script>
+<script src="assets/gtmai/host.js?v=45"></script>
+<script>
+(function () {
+  const P = GT_CONFIG.products, me = P.find(x => x.key === 'gtmai');
+  if (me && me.price) document.getElementById('gtm-price').textContent = me.price;
+  document.getElementById('pd-more').innerHTML = P.filter(x => x.key !== 'gtmai').slice(0, 3).map(x => `
+    <a class="card product hover" href="${x.page}" style="color:inherit"><img class="thumb" src="${GT.esc(x.img)}" alt="" loading="lazy">
+      <div class="body"><h3>${GT.esc(x.name)}</h3><p>${GT.esc(x.text)}</p><span class="gold small"><b>${GT.esc(x.price)}</b></span></div></a>`).join('');
+
+  const sim = window.gtmSim = new GTMAISim(document.getElementById('gtm-sim'), { base: 'assets/gtmai/', v: '45' });
+  const st = document.getElementById('ai-state'), key = document.getElementById('ai-key');
+  const show = d => { st.textContent = d.demo ? 'AI: Demo AI (no key needed)' : 'AI: your own key'; st.classList.toggle('key', !d.demo); };
+  document.getElementById('gtm-sim').addEventListener('gtm-ai', e => show(e.detail));
+  show({ demo: !sim.aiKey() });
+  document.getElementById('ai-save').onclick = () => { if (!key.value.trim()) { key.focus(); return; } sim.setAi(key.value); key.value = ''; };
+  document.getElementById('ai-demo').onclick = () => { sim.setAi(''); };
+  let on = true; const snd = document.getElementById('snd');
+  snd.onclick = () => { on = !on; sim.setSound(on); snd.textContent = on ? '🔊 Sound on' : '🔇 Sound off'; };
+  document.getElementById('fs').onclick = () => sim.fullscreen();
+  document.getElementById('rst').onclick = () => sim.reset();
+})();
+</script>
+</body>
+</html>
