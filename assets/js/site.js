@@ -202,7 +202,7 @@
 
   /* ---------- header & footer ---------- */
   const NAV = [
-    ['index.html', 'Home'], ['products.html', 'Products'],
+    ['index.html', 'Home'], ['products.html', 'Products'], ['gtm-ai.html', 'GTM AI'],
     ['editor.html', 'EA Bot Studio'], ['charts.html', 'Charts'], ['signals.html', 'Signals'],
     ['demo.html', 'Demo $10k'], ['updates.html', 'Updates'], ['partner.html', 'Deriv']
   ];
@@ -237,7 +237,7 @@
     <div><a class="brand" href="index.html"><span class="mark"></span><span>G <b>TRADERS</b></span></a>
       <p class="muted small" style="margin-top:12px">${GT.esc(C.tagline)}</p>
       <p class="small"><a href="mailto:${C.email}">${C.email}</a></p></div>
-    <div><h4>Products</h4><a href="studio.html">EA Bot Studio</a><a href="products.html">All MT5 products</a>
+    <div><h4>Products</h4><a href="gtm-ai.html">GTM AI Trade Core (try it live)</a><a href="studio.html">EA Bot Studio</a><a href="products.html">All MT5 products</a>
       <a href="${C.mql5Seller}" target="_blank" rel="noopener">MQL5 seller page</a><a href="${C.studioGuide}" target="_blank" rel="noopener">Studio user guide</a></div>
     <div><h4>Tools</h4><a href="editor.html">EA Bot Studio (web)</a><a href="charts.html">Live charts</a><a href="signals.html">Free signals</a><a href="demo.html">$10k demo</a></div>
     <div><h4>Account</h4><a href="account.html?tab=signup">Create account</a><a href="account.html?tab=login">Log in</a>

@@ -7,7 +7,7 @@ window.GT_CONFIG = {
   tagline: 'Trading tools for MetaTrader 5 — build, test and run your own robots.',
   email: 'supportgtraders@gmail.com',
   year: new Date().getFullYear(),
-  build: 'v4.4',
+  build: 'v4.5',
 
   // Deriv: market data for charts, signals and the demo.
   // 1089 is Deriv's public test app id. Register your own free app id at
@@ -50,6 +50,20 @@ window.GT_CONFIG = {
   // id      = MQL5 product number (used for the live MQL5 widget and reviews)
   // page    = the Details page on this site
   products: [
+    {
+      key: 'gtmai', id: 200540, name: 'GTM AI Trade Core', full: 'GTM AI Trade Core — AI Trading Assistant EA', type: 'Expert Advisor · MT5', badge: 'New',
+      price: '$149 · rent from $39 / month', img: 'assets/img/gtm-ai.jpg', page: 'gtm-ai.html',
+      text: 'Your AI trading team on one screen: six agents, your own entry model per symbol (SMC too), AI chat that builds and back-tests setups, Account Guard and Telegram text / voice control. Try it live in your browser.',
+      features: ['Six agents on one dashboard: scan, signal, risk check, open, protect (break-even + trailing) and account',
+        '11 entry types per symbol, trend filter, higher-timeframe confirmation, wait for a pullback, SL / TP in $, points or ATR',
+        'Rule language with Smart Money Concepts: BOS, CHoCH, structure, order blocks, fair value gaps, sweeps',
+        'AI CHAT with any AI key (Gemini, OpenAI, Claude, Groq, OpenRouter, DeepSeek, Grok); new setups are back-tested before APPLY',
+        'Account Guard for the account and per symbol: daily loss, profit target, drawdown, smart lot, cool-down, max trades',
+        'Telegram remote control with text and voice, /menu buttons and chart pictures',
+        'Entry confirmation on the chart and replay of every closed trade; Data Analyzer with calendar',
+        'Male voice alerts; the panel can show any language',
+        'Starts in SIMULATOR mode. Signals are predictions, not promises']
+    },
     {
       key: 'studio', id: 199216, name: 'GTM EA Bot Studio', full: 'GTM EA Bot Studio — Drag and Drop EA Builder', type: 'Utility · MT5', badge: 'New',
       price: '$99 · rent from $30 / month', img: 'assets/img/studio-promo.jpg', page: 'studio.html',
