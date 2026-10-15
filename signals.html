@@ -22,9 +22,9 @@
 <meta name="twitter:image" content="https://gtraderslk.github.io/assets/img/og-image.jpg">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
-<link rel="stylesheet" href="assets/css/site.css?v=45">
-<script src="assets/js/config.js?v=45"></script>
-<script src="assets/js/site.js?v=45"></script>
+<link rel="stylesheet" href="assets/css/site.css?v=46">
+<script src="assets/js/config.js?v=46"></script>
+<script src="assets/js/site.js?v=46"></script>
 </head>
 <body class="smc">
 <div id="site-header"></div>
@@ -33,6 +33,7 @@
     <h1>GTM <span style="color:var(--teal)">Signal Engine</span></h1>
     <p class="muted">Search any market — crypto, forex, metals, indices or Deriv synthetics — pick a timeframe and an engine.
       Arrows, entry, stop, three targets in a live TP / SL box, support / resistance and the trend on six timeframes update live.</p>
+    <p><a class="btn primary tri-big" href="#tri" id="go-adv">⚡ Advanced Signal — go to the 3-method charts</a></p>
     <div class="eng-cards">
       <div class="ec"><b>SMC signal</b><span>Break of structure, CHoCH, order blocks and fair value gaps. Fires on the retest.</span></div>
       <div class="ec"><b>GTM signal</b><span>Trend break of the last 10 candles with EMA, RSI and MACD all agreeing.</span></div>
@@ -65,6 +66,21 @@
   </div>
 </div>
 
+<div class="panel tri" id="tri" style="margin-top:18px">
+  <div class="bar tri-bar"><span class="title">3 signal methods</span>
+    <span class="small muted" id="tri-sym">—</span>
+    <button class="btn ghost small" id="tri-up" type="button">Change market / timeframe ↑</button>
+    <span class="grow" style="flex:1"></span>
+    <div class="seg" id="tri-mode"><button type="button" data-m="stack" class="on">Stacked (all 3)</button><button type="button" data-m="one">One by one</button></div></div>
+  <div class="tri-tabs" id="tri-tabs">
+    <button type="button" class="tri-adv on" data-k="advanced">⚡ ADVANCED SIGNAL<small>trend · ADX · Supertrend · pullback · MACD/RSI</small></button>
+    <button type="button" data-k="bollinger">Bollinger Bands<small>reversion + squeeze breakout</small></button>
+    <button type="button" data-k="ma">Moving Average<small>EMA 9/21 cross + EMA 200</small></button>
+  </div>
+  <div id="tri-list"></div>
+  <p class="small muted" style="padding:6px 14px 12px;margin:0">Signals use closed candles only and do not repaint. “Confidence score” counts how many extra checks agreed — it is not a probability. “History” is a walk-forward check of the signals on the chart (stop first if both are hit in one candle). Past results do not promise future results.</p>
+</div>
+
 <div class="panel" style="margin-top:18px" id="scanner">
   <div class="bar"><span class="title">Signal scanner</span>
     <select class="inline" id="sc-cat"><option value="crypto">Crypto — top 40 by volume</option><option value="forex">Forex &amp; metals</option><option value="deriv">Deriv synthetic indices</option><option value="indices">Stock indices</option></select>
@@ -88,11 +104,11 @@
 </div>
 </div>
 <div id="site-footer"></div>
-<script src="assets/js/lib/lightweight-charts.js?v=45"></script>
-<script src="assets/js/deriv.js?v=45"></script>
-<script src="assets/js/indicators.js?v=45"></script>
-<script src="assets/js/strategies/ema-cross.js?v=45"></script><script src="assets/js/strategies/bollinger.js?v=45"></script>
-<script src="assets/js/strategies/smc.js?v=45"></script><script src="assets/js/strategies/gtm.js?v=45"></script><script src="assets/js/strategies/multi.js?v=45"></script>
-<script src="assets/js/engines.js?v=45"></script><script src="assets/js/chartdraw.js?v=45"></script><script src="assets/js/signals.js?v=45"></script>
+<script src="assets/js/lib/lightweight-charts.js?v=46"></script>
+<script src="assets/js/deriv.js?v=46"></script>
+<script src="assets/js/indicators.js?v=46"></script>
+<script src="assets/js/strategies/ema-cross.js?v=46"></script><script src="assets/js/strategies/bollinger.js?v=46"></script>
+<script src="assets/js/strategies/triple.js?v=46"></script><script src="assets/js/strategies/smc.js?v=46"></script><script src="assets/js/strategies/gtm.js?v=46"></script><script src="assets/js/strategies/multi.js?v=46"></script>
+<script src="assets/js/engines.js?v=46"></script><script src="assets/js/chartdraw.js?v=46"></script><script src="assets/js/signals.js?v=46"></script><script src="assets/js/triple-ui.js?v=46"></script>
 </body>
 </html>
