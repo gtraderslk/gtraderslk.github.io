@@ -8,13 +8,13 @@
   const ENG = ENGS.map, VIS = ENGS.order.filter(e => !e.hidden && ENG[e.key]);
   const $ = id => document.getElementById(id);
   const me = GT.auth.current();
-  if (!GT.feature('signals', me)) { $('sig-app').innerHTML = '<div class="gate" style="grid-column:1/-1"><div class="lock">🛠</div><h2 style="font-size:24px">The signal engine is paused</h2><p class="muted">It is switched off for a short while. Please check back soon.</p></div>'; $('scanner').style.display = 'none'; return; }
+  if (!GT.feature('signals', me)) { $('sig-app').innerHTML = '<div class="gate" style="grid-column:1/-1"><div class="lock">🛠</div><h2 style="font-size:24px">The signal engine is paused</h2><p class="muted">It is switched off for a short while. Please check back soon.</p></div>'; $('scanner').style.display = 'none'; if ($('tri')) $('tri').style.display = 'none'; return; }
   if (me) GT.auth.track('signals');
   // visitors without an account: a short free look each day, then "create a free account"
   if (!me) {
     const mins = +GT.site().limits.guestSignalMin, KEY = 'gt_guest_sig';
     const lock = () => {
-      ['sig-app', 'scanner'].forEach(id => { const el = $(id); if (el && !el.classList.contains('sig-lock')) { el.classList.add('sig-lock'); if (id === 'sig-app') el.insertAdjacentHTML('beforeend', `<div class="lock-over"><div class="gate"><div class="lock">📈</div><h2 style="font-size:24px">Your free look has ended</h2>
+      ['sig-app', 'scanner', 'tri'].forEach(id => { const el = $(id); if (el && !el.classList.contains('sig-lock')) { el.classList.add('sig-lock'); if (id === 'sig-app') el.insertAdjacentHTML('beforeend', `<div class="lock-over"><div class="gate"><div class="lock">📈</div><h2 style="font-size:24px">Your free look has ended</h2>
         <p class="muted">Create a free G TRADERS account to keep using the live signals, the scanner, the $10,000 demo and EA Bot Studio. No card, no payment.</p>
         <div class="row"><a class="btn primary" href="account.html?tab=signup&next=signals.html">Create free account</a><a class="btn ghost" href="account.html?tab=login&next=signals.html">Log in</a></div></div></div>`); } });
       const p = document.querySelector('.guest-pill'); if (p) p.remove();
@@ -67,9 +67,10 @@
   /* ---------- chart ---------- */
   const lc = new GTMarket.LiveChart({
     key: 'sig', container: $('chart'), picker: $('pick'), tfBox: $('tf'), status: $('st'), gran: 300, onMessage: msg, symbol: 'BTCUSDT',
-    onCandles: (c, isNew, first) => { if (isNew) render(); else info(); if (first) runMTF(); }
+    onCandles: (c, isNew, first) => { if (isNew) render(); else info(); if (first) runMTF(); if (window.GTTri) window.GTTri.update(isNew, first); }
   });
 
+  window.GTSigLC = lc;
   // drawing tools + live TP / SL box
   const dr = new GTDraw(lc, { key: 'sig', toolbar: $('draw') });
 
