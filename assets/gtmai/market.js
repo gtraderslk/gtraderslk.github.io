@@ -157,6 +157,15 @@ Object.assign(G, {
   }
 });
 
+Object.assign(G, {
+  OrderCalcProfit: (type, name, lot, po, pc) => {
+    const tv = G.SymbolInfoDouble(name, G.SYMBOL_TRADE_TICK_VALUE), ts = G.SymbolInfoDouble(name, G.SYMBOL_TRADE_TICK_SIZE);
+    if (!(tv > 0) || !(ts > 0)) { G._R = [0]; return false; }
+    const sgn = (type === G.ORDER_TYPE_SELL) ? -1 : 1;
+    G._R = [sgn * (pc - po) / ts * tv * lot]; return true;
+  }
+});
+
 /* ---------- MT5 series functions ---------- */
 function at(ser, shift) { const b = ser.bars; const i = b.length - 1 - shift; return (i >= 0 && i < b.length) ? b[i] : null; }
 Object.assign(G, {

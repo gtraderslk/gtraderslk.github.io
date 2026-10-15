@@ -1,9 +1,9 @@
 function GTMAI_EA(__IN){
 // generated from JARVIS_TradeCore.mq5 by mql2js.py - do not edit
-var _t1,_t2,_t3,_t4,_t5,_t6,_t7,_t8,_t9,_t10,_t11,_t12,_t13,_t14,_t15,_t16,_t17,_t18,_t19,_t20,_t21,_t22,_t23,_t24,_t25,_t26,_t27,_t28,_t29,_t30,_t31,_t32,_t33,_t34,_t35,_t36,_t37,_t38,_t39,_t40,_t41,_t42,_t43,_t44,_t45,_t46,_t47,_t48,_t49,_t50,_t51,_t52,_t53,_t54,_t55,_t56,_t57,_t58,_t59,_t60,_t61,_t62,_t63,_t64,_t65,_t66,_t67,_t68,_t69,_t70,_t71,_t72,_t73,_t74,_t75,_t76,_t77,_t78,_t79,_t80,_t81,_t82,_t83,_t84,_t85,_t86,_t87,_t88,_t89,_t90,_t91,_t92,_t93,_t94,_t95,_t96,_t97,_t98,_t99,_t100,_t101,_t102,_t103,_t104,_t105,_t106,_t107,_t108,_t109,_t110,_t111,_t112,_t113,_t114,_t115,_t116,_t117,_t118,_t119,_t120,_t121,_t122,_t123,_t124,_t125,_t126,_t127,_t128,_t129,_t130,_t131,_t132,_t133,_t134,_t135,_t136,_t137,_t138,_t139,_t140,_t141,_t142,_t143,_t144,_t145,_t146,_t147,_t148,_t149,_t150,_t151,_t152,_t153,_t154,_t155,_t156,_t157,_t158,_t159,_t160,_t161,_t162,_t163,_t164,_t165,_t166,_t167,_t168,_t169,_t170,_t171,_t172,_t173,_t174,_t175,_t176,_t177,_t178,_t179,_t180,_t181,_t182,_t183,_t184,_t185,_t186,_t187,_t188,_t189,_t190,_t191,_t192,_t193,_t194,_t195,_t196,_t197,_t198,_t199,_t200,_t201,_t202,_t203,_t204,_t205,_t206,_t207,_t208,_t209,_t210,_t211,_t212,_t213,_t214,_t215,_t216,_t217,_t218,_t219,_t220,_t221,_t222,_t223,_t224,_t225,_t226,_t227,_t228,_t229,_t230,_t231,_t232,_t233,_t234,_t235,_t236,_t237,_t238,_t239,_t240,_t241,_t242,_t243;
+var _t1,_t2,_t3,_t4,_t5,_t6,_t7,_t8,_t9,_t10,_t11,_t12,_t13,_t14,_t15,_t16,_t17,_t18,_t19,_t20,_t21,_t22,_t23,_t24,_t25,_t26,_t27,_t28,_t29,_t30,_t31,_t32,_t33,_t34,_t35,_t36,_t37,_t38,_t39,_t40,_t41,_t42,_t43,_t44,_t45,_t46,_t47,_t48,_t49,_t50,_t51,_t52,_t53,_t54,_t55,_t56,_t57,_t58,_t59,_t60,_t61,_t62,_t63,_t64,_t65,_t66,_t67,_t68,_t69,_t70,_t71,_t72,_t73,_t74,_t75,_t76,_t77,_t78,_t79,_t80,_t81,_t82,_t83,_t84,_t85,_t86,_t87,_t88,_t89,_t90,_t91,_t92,_t93,_t94,_t95,_t96,_t97,_t98,_t99,_t100,_t101,_t102,_t103,_t104,_t105,_t106,_t107,_t108,_t109,_t110,_t111,_t112,_t113,_t114,_t115,_t116,_t117,_t118,_t119,_t120,_t121,_t122,_t123,_t124,_t125,_t126,_t127,_t128,_t129,_t130,_t131,_t132,_t133,_t134,_t135,_t136,_t137,_t138,_t139,_t140,_t141,_t142,_t143,_t144,_t145,_t146,_t147,_t148,_t149,_t150,_t151,_t152,_t153,_t154,_t155,_t156,_t157,_t158,_t159,_t160,_t161,_t162,_t163,_t164,_t165,_t166,_t167,_t168,_t169,_t170,_t171,_t172,_t173,_t174,_t175,_t176,_t177,_t178,_t179,_t180,_t181,_t182,_t183,_t184,_t185,_t186,_t187,_t188,_t189,_t190,_t191,_t192,_t193,_t194,_t195,_t196,_t197,_t198,_t199,_t200,_t201,_t202,_t203,_t204,_t205,_t206,_t207,_t208,_t209,_t210,_t211,_t212,_t213,_t214,_t215,_t216,_t217,_t218,_t219,_t220,_t221,_t222,_t223,_t224,_t225,_t226,_t227,_t228,_t229,_t230,_t231,_t232,_t233,_t234,_t235,_t236,_t237,_t238,_t239,_t240,_t241,_t242,_t243,_t244,_t245,_t246,_t247,_t248,_t249,_t250;
 class Setup{constructor(){this.on=false;this.tf=0;this.entry=0;this.dir=0;this.p1=0;this.p2=0;this.p3=0;this.lv1=0;this.lv2=0;this.ma=0;this.trend=false;this.trendP=0;this.slMode=0;this.sl=0;this.tp=0;this.lotMode=0;this.lot=0;this.risk=0;this.be=false;this.beAt=0;this.trail=false;this.trStart=0;this.trDist=0;this.htfOn=false;this.htf=0;this.htfType=0;this.hp1=0;this.hp2=0;this.hma=0;this.cwMode=0;this.cwN=0;this.cwPull=0;}_cp(){const o=new Setup();o.on=this.on;o.tf=this.tf;o.entry=this.entry;o.dir=this.dir;o.p1=this.p1;o.p2=this.p2;o.p3=this.p3;o.lv1=this.lv1;o.lv2=this.lv2;o.ma=this.ma;o.trend=this.trend;o.trendP=this.trendP;o.slMode=this.slMode;o.sl=this.sl;o.tp=this.tp;o.lotMode=this.lotMode;o.lot=this.lot;o.risk=this.risk;o.be=this.be;o.beAt=this.beAt;o.trail=this.trail;o.trStart=this.trStart;o.trDist=this.trDist;o.htfOn=this.htfOn;o.htf=this.htf;o.htfType=this.htfType;o.hp1=this.hp1;o.hp2=this.hp2;o.hma=this.hma;o.cwMode=this.cwMode;o.cwN=this.cwN;o.cwPull=this.cwPull; return o;}_zm(){this.on=false;this.tf=0;this.entry=0;this.dir=0;this.p1=0;this.p2=0;this.p3=0;this.lv1=0;this.lv2=0;this.ma=0;this.trend=false;this.trendP=0;this.slMode=0;this.sl=0;this.tp=0;this.lotMode=0;this.lot=0;this.risk=0;this.be=false;this.beAt=0;this.trail=false;this.trStart=0;this.trDist=0;this.htfOn=false;this.htf=0;this.htfType=0;this.hp1=0;this.hp2=0;this.hma=0;this.cwMode=0;this.cwN=0;this.cwPull=0;}}
 class JTrade{constructor(){this.open=false;this.live=false;this.ticket=0;this.si=0;this.dir=0;this.tf=0;this.lot=0;this.entry=0;this.sl=0;this.tp=0;this.sl0=0;this.t0=0;this.t1=0;this.exitP=0;this.pl=0;this.win=false;this.beDone=false;this.trailOn=false;this.safe=false;this.id=0;}_cp(){const o=new JTrade();o.open=this.open;o.live=this.live;o.ticket=this.ticket;o.si=this.si;o.dir=this.dir;o.tf=this.tf;o.lot=this.lot;o.entry=this.entry;o.sl=this.sl;o.tp=this.tp;o.sl0=this.sl0;o.t0=this.t0;o.t1=this.t1;o.exitP=this.exitP;o.pl=this.pl;o.win=this.win;o.beDone=this.beDone;o.trailOn=this.trailOn;o.safe=this.safe;o.id=this.id; return o;}_zm(){this.open=false;this.live=false;this.ticket=0;this.si=0;this.dir=0;this.tf=0;this.lot=0;this.entry=0;this.sl=0;this.tp=0;this.sl0=0;this.t0=0;this.t1=0;this.exitP=0;this.pl=0;this.win=false;this.beDone=false;this.trailOn=false;this.safe=false;this.id=0;}}
-class AnStat{constructor(){this.n=0;this.wins=0;this.losses=0;this.buys=0;this.sells=0;this.bWins=0;this.sWins=0;this.maxWs=0;this.maxLs=0;this.net=0;this.gp=0;this.gl=0;this.best=0;this.worst=0;this.lots=0;this.bNet=0;this.sNet=0;}_cp(){const o=new AnStat();o.n=this.n;o.wins=this.wins;o.losses=this.losses;o.buys=this.buys;o.sells=this.sells;o.bWins=this.bWins;o.sWins=this.sWins;o.maxWs=this.maxWs;o.maxLs=this.maxLs;o.net=this.net;o.gp=this.gp;o.gl=this.gl;o.best=this.best;o.worst=this.worst;o.lots=this.lots;o.bNet=this.bNet;o.sNet=this.sNet; return o;}_zm(){this.n=0;this.wins=0;this.losses=0;this.buys=0;this.sells=0;this.bWins=0;this.sWins=0;this.maxWs=0;this.maxLs=0;this.net=0;this.gp=0;this.gl=0;this.best=0;this.worst=0;this.lots=0;this.bNet=0;this.sNet=0;}}
+class AnStat{constructor(){this.n=0;this.wins=0;this.losses=0;this.be=0;this.tpN=0;this.slN=0;this.beN=0;this.tslN=0;this.manN=0;this.buys=0;this.sells=0;this.bWins=0;this.sWins=0;this.maxWs=0;this.maxLs=0;this.net=0;this.gp=0;this.gl=0;this.best=0;this.worst=0;this.lots=0;this.bNet=0;this.sNet=0;}_cp(){const o=new AnStat();o.n=this.n;o.wins=this.wins;o.losses=this.losses;o.be=this.be;o.tpN=this.tpN;o.slN=this.slN;o.beN=this.beN;o.tslN=this.tslN;o.manN=this.manN;o.buys=this.buys;o.sells=this.sells;o.bWins=this.bWins;o.sWins=this.sWins;o.maxWs=this.maxWs;o.maxLs=this.maxLs;o.net=this.net;o.gp=this.gp;o.gl=this.gl;o.best=this.best;o.worst=this.worst;o.lots=this.lots;o.bNet=this.bNet;o.sNet=this.sNet; return o;}_zm(){this.n=0;this.wins=0;this.losses=0;this.be=0;this.tpN=0;this.slN=0;this.beN=0;this.tslN=0;this.manN=0;this.buys=0;this.sells=0;this.bWins=0;this.sWins=0;this.maxWs=0;this.maxLs=0;this.net=0;this.gp=0;this.gl=0;this.best=0;this.worst=0;this.lots=0;this.bNet=0;this.sNet=0;}}
 var InpSymbols=(__IN.InpSymbols!==undefined?__IN.InpSymbols:"Volatility 10 Index,Volatility 10 (1s) Index,Volatility 25 Index,Volatility 25 (1s) Index,Volatility 50 Index,Volatility 50 (1s) Index,Volatility 75 Index,Volatility 75 (1s) Index,Volatility 100 Index,Volatility 100 (1s) Index");
 var InpSimBalance=(__IN.InpSimBalance!==undefined?__IN.InpSimBalance:1000.0);
 var InpAllowLive=(__IN.InpAllowLive!==undefined?__IN.InpAllowLive:true);
@@ -29,6 +29,7 @@ const TGV_ALWAYS=2;
 var InpTgVoice=(__IN.InpTgVoice!==undefined?__IN.InpTgVoice:TGV_VOICE);
 var InpSpeakReplies=(__IN.InpSpeakReplies!==undefined?__IN.InpSpeakReplies:true);
 var InpVoicePerDay=(__IN.InpVoicePerDay!==undefined?__IN.InpVoicePerDay:20);
+var InpTalkSec=(__IN.InpTalkSec!==undefined?__IN.InpTalkSec:0);
 var InpTtsKey=(__IN.InpTtsKey!==undefined?__IN.InpTtsKey:"PASTE AZURE SPEECH KEY HERE (optional)");
 var InpTtsRegion=(__IN.InpTtsRegion!==undefined?__IN.InpTtsRegion:"eastus");
 var InpSpeechLang=(__IN.InpSpeechLang!==undefined?__IN.InpSpeechLang:"si-LK");
@@ -53,7 +54,7 @@ var gShotT=((0)>>>0);
 var gShotCap="";
 const NSYM=30;
 const NAG=6;
-const NENTRY=11;
+const NENTRY=12;
 const NTF=6;
 const MAXB=400;
 const MAXLOG=200;
@@ -72,11 +73,12 @@ const E_CCI=7;
 const E_SAR=8;
 const E_ADX=9;
 const E_RULE=10;
-var ENAME=_AFILL(["MA line cross","RSI level","MACD cross","Breakout","Bollinger bounce","Bollinger break","Stochastic cross","CCI level","Parabolic SAR flip","ADX +DI/-DI cross","AI rule (your own conditions)"],NENTRY,"");
-var ESHORT=_AFILL(["MA X","RSI","MACD","BRK","BB-B","BB-X","STO","CCI","SAR","ADX","RULE"],NENTRY,"");
+const E_WSM=11;
+var ENAME=_AFILL(["MA line cross","RSI level","MACD cross","Breakout","Bollinger bounce","Bollinger break","Stochastic cross","CCI level","Parabolic SAR flip","ADX +DI/-DI cross","AI rule (your own conditions)","MA cross + candle SL (WMA7 x SMMA39)"],NENTRY,"");
+var ESHORT=_AFILL(["MA X","RSI","MACD","BRK","BB-B","BB-X","STO","CCI","SAR","ADX","RULE","MA-S"],NENTRY,"");
 var TFV=_AFILL([PERIOD_M1,PERIOD_M5,PERIOD_M15,PERIOD_M30,PERIOD_H1,PERIOD_H4],NTF,0);
 var TFN=_AFILL(["M1","M5","M15","M30","H1","H4"],NTF,"");
-var MAN=_AFILL(["SMA","EMA","SMMA","LWMA"],4,"");
+var MAN=_AFILL(["SMA","EMA","SMMA","WMA"],4,"");
 var SLN=_AFILL(["$ money","Points","ATR x"],3,"");
 var DIRN=_AFILL(["Buy + Sell","Buy only","Sell only"],3,"");
 var AGN=_AFILL(["RADAR","ORACLE","JUDGE","STRIKER","GUARD","VAULT"],NAG,"");
@@ -185,7 +187,7 @@ var gModal=0;
 var gChartScrollWas=true;
 var jN=0;
 var jLive=[],jDir=[];
-var jSym=[];
+var jSym=[],jTag=[];
 var jLot=[],jIn=[],jOut=[],jPL=[];
 var jT0=[],jT1=[];
 var gEditRB="",gEditRS="";
@@ -907,7 +909,9 @@ function VRes(id){
 function VBegin(type,urgent){
   if(!gVoice||type<0||type>=NVOICE) return false;
   let now=((Now())>>>0);
-  if(VCD[type]>0&&vLast[type]>0&&now-vLast[type]<(Math.trunc(VCD[type])>>>0)*1000) return false;
+  let cd=VCD[type];
+  if(cd>=30&&InpTalkSec>0) cd=InpTalkSec;
+  if(cd>0&&vLast[type]>0&&now-vLast[type]<(Math.trunc(cd)>>>0)*1000) return false;
   if(!urgent&&vQN>MAXVQ-24) return false;
   vLast[type]=((now)>>>0);
   if(urgent) {
@@ -1263,11 +1267,26 @@ function PBid(si){
 function PAsk(si){
   return SymbolInfoDouble(gSym[si],SYMBOL_ASK);
 }
+var gVppC=_A(NSYM,()=>0);
+var gVppT=_A(NSYM,()=>0);
+var gVppS=_A(NSYM,()=>"");
 function ValPerPrice(si,lot){
-  let tv=SymbolInfoDouble(gSym[si],SYMBOL_TRADE_TICK_VALUE);
-  let ts=SymbolInfoDouble(gSym[si],SYMBOL_TRADE_TICK_SIZE);
-  if(ts<=0||tv<=0) return 0;
-  return lot*tv/ts;
+  if(si<0||si>=gNS||lot<=0) return 0;
+  let nw=((GetTickCount())>>>0);
+  if(gVppC[si]<=0||gVppS[si]!==gSym[si]||nw-gVppT[si]>3000) {
+    let sy=gSym[si];
+    let ts=SymbolInfoDouble(sy,SYMBOL_TRADE_TICK_SIZE),mv=((ts>0?ts:Pt(si)))*200.0;
+    let bid=SymbolInfoDouble(sy,SYMBOL_BID),prof=0,v=0;
+    if(bid>0&&mv>0&&(_t23=OrderCalcProfit(ORDER_TYPE_BUY,sy,1.0,bid,bid+mv,prof),prof=_R[0],_t23)&&prof>0) v=prof/mv;
+    if(v<=0) {
+      let tv=SymbolInfoDouble(sy,SYMBOL_TRADE_TICK_VALUE);
+      if(ts>0&&tv>0) v=tv/ts;
+    }
+    gVppC[si]=v;
+    gVppT[si]=((nw)>>>0);
+    gVppS[si]=sy;
+  }
+  return lot*gVppC[si];
 }
 function MinLot(si){
   let mn=SymbolInfoDouble(gSym[si],SYMBOL_VOLUME_MIN);
@@ -1384,12 +1403,20 @@ function DefaultParams(s){
       s.p1=14;
       s.lv1=20;
       break;
+    case E_WSM:
+      s.p1=7;
+      s.p2=39;
+      s.p3=10;
+      s.lv1=1.0;
+      s.lv2=2;
+      s.ma=3;
+      break;
   }
 }
 function DefaultSetup(s){
   s.on=true;
-  s.tf=1;
-  s.entry=E_MA;
+  s.tf=0;
+  s.entry=E_WSM;
   s.dir=0;
   s.ma=1;
   s.trend=false;
@@ -1511,6 +1538,22 @@ function ParamInfo(entry,k,lab,step,mn,mx,dig){
         mx=80;
       }
       break;
+    case E_WSM:
+      if(k===0) lab="Fast MA period";
+      if(k===1) lab="Slow MA period";
+      if(k===2) {
+        lab="Stop loss: look back (candles)";
+        mn=2;
+        mx=100;
+      }
+      if(k===3) {
+        lab="Take profit = SL x  (1 = 1:1, 3 = 1:3)";
+        step=0.5;
+        mn=0.5;
+        mx=20;
+        dig=1;
+      }
+      break;
   }
   { const _rv=lab!==""; _R=[lab,step,mn,mx,dig]; return _rv; }
   _R=[lab,step,mn,mx,dig];
@@ -1546,6 +1589,31 @@ function ClampSetup(s){
   if(s.entry!==E_SAR) {
     if(s.p1<1) DefaultParams(s);
   }
+  if(s.entry===E_WSM) {
+    s.lv2=(+ClampI(Math.trunc(MathRound(s.lv2)),0,3));
+    s.p3=ClampI(s.p3,2,100);
+    s.lv1=Clamp(s.lv1,0.2,20);
+  }
+}
+var gAccKey="",gSavedAcc="";
+function AccountKeyNow(){
+  let lg=AccountInfoInteger(ACCOUNT_LOGIN);
+  if(lg<=0) return "";
+  let sv=AccountInfoString(ACCOUNT_SERVER);
+  (_t24=StringReplace(sv,";","_"),sv=_R[0],_t24);
+  return IntegerToString(lg)+"@"+sv;
+}
+function LotsToBroker(){
+  let n=0;
+  for(let i=0;i<gNS;i++) if(gAvail[i]) {
+    let mn=MinLot(i);
+    if(MathAbs(gSet[i].lot-mn)>1e-9) {
+      gSet[i].lot=mn;
+      n++;
+    }
+  }
+  if(gSelSym>=0&&gSelSym<gNS&&!gDirty) gEdit.lot=gSet[gSelSym].lot;
+  return n;
 }
 function SetupLine(si){
   let s=_cp(gSet[si]);
@@ -1562,17 +1630,17 @@ function SaveAll(){
     Log("Could not save the settings file",CL_DN);
     return false;
   }
-  FileWriteString(h,"G;"+IntegerToString(gMaxOpen)+";"+IntegerToString(gGuardAfter)+";"+DoubleToString(gSimStart,2)+";"+((gCeleb?"1":"0"))+";"+((gLowAnim?"1":"0"))+";"+((gVoice?"1":"0"))+"\n");
+  FileWriteString(h,"G;"+IntegerToString(gMaxOpen)+";"+IntegerToString(gGuardAfter)+";"+DoubleToString(gSimStart,2)+";"+((gCeleb?"1":"0"))+";"+((gLowAnim?"1":"0"))+";"+((gVoice?"1":"0"))+";"+gAccKey+"\n");
   let sl="S";
   for(let i=0;i<gNS;i++) sl+=";"+gSym[i];
   FileWriteString(h,sl+"\n");
   for(let i=0;i<gNS;i++) FileWriteString(h,SetupLine(i)+"\n");
   for(let i=0;i<gNS;i++) if(gRuleB[i]!==""||gRuleS[i]!=="") {
     let rb=gRuleB[i],rs=gRuleS[i];
-    (_t23=StringReplace(rb,";"," "),rb=_R[0],_t23);
-    (_t24=StringReplace(rs,";"," "),rs=_R[0],_t24);
-    (_t25=StringReplace(rb,"\n"," "),rb=_R[0],_t25);
-    (_t26=StringReplace(rs,"\n"," "),rs=_R[0],_t26);
+    (_t25=StringReplace(rb,";"," "),rb=_R[0],_t25);
+    (_t26=StringReplace(rs,";"," "),rs=_R[0],_t26);
+    (_t27=StringReplace(rb,"\n"," "),rb=_R[0],_t27);
+    (_t28=StringReplace(rs,"\n"," "),rs=_R[0],_t28);
     FileWriteString(h,"R;"+gSym[i]+";"+rb+";"+rs+"\n");
   }
   FileClose(h);
@@ -1598,6 +1666,7 @@ function LoadAll(){
       gCeleb=(p[4]==="1");
       gLowAnim=(p[5]==="1");
       if(n>=7) gVoice=(p[6]==="1");
+      if(n>=8) gSavedAcc=p[7];
       continue;
     }
     if(n>=1&&p[0]==="S") continue;
@@ -1671,12 +1740,12 @@ function Release(h){
 }
 function MakeHandles(si){
   if(si<0||si>=gNS) return;
-  (_t27=Release(gH1[si]),gH1[si]=_R[0],_t27);
-  (_t28=Release(gH2[si]),gH2[si]=_R[0],_t28);
-  (_t29=Release(gHT[si]),gHT[si]=_R[0],_t29);
-  (_t30=Release(gHA[si]),gHA[si]=_R[0],_t30);
-  (_t31=Release(gHH1[si]),gHH1[si]=_R[0],_t31);
-  (_t32=Release(gHH2[si]),gHH2[si]=_R[0],_t32);
+  (_t29=Release(gH1[si]),gH1[si]=_R[0],_t29);
+  (_t30=Release(gH2[si]),gH2[si]=_R[0],_t30);
+  (_t31=Release(gHT[si]),gHT[si]=_R[0],_t31);
+  (_t32=Release(gHA[si]),gHA[si]=_R[0],_t32);
+  (_t33=Release(gHH1[si]),gHH1[si]=_R[0],_t33);
+  (_t34=Release(gHH2[si]),gHH2[si]=_R[0],_t34);
   if(!gAvail[si]) return;
   let s=_cp(gSet[si]);
   let sym=gSym[si];
@@ -1685,6 +1754,10 @@ function MakeHandles(si){
     case E_MA:
       gH1[si]=iMA(sym,tf,IMax(1,s.p1),0,s.ma,PRICE_CLOSE);
       gH2[si]=iMA(sym,tf,IMax(1,s.p2),0,s.ma,PRICE_CLOSE);
+      break;
+    case E_WSM:
+      gH1[si]=iMA(sym,tf,IMax(1,s.p1),0,ClampI(s.ma,0,3),PRICE_CLOSE);
+      gH2[si]=iMA(sym,tf,IMax(1,s.p2),0,ClampI(Math.trunc(MathRound(s.lv2)),0,3),PRICE_CLOSE);
       break;
     case E_RSI:
       gH1[si]=iRSI(sym,tf,IMax(2,s.p1),PRICE_CLOSE);
@@ -1837,7 +1910,7 @@ function Tokenize(src,err){
       let j=i;
       while(j<n&&(IsAlpha(StringGetCharacter(src,j))||IsDigit(StringGetCharacter(src,j)))) j++;
       let w=StringSubstr(src,i,j-i);
-      (_t33=StringToUpper(w),w=_R[0],_t33);
+      (_t35=StringToUpper(w),w=_R[0],_t35);
       TkAdd(1,w,0);
       i=j;
       continue;
@@ -2026,13 +2099,13 @@ function RCompile(src,first,err){
   first=rcN;
   err="";
   let s=src;
-  (_t34=StringTrimLeft(s),s=_R[0],_t34);
-  (_t35=StringTrimRight(s),s=_R[0],_t35);
+  (_t36=StringTrimLeft(s),s=_R[0],_t36);
+  (_t37=StringTrimRight(s),s=_R[0],_t37);
   if(s==="") { const _rv=0; _R=[first,err]; return _rv; }
-  if(!(_t36=Tokenize(s,err),err=_R[0],_t36)) { const _rv=-1; _R=[first,err]; return _rv; }
+  if(!(_t38=Tokenize(s,err),err=_R[0],_t38)) { const _rv=-1; _R=[first,err]; return _rv; }
   let g=0,cnt=0;
   while(tkP<tkN) {
-    let a=(_t37=RParseTerm(err),err=_R[0],_t37);
+    let a=(_t39=RParseTerm(err),err=_R[0],_t39);
     if(a<0) { const _rv=-1; _R=[first,err]; return _rv; }
     if(tkP>=tkN) {
       err="a comparison (> < CROSSUP ...) is missing";
@@ -2044,7 +2117,7 @@ function RCompile(src,first,err){
       { const _rv=-1; _R=[first,err]; return _rv; }
     }
     tkP++;
-    let b=(_t38=RParseTerm(err),err=_R[0],_t38);
+    let b=(_t40=RParseTerm(err),err=_R[0],_t40);
     if(b<0) { const _rv=-1; _R=[first,err]; return _rv; }
     if(rcN>=RMAXC) {
       err="too many conditions";
@@ -2084,7 +2157,7 @@ function RuleCompileAll(){
     if(si>=gNS) continue;
     let f=0;
     let e="";
-    let n=(_t39=RCompile((sd===0?gRuleB[si]:gRuleS[si]),f,e),f=_R[0],e=_R[1],_t39);
+    let n=(_t41=RCompile((sd===0?gRuleB[si]:gRuleS[si]),f,e),f=_R[0],e=_R[1],_t41);
     if(n<0) {
       ruleErr[si][sd]=e;
       rcN=f;
@@ -2097,7 +2170,7 @@ function RuleCompileAll(){
 function RuleCheck(src){
   let keepT=rtN,keepC=rcN,f=0;
   let e="";
-  let n=(_t40=RCompile(src,f,e),f=_R[0],e=_R[1],_t40);
+  let n=(_t42=RCompile(src,f,e),f=_R[0],e=_R[1],_t42);
   rtN=keepT;
   rcN=keepC;
   return (n<0?e:"");
@@ -2408,7 +2481,7 @@ function RTerm(si,t,base){
     case RF_SWEEP:
       {
         let b=0,c=0,tr=0,ob=0,fv=0,sw=0;
-        if(!(_t41=SmcCalc(sym,tf,Math.trunc(RArg(t,0,3)),s,b,c,tr,ob,fv,sw),b=_R[0],c=_R[1],tr=_R[2],ob=_R[3],fv=_R[4],sw=_R[5],_t41)) return EMPTY_VALUE;
+        if(!(_t43=SmcCalc(sym,tf,Math.trunc(RArg(t,0,3)),s,b,c,tr,ob,fv,sw),b=_R[0],c=_R[1],tr=_R[2],ob=_R[3],fv=_R[4],sw=_R[5],_t43)) return EMPTY_VALUE;
         if(f===RF_BOS) return b;
         if(f===RF_CHOCH) return c;
         if(f===RF_STRUCT) return tr;
@@ -2499,22 +2572,22 @@ function HtfBias(si){
   if(c===0) return -9;
   switch(s.htfType) {
     case 0:
-      if(!(_t42=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t42)||!(_t43=Buf(gHH2[si],0,b1,b2,hs),b1=_R[0],b2=_R[1],_t43)) return -9;
+      if(!(_t44=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t44)||!(_t45=Buf(gHH2[si],0,b1,b2,hs),b1=_R[0],b2=_R[1],_t45)) return -9;
       return (a1>b1?1:((a1<b1?-1:0)));
     case 1:
-      if(!(_t44=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t44)) return -9;
+      if(!(_t46=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t46)) return -9;
       return (c>a1?1:((c<a1?-1:0)));
     case 2:
-      if(!(_t45=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t45)||!(_t46=Buf(gHH1[si],1,b1,b2,hs),b1=_R[0],b2=_R[1],_t46)) return -9;
+      if(!(_t47=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t47)||!(_t48=Buf(gHH1[si],1,b1,b2,hs),b1=_R[0],b2=_R[1],_t48)) return -9;
       return (a1>b1?1:((a1<b1?-1:0)));
     case 3:
-      if(!(_t47=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t47)) return -9;
+      if(!(_t49=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t49)) return -9;
       return (a1>50?1:((a1<50?-1:0)));
     case 4:
-      if(!(_t48=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t48)) return -9;
+      if(!(_t50=Buf(gHH1[si],0,a1,a2,hs),a1=_R[0],a2=_R[1],_t50)) return -9;
       return (a1<c?1:((a1>c?-1:0)));
     case 5:
-      if(!(_t49=Buf(gHH1[si],1,a1,a2,hs),a1=_R[0],a2=_R[1],_t49)||!(_t50=Buf(gHH1[si],2,b1,b2,hs),b1=_R[0],b2=_R[1],_t50)) return -9;
+      if(!(_t51=Buf(gHH1[si],1,a1,a2,hs),a1=_R[0],a2=_R[1],_t51)||!(_t52=Buf(gHH1[si],2,b1,b2,hs),b1=_R[0],b2=_R[1],_t52)) return -9;
       return (a1>b1?1:((a1<b1?-1:0)));
   }
   return 0;
@@ -2533,7 +2606,7 @@ function Signal(si,why){
   let a1=0,a2=0,b1=0,b2=0;
   switch(s.entry) {
     case E_MA:
-      if(!(_t51=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t51)||!(_t52=Buf(gH2[si],0,b1,b2),b1=_R[0],b2=_R[1],_t52)) { const _rv=-9; _R=[why]; return _rv; }
+      if(!(_t53=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t53)||!(_t54=Buf(gH2[si],0,b1,b2),b1=_R[0],b2=_R[1],_t54)) { const _rv=-9; _R=[why]; return _rv; }
       if(a1>b1&&a2<=b2) {
         sig=1;
         why=MAN[s.ma]+" "+IntegerToString(s.p1)+" crossed above "+IntegerToString(s.p2);
@@ -2543,8 +2616,22 @@ function Signal(si,why){
         why=MAN[s.ma]+" "+IntegerToString(s.p1)+" crossed below "+IntegerToString(s.p2);
       }
       break;
+    case E_WSM:
+      {
+        if(!(_t55=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t55)||!(_t56=Buf(gH2[si],0,b1,b2),b1=_R[0],b2=_R[1],_t56)) { const _rv=-9; _R=[why]; return _rv; }
+        let fnm=MAN[ClampI(s.ma,0,3)]+" "+IntegerToString(s.p1),snm=MAN[ClampI(Math.trunc(MathRound(s.lv2)),0,3)]+" "+IntegerToString(s.p2);
+        if(a1>b1&&a2<=b2) {
+          sig=1;
+          why=fnm+" crossed above "+snm;
+        }
+        if(a1<b1&&a2>=b2) {
+          sig=-1;
+          why=fnm+" crossed below "+snm;
+        }
+        break;
+      }
     case E_RSI:
-      if(!(_t53=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t53)) { const _rv=-9; _R=[why]; return _rv; }
+      if(!(_t57=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t57)) { const _rv=-9; _R=[why]; return _rv; }
       if(a2<s.lv1&&a1>=s.lv1) {
         sig=1;
         why="RSI crossed up "+DoubleToString(s.lv1,0);
@@ -2555,7 +2642,7 @@ function Signal(si,why){
       }
       break;
     case E_MACD:
-      if(!(_t54=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t54)||!(_t55=Buf(gH1[si],1,b1,b2),b1=_R[0],b2=_R[1],_t55)) { const _rv=-9; _R=[why]; return _rv; }
+      if(!(_t58=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t58)||!(_t59=Buf(gH1[si],1,b1,b2),b1=_R[0],b2=_R[1],_t59)) { const _rv=-9; _R=[why]; return _rv; }
       if(a1>b1&&a2<=b2) {
         sig=1;
         why="MACD crossed above signal";
@@ -2585,7 +2672,7 @@ function Signal(si,why){
     case E_BBB:
       {
         let u1=0,u2=0,l1=0,l2=0;
-        if(!(_t56=Buf(gH1[si],1,u1,u2),u1=_R[0],u2=_R[1],_t56)||!(_t57=Buf(gH1[si],2,l1,l2),l1=_R[0],l2=_R[1],_t57)) { const _rv=-9; _R=[why]; return _rv; }
+        if(!(_t60=Buf(gH1[si],1,u1,u2),u1=_R[0],u2=_R[1],_t60)||!(_t61=Buf(gH1[si],2,l1,l2),l1=_R[0],l2=_R[1],_t61)) { const _rv=-9; _R=[why]; return _rv; }
         if(c2<l2&&c1>l1) {
           sig=1;
           why="back inside the lower band";
@@ -2599,7 +2686,7 @@ function Signal(si,why){
     case E_BBX:
       {
         let u1=0,u2=0,l1=0,l2=0;
-        if(!(_t58=Buf(gH1[si],1,u1,u2),u1=_R[0],u2=_R[1],_t58)||!(_t59=Buf(gH1[si],2,l1,l2),l1=_R[0],l2=_R[1],_t59)) { const _rv=-9; _R=[why]; return _rv; }
+        if(!(_t62=Buf(gH1[si],1,u1,u2),u1=_R[0],u2=_R[1],_t62)||!(_t63=Buf(gH1[si],2,l1,l2),l1=_R[0],l2=_R[1],_t63)) { const _rv=-9; _R=[why]; return _rv; }
         if(c1>u1&&c2<=u2) {
           sig=1;
           why="broke above the upper band";
@@ -2611,7 +2698,7 @@ function Signal(si,why){
         break;
       }
     case E_STO:
-      if(!(_t60=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t60)||!(_t61=Buf(gH1[si],1,b1,b2),b1=_R[0],b2=_R[1],_t61)) { const _rv=-9; _R=[why]; return _rv; }
+      if(!(_t64=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t64)||!(_t65=Buf(gH1[si],1,b1,b2),b1=_R[0],b2=_R[1],_t65)) { const _rv=-9; _R=[why]; return _rv; }
       if(a1>b1&&a2<=b2&&a2<=s.lv1) {
         sig=1;
         why="Stochastic crossed up in oversold";
@@ -2622,7 +2709,7 @@ function Signal(si,why){
       }
       break;
     case E_CCI:
-      if(!(_t62=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t62)) { const _rv=-9; _R=[why]; return _rv; }
+      if(!(_t66=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t66)) { const _rv=-9; _R=[why]; return _rv; }
       if(a2<-s.lv1&&a1>=-s.lv1) {
         sig=1;
         why="CCI crossed up -"+DoubleToString(s.lv1,0);
@@ -2633,7 +2720,7 @@ function Signal(si,why){
       }
       break;
     case E_SAR:
-      if(!(_t63=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t63)) { const _rv=-9; _R=[why]; return _rv; }
+      if(!(_t67=Buf(gH1[si],0,a1,a2),a1=_R[0],a2=_R[1],_t67)) { const _rv=-9; _R=[why]; return _rv; }
       if(a2>c2&&a1<c1) {
         sig=1;
         why="SAR flipped below price";
@@ -2660,7 +2747,7 @@ function Signal(si,why){
     case E_ADX:
       {
         let x1=0,x2=0;
-        if(!(_t64=Buf(gH1[si],0,x1,x2),x1=_R[0],x2=_R[1],_t64)||!(_t65=Buf(gH1[si],1,a1,a2),a1=_R[0],a2=_R[1],_t65)||!(_t66=Buf(gH1[si],2,b1,b2),b1=_R[0],b2=_R[1],_t66)) { const _rv=-9; _R=[why]; return _rv; }
+        if(!(_t68=Buf(gH1[si],0,x1,x2),x1=_R[0],x2=_R[1],_t68)||!(_t69=Buf(gH1[si],1,a1,a2),a1=_R[0],a2=_R[1],_t69)||!(_t70=Buf(gH1[si],2,b1,b2),b1=_R[0],b2=_R[1],_t70)) { const _rv=-9; _R=[why]; return _rv; }
         if(a1>b1&&a2<=b2&&x1>=s.lv1) {
           sig=1;
           why="+DI crossed above -DI, ADX "+DoubleToString(x1,0);
@@ -2683,7 +2770,7 @@ function Signal(si,why){
   }
   if(s.trend) {
     let e1=0,e2=0;
-    if(!(_t67=Buf(gHT[si],0,e1,e2),e1=_R[0],e2=_R[1],_t67)) { const _rv=-9; _R=[why]; return _rv; }
+    if(!(_t71=Buf(gHT[si],0,e1,e2),e1=_R[0],e2=_R[1],_t71)) { const _rv=-9; _R=[why]; return _rv; }
     if(sig>0&&c1<e1) {
       why="BUY blocked: below EMA "+IntegerToString(s.trendP);
       { const _rv=0; _R=[why]; return _rv; }
@@ -2706,18 +2793,73 @@ function Signal(si,why){
   { const _rv=sig; _R=[why]; return _rv; }
   _R=[why];
 }
-function Distances(si,slD,tpD,lot){
+function StructLevel(si,dir,lvl){
+  let s=_cp(gSet[si]);
+  let tf=TFV[ClampI(s.tf,0,NTF-1)];
+  let nb=ClampI(s.p3,2,100);
+  let r=[];
+  ArraySetAsSeries(r,true);
+  if(CopyRates(gSym[si],tf,gBufShift,nb,r)<nb) { const _rv=false; _R=[lvl]; return _rv; }
+  lvl=((dir>0)?DBL_MAX:-DBL_MAX);
+  for(let i=0;i<nb;i++) {
+    if(dir>0) lvl=MathMin(lvl,MathMin(r[i].open,r[i].close));
+    else lvl=MathMax(lvl,MathMax(r[i].open,r[i].close));
+  }
+  for(let i=1;i<nb-1;i++) {
+    let b0=((dir>0)?MathMin(r[i].open,r[i].close):MathMax(r[i].open,r[i].close));
+    let bn=((dir>0)?MathMin(r[i-1].open,r[i-1].close):MathMax(r[i-1].open,r[i-1].close));
+    let bo=((dir>0)?MathMin(r[i+1].open,r[i+1].close):MathMax(r[i+1].open,r[i+1].close));
+    if((dir>0?(b0<=bn&&b0<=bo):(b0>=bn&&b0>=bo))) {
+      lvl=b0;
+      break;
+    }
+  }
+  { const _rv=(lvl>0&&lvl<DBL_MAX/2); _R=[lvl]; return _rv; }
+  _R=[lvl];
+}
+function DistancesEx(si,dir,slD,tpD,lot,why){
+  why="";
   let s=_cp(gSet[si]);
   let pt=Pt(si);
   lot=NormLot(si,s.lot);
   if(gLotOverride>0) lot=NormLot(si,gLotOverride);
   slD=0;
   tpD=0;
-  if(s.slMode===0) {
-    let vpp=ValPerPrice(si,lot);
-    if(vpp<=0) { const _rv=false; _R=[slD,tpD,lot]; return _rv; }
-    slD=s.sl/vpp;
-    tpD=s.tp/vpp;
+  let bid=PBid(si),ask=PAsk(si);
+  let minD=MinStopDist(si);
+  let spr=MathMax(0.0,ask-bid);
+  let need=minD+spr;
+  let v1=ValPerPrice(si,1.0);
+  let structure=(s.entry===E_WSM);
+  let dollar=(!structure&&s.slMode===0);
+  if(structure) {
+    if(dir===0) { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
+    let lvl=0;
+    if(!(_t72=StructLevel(si,dir,lvl),lvl=_R[0],_t72)) { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
+    let tf=TFV[ClampI(s.tf,0,NTF-1)];
+    let px=((gBufShift>1)?iOpen(gSym[si],tf,gBufShift-1):((dir>0?ask:bid)));
+    if(px<=0) { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
+    slD=((dir>0)?(px-lvl):(lvl-px));
+    if(slD<need) slD=need;
+    tpD=slD*MathMax(0.2,s.lv1);
+  }
+  else if(s.slMode===0) {
+    if(v1<=0) { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
+    slD=s.sl/(v1*lot);
+    tpD=s.tp/(v1*lot);
+    if(slD<need) {
+      lot=MathMin(lot,NormLot(si,s.sl/(v1*need)));
+      slD=s.sl/(v1*lot);
+      tpD=s.tp/(v1*lot);
+      if(slD<need) {
+        let lossAtMin=need*v1*lot;
+        if(lossAtMin>s.sl*1.15+0.01) {
+          why="SL $"+DoubleToString(s.sl,2)+" is too small here: the broker's minimum stop costs $"+DoubleToString(lossAtMin,2)+" with the smallest lot ("+DoubleToString(lot,3)+"). Raise the $ stop to at least that.";
+          { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
+        }
+        slD=need;
+      }
+    }
   }
   else if(s.slMode===1) {
     slD=s.sl*pt;
@@ -2725,21 +2867,29 @@ function Distances(si,slD,tpD,lot){
   }
   else {
     let a1=0,a2=0;
-    if(!(_t68=Buf(gHA[si],0,a1,a2),a1=_R[0],a2=_R[1],_t68)||a1<=0) { const _rv=false; _R=[slD,tpD,lot]; return _rv; }
+    if(!(_t73=Buf(gHA[si],0,a1,a2),a1=_R[0],a2=_R[1],_t73)||a1<=0) { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
     slD=s.sl*a1;
     tpD=s.tp*a1;
   }
-  if(s.lotMode===1&&s.slMode!==0&&gLotOverride<=0) {
-    let v1=ValPerPrice(si,1.0);
-    if(v1<=0||slD<=0) { const _rv=false; _R=[slD,tpD,lot]; return _rv; }
-    lot=NormLot(si,Balance()*s.risk/100.0/(slD*v1));
+  if(slD<need) slD=need;
+  if(tpD<minD) tpD=minD;
+  if(!dollar&&s.lotMode===1&&gLotOverride<=0) {
+    if(v1<=0||slD<=0) { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
+    let want=Balance()*s.risk/100.0;
+    lot=NormLot(si,want/(slD*v1));
+    let got=slD*v1*lot;
+    if(lot<=MinLot(si)*1.0001&&got>want*1.5+0.01) {
+      why="risk "+DoubleToString(s.risk,1)+"% ("+Money(want)+") is too small here: the smallest lot already risks "+Money(got)+". Raise the risk % or use a smaller stop.";
+      { const _rv=false; _R=[slD,tpD,lot,why]; return _rv; }
+    }
   }
   lot=GuardLot(si,lot);
-  let minD=MinStopDist(si);
-  let spr=MathMax(0.0,PAsk(si)-PBid(si));
-  if(slD<minD+spr) slD=minD+spr;
-  if(tpD<minD) tpD=minD;
-  { const _rv=(slD>0&&tpD>0&&lot>0); _R=[slD,tpD,lot]; return _rv; }
+  { const _rv=(slD>0&&tpD>0&&lot>0); _R=[slD,tpD,lot,why]; return _rv; }
+  _R=[slD,tpD,lot,why];
+}
+function Distances(si,slD,tpD,lot){
+  let w="";
+  { const _rv=(_t74=DistancesEx(si,0,slD,tpD,lot,w),slD=_R[0],tpD=_R[1],lot=_R[2],w=_R[3],_t74); _R=[slD,tpD,lot]; return _rv; }
   _R=[slD,tpD,lot];
 }
 function AddTrade(t){
@@ -2786,8 +2936,9 @@ function GuardCheck(si){
 }
 function OpenTrade(si,dir,why){
   let slD=0,tpD=0,lot=0;
-  if(!(_t69=Distances(si,slD,tpD,lot),slD=_R[0],tpD=_R[1],lot=_R[2],_t69)) {
-    Log(gShort[si]+": could not size the trade (no ATR / tick value yet)",CL_DN);
+  let dw="";
+  if(!(_t75=DistancesEx(si,dir,slD,tpD,lot,dw),slD=_R[0],tpD=_R[1],lot=_R[2],dw=_R[3],_t75)) {
+    Log(gShort[si]+": "+((dw!==""?dw:"could not size the trade (no ATR / tick value / candles yet)")),CL_DN);
     return false;
   }
   let dg=Dg(si);
@@ -2819,7 +2970,7 @@ function OpenTrade(si,dir,why){
     let mreq=0,vmin=SymbolInfoDouble(gSym[si],SYMBOL_VOLUME_MIN),vst=SymbolInfoDouble(gSym[si],SYMBOL_VOLUME_STEP);
     let fm=AccountInfoDouble(ACCOUNT_MARGIN_FREE)*0.9;
     for(let g=0;g<40;g++) {
-      if(!OrderCalcMargin((dir>0?ORDER_TYPE_BUY:ORDER_TYPE_SELL),gSym[si],lot,px,mreq)) {
+      if(!(_t76=OrderCalcMargin((dir>0?ORDER_TYPE_BUY:ORDER_TYPE_SELL),gSym[si],lot,px,mreq),mreq=_R[0],_t76)) {
         mreq=DBL_MAX;
         break;
       }
@@ -2868,7 +3019,7 @@ function OpenTrade(si,dir,why){
   ShotLater(k,((dir>0?"BUY ":"SELL "))+gSym[si]+"  entry "+DoubleToString(t.entry,dg)+"  SL "+DoubleToString(sl,dg)+"  TP "+DoubleToString(tp,dg));
   return true;
 }
-function JAdd(live,sym,dir,lot,_in,out,t0,t1,pl){
+function JAdd(live,sym,dir,lot,_in,out,t0,t1,pl,tag=""){
   if(ArraySize(jPL)<jN+1) {
     let ns=jN+256;
     ArrayResize(jLive,ns,()=>0);
@@ -2880,6 +3031,7 @@ function JAdd(live,sym,dir,lot,_in,out,t0,t1,pl){
     ArrayResize(jPL,ns,()=>0);
     ArrayResize(jT0,ns,()=>0);
     ArrayResize(jT1,ns,()=>0);
+    ArrayResize(jTag,ns,()=>"");
   }
   jLive[jN]=live;
   jDir[jN]=dir;
@@ -2890,6 +3042,7 @@ function JAdd(live,sym,dir,lot,_in,out,t0,t1,pl){
   jPL[jN]=pl;
   jT0[jN]=t0;
   jT1[jN]=t1;
+  jTag[jN]=tag;
   jN++;
 }
 function JWrite(k){
@@ -2898,7 +3051,7 @@ function JWrite(k){
   let h=FileOpen(JRNFILE,FILE_READ|FILE_WRITE|FILE_TXT|FILE_ANSI);
   if(h===INVALID_HANDLE) return;
   FileSeek(h,0,SEEK_END);
-  FileWriteString(h,((jLive[k]===1?"L":"S"))+";"+jSym[k]+";"+IntegerToString(jDir[k])+";"+DoubleToString(jLot[k],5)+";"+DoubleToString(jIn[k],8)+";"+DoubleToString(jOut[k],8)+";"+IntegerToString(jT0[k])+";"+IntegerToString(jT1[k])+";"+DoubleToString(jPL[k],2)+"\n");
+  FileWriteString(h,((jLive[k]===1?"L":"S"))+";"+jSym[k]+";"+IntegerToString(jDir[k])+";"+DoubleToString(jLot[k],5)+";"+DoubleToString(jIn[k],8)+";"+DoubleToString(jOut[k],8)+";"+IntegerToString(jT0[k])+";"+IntegerToString(jT1[k])+";"+DoubleToString(jPL[k],2)+";"+jTag[k]+"\n");
   FileClose(h);
 }
 function JLoad(){
@@ -2910,7 +3063,7 @@ function JLoad(){
     let line=FileReadString(h);
     let p=[];
     if(StringSplit(line,59,p)<9) continue;
-    JAdd((p[0]==="L"?1:0),p[1],StringToInteger(p[2]),StringToDouble(p[3]),StringToDouble(p[4]),StringToDouble(p[5]),StringToInteger(p[6]),StringToInteger(p[7]),StringToDouble(p[8]));
+    JAdd((p[0]==="L"?1:0),p[1],StringToInteger(p[2]),StringToDouble(p[3]),StringToDouble(p[4]),StringToDouble(p[5]),StringToInteger(p[6]),StringToInteger(p[7]),StringToDouble(p[8]),(ArraySize(p)>=10?p[9]:""));
   }
   FileClose(h);
 }
@@ -2967,26 +3120,46 @@ function Celebrate(pl,sym){
     cfC[i]=((pal[(MathRand()%5)])>>>0);
   }
 }
-function Finish(k,exitP,pl,how,quiet=false){
+function ExitTag(k,exitP,pl,how){
+  if(how==="closed by you") return "MAN";
+  if(how==="TAKE PROFIT") return "TP";
+  if(how==="STOP LOSS") return "SL";
+  if(how==="closed at break-even") return "BE";
+  if(how==="trailing stop in profit") return "TSL";
+  if(StringFind(how,"switched to LIVE")>=0||StringFind(how,"result not found")>=0) return "MAN";
+  let si=gT[k].si;
+  if(si<0||si>=gNS) return (pl>0?"TP":"SL");
+  let pt=Pt(si),tpD=MathAbs(gT[k].tp-gT[k].entry),tol=MathMax(5*pt,tpD*0.03);
+  if(gT[k].tp>0&&MathAbs(exitP-gT[k].tp)<=tol) return "TP";
+  let profit=((gT[k].dir>0?exitP>gT[k].entry:exitP<gT[k].entry));
+  if(gT[k].trailOn&&profit&&MathAbs(exitP-gT[k].entry)>tol) return "TSL";
+  if((gT[k].beDone||gT[k].trailOn)&&MathAbs(exitP-gT[k].entry)<=tol) return "BE";
+  if(gT[k].sl0>0&&MathAbs(exitP-gT[k].sl0)<=tol) return "SL";
+  return (pl>0?"TP":"SL");
+}
+function Finish(k,exitP,pl,how0,quiet=false){
   if(k<0||k>=gTN) return;
+  let how=how0;
+  let tag=ExitTag(k,exitP,pl,how);
+  if(StringFind(how,"closed in profit")===0||how==="stopped out") how=((tag==="TP")?"TAKE PROFIT":(((tag==="TSL")?"trailing stop in profit":(((tag==="BE")?"closed at break-even":"STOP LOSS")))));
   gT[k].open=false;
   gT[k].exitP=exitP;
   gT[k].pl=pl;
-  gT[k].win=(pl>0);
+  gT[k].win=(tag!=="BE"&&pl>0.005);
   gT[k].t1=TimeCurrent();
   let si=gT[k].si;
   if(si>=0&&si<gNS) gSt[si]=0;
   if(!gT[k].live) gSimBal+=pl;
   let sn=((si>=0&&si<gNS)?gShort[si]:"?");
   let side=(gT[k].dir>0?"BUY ":"SELL ");
-  JAdd((gT[k].live?1:0),((si>=0&&si<gNS)?gSym[si]:"?"),gT[k].dir,gT[k].lot,gT[k].entry,exitP,gT[k].t0,gT[k].t1,pl);
+  JAdd((gT[k].live?1:0),((si>=0&&si<gNS)?gSym[si]:"?"),gT[k].dir,gT[k].lot,gT[k].entry,exitP,gT[k].t0,gT[k].t1,pl,tag);
   JWrite(jN-1);
   if(!quiet) GuardOnClose(si,pl);
-  if(pl>0.005) {
+  if(pl>0.005&&tag!=="BE") {
     Log(sn+" "+how+"  +"+Money(pl),CL_UP);
     if(!quiet) Celebrate(pl,side+sn);
   }
-  else if(pl>-0.005) {
+  else if(pl>-0.005||tag==="BE") {
     Log(sn+" "+how+"  "+Money(pl),CL_AU);
     if(!quiet) {
       gBeF=60;
@@ -3006,8 +3179,9 @@ function Finish(k,exitP,pl,how,quiet=false){
   TgNotify(((pl>0.005?"✅ ":((pl<-0.005?"❌ ":"⚪ "))))+side+(((si>=0&&si<gNS)?gSym[si]:"?"))+" "+how+"  "+((pl>0?"+":""))+Money(pl));
   ShotLater(k,side+(((si>=0&&si<gNS)?gSym[si]:"?"))+" "+how+"  "+((pl>0?"+":""))+Money(pl));
   let vsym=((si>=0&&si<gNS)?gSym[si]:"");
-  if(how==="closed by you") SayTrade((pl>0.005?V_MANWIN:((pl<-0.005?V_MANLOSS:V_BECLOSE))),vsym,pl);
-  else if(pl>0.005) SayTrade((StringFind(how,"trailing")>=0?V_TRAILWIN:V_TP),vsym,pl);
+  if(tag==="MAN") SayTrade((pl>0.005?V_MANWIN:((pl<-0.005?V_MANLOSS:V_BECLOSE))),vsym,pl);
+  else if(tag==="BE") SayTrade(V_BECLOSE,vsym,pl);
+  else if(pl>0.005) SayTrade((tag==="TSL"?V_TRAILWIN:V_TP),vsym,pl);
   else if(pl>-0.005) SayTrade(V_BECLOSE,vsym,pl);
   else SayTrade(V_SL,vsym,pl);
   gCoreTx="closed "+sn;
@@ -3099,7 +3273,12 @@ function ManageOne(k){
     }
     if(hitSL) {
       let pl=(gT[k].sl-gT[k].entry)*dir*vpp;
-      Finish(k,gT[k].sl,pl,(pl>0?"trailing stop in profit":((MathAbs(pl)<0.01?"closed at break-even":"STOP LOSS"))));
+      let hw="STOP LOSS";
+      let btol=MathMax(4*Pt(si),(ask-bid)*2);
+      let nearEntry=(MathAbs(gT[k].sl-gT[k].entry)<=btol);
+      if((gT[k].beDone||gT[k].trailOn)&&nearEntry) hw="closed at break-even";
+      else if(gT[k].trailOn&&pl>0) hw="trailing stop in profit";
+      Finish(k,gT[k].sl,pl,hw);
       return;
     }
     gT[k].pl=(px-gT[k].entry)*dir*vpp;
@@ -3281,7 +3460,8 @@ function ProcessPending(si){
   if(bid<=0||ask<=0) return;
   let px=(dir>0?ask:bid);
   let slD=0,tpD=0,lot=0;
-  if(!(_t70=Distances(si,slD,tpD,lot),slD=_R[0],tpD=_R[1],lot=_R[2],_t70)) slD=0;
+  let dw="";
+  if(!(_t77=DistancesEx(si,dir,slD,tpD,lot,dw),slD=_R[0],tpD=_R[1],lot=_R[2],dw=_R[3],_t77)) slD=0;
   let bars=iBarShift(gSym[si],tf,gPendT[si],false);
   if(bars<0) bars=0;
   let sd=(dir>0?"BUY":"SELL");
@@ -3359,7 +3539,7 @@ function Scan(){
       continue;
     }
     let why="";
-    let sig=(_t71=Signal(si,why),why=_R[0],_t71);
+    let sig=(_t78=Signal(si,why),why=_R[0],_t78);
     if(sig===-9) continue;
     gLastBar[si]=bt;
     if(HasOpen(si)) continue;
@@ -3428,7 +3608,7 @@ function BacktestNow(si,bars,net,trades,wr){
   let tf=TFV[ClampI(gSet[si].tf,0,NTF-1)];
   let why="";
   gBufShift=2;
-  (_t72=Signal(si,why),why=_R[0],_t72);
+  (_t79=Signal(si,why),why=_R[0],_t79);
   gBufShift=1;
   WaitHandles(si);
   let avail=Bars(sym,tf);
@@ -3461,10 +3641,11 @@ function BacktestNow(si,bars,net,trades,wr){
     }
     if(s<2) break;
     gBufShift=s;
-    let sig=(_t73=Signal(si,why),why=_R[0],_t73);
+    let sig=(_t80=Signal(si,why),why=_R[0],_t80);
     if(sig!==1&&sig!==-1) continue;
     let slD=0,tpD=0;
-    if(!(_t74=Distances(si,slD,tpD,lot),slD=_R[0],tpD=_R[1],lot=_R[2],_t74)) continue;
+    let dw="";
+    if(!(_t81=DistancesEx(si,sig,slD,tpD,lot,dw),slD=_R[0],tpD=_R[1],lot=_R[2],dw=_R[3],_t81)) continue;
     en=iOpen(sym,tf,s-1);
     if(en<=0) continue;
     dir=sig;
@@ -3491,7 +3672,7 @@ function BacktestProposal(si,p,rb,rs,bars,net,trades,wr){
   gRuleS[si]=rs;
   RuleCompileAll();
   MakeHandles(si);
-  let r=(_t75=BacktestNow(si,bars,net,trades,wr),net=_R[0],trades=_R[1],wr=_R[2],_t75);
+  let r=(_t82=BacktestNow(si,bars,net,trades,wr),net=_R[0],trades=_R[1],wr=_R[2],_t82);
   gSet[si]=_cp(keep);
   gRuleB[si]=kb;
   gRuleS[si]=ks;
@@ -4061,16 +4242,16 @@ function LayoutDash(){
     PathAdd(4,laneL,y4);
     PathAdd(4,lx+sw,y4);
     let y5=r2+rh*0.32;
-    (_t76=CoreEdge(lx+sw,y5,ex,ey),ex=_R[0],ey=_R[1],_t76);
+    (_t83=CoreEdge(lx+sw,y5,ex,ey),ex=_R[0],ey=_R[1],_t83);
     PathAdd(5,lx+sw,y5);
     PathAdd(5,ex,ey);
     let y6=r1+rh*0.5;
-    (_t77=CoreEdge(lx+sw,y6,ex,ey),ex=_R[0],ey=_R[1],_t77);
+    (_t84=CoreEdge(lx+sw,y6,ex,ey),ex=_R[0],ey=_R[1],_t84);
     PathAdd(6,ex,ey);
     PathAdd(6,lx+sw,y6);
     let gy=r0+rh+gv/2.0;
     let bx=RX[1]+RW[1]+m/2.0,ty=Clamp(gy,RY[6]+40,RY[6]+RH[6]-20);
-    (_t78=CoreEdge(laneR,gy,ex,ey),ex=_R[0],ey=_R[1],_t78);
+    (_t85=CoreEdge(laneR,gy,ex,ey),ex=_R[0],ey=_R[1],_t85);
     PathAdd(7,ex,ey);
     PathAdd(7,laneR,gy);
     PathAdd(7,bx,gy);
@@ -4293,7 +4474,7 @@ function AgentStatus(i,l1,l2){
   let wait=0;
   for(let si=0;si<gNS;si++) if(gPend[si]!==0) wait++;
   let closed=0,wins=0;
-  (_t79=WinStats(closed,wins),closed=_R[0],wins=_R[1],_t79);
+  (_t86=WinStats(closed,wins),closed=_R[0],wins=_R[1],_t86);
   switch(i) {
     case 0:
       l1="Scanning "+IntegerToString(on)+" of "+IntegerToString(gNS)+" symbols";
@@ -4366,7 +4547,7 @@ function DrawAgent(i,t){
   let nb=0,nbx=bx+cw-4;
   let yy=by+((compact?6:8));
   let l1="",l2="";
-  (_t80=AgentStatus(i,l1,l2),l1=_R[0],l2=_R[1],_t80);
+  (_t87=AgentStatus(i,l1,l2),l1=_R[0],l2=_R[1],_t87);
   if(compact) {
     Txt(tx,yy,Fit(AGN[i],fsN,true,tw-2*nb-8),c,fsN,true);
     let nw=TW(AGN[i],fsN,true);
@@ -4434,11 +4615,11 @@ function DrawEdges(from,to,t){
     if(e<from||e>to) continue;
     for(let k=0;k<7;k++) {
       let x=0,y=0;
-      (_t81=PathAt(e,MathMax(0,pkT[p]-k*0.025),x,y),x=_R[0],y=_R[1],_t81);
+      (_t88=PathAt(e,MathMax(0,pkT[p]-k*0.025),x,y),x=_R[0],y=_R[1],_t88);
       cv.DotA(x,y,4.2-k*0.5,pkC[p],255-k*32);
     }
     let hx=0,hy=0;
-    (_t82=PathAt(e,pkT[p],hx,hy),hx=_R[0],hy=_R[1],_t82);
+    (_t89=PathAt(e,pkT[p],hx,hy),hx=_R[0],hy=_R[1],_t89);
     if(!gLowAnim) cv.Glow(Math.trunc(hx),Math.trunc(hy),12,pkC[p],120);
   }
 }
@@ -4592,7 +4773,7 @@ function DrawHeat(x,y,w,h){
 function DrawBalance(x,y,w,h){
   Panel(x,y,w,h,"BALANCE HISTORY",CL_UP);
   let closed=0,wins=0;
-  (_t83=WinStats(closed,wins),closed=_R[0],wins=_R[1],_t83);
+  (_t90=WinStats(closed,wins),closed=_R[0],wins=_R[1],_t90);
   let inner=h-40;
   let sw=Math.trunc(MathMin(214,w*0.40));
   let sx=x+12,sy=y+30;
@@ -4629,7 +4810,7 @@ function DrawBalance(x,y,w,h){
   }
   let aiAll=0,aiToday=0;
   let aiN=0;
-  (_t84=AIProfit(aiAll,aiN,aiToday),aiAll=_R[0],aiN=_R[1],aiToday=_R[2],_t84);
+  (_t91=AIProfit(aiAll,aiN,aiToday),aiAll=_R[0],aiN=_R[1],aiToday=_R[2],_t91);
   let py0=sy+sh+6,ph0=y+h-10-py0;
   if(ph0>=34) {
     let pc=(((aiAll>=0?CL_UP:CL_DN))>>>0);
@@ -5024,9 +5205,9 @@ var omLive=_A(OVM,()=>false);
 var omC=_A(OVM,()=>0);
 var ovSmcOn=false;
 function OvRelease(){
-  (_t85=Release(ovH1),ovH1=_R[0],_t85);
-  (_t86=Release(ovH2),ovH2=_R[0],_t86);
-  (_t87=Release(ovHT),ovHT=_R[0],_t87);
+  (_t92=Release(ovH1),ovH1=_R[0],_t92);
+  (_t93=Release(ovH2),ovH2=_R[0],_t93);
+  (_t94=Release(ovHT),ovHT=_R[0],_t94);
   ovHKey="";
 }
 function OvAddSeries(pane,c,lab,dot=false){
@@ -5249,6 +5430,10 @@ function OvBuild(k,tfi){
           ovH1=iMA(sym,tf,IMax(1,s.p1),0,s.ma,PRICE_CLOSE);
           ovH2=iMA(sym,tf,IMax(1,s.p2),0,s.ma,PRICE_CLOSE);
           break;
+        case E_WSM:
+          ovH1=iMA(sym,tf,IMax(1,s.p1),0,ClampI(s.ma,0,3),PRICE_CLOSE);
+          ovH2=iMA(sym,tf,IMax(1,s.p2),0,ClampI(Math.trunc(MathRound(s.lv2)),0,3),PRICE_CLOSE);
+          break;
         case E_RSI:
           ovH1=iRSI(sym,tf,IMax(2,s.p1),PRICE_CLOSE);
           break;
@@ -5279,6 +5464,12 @@ function OvBuild(k,tfi){
         OvAddSeries(0,CL_CY,MAN[ClampI(s.ma,0,3)]+" "+IntegerToString(s.p1));
         ok=OvFill(0,ovH1,0,sym,tf)&&ok;
         OvAddSeries(0,CL_MG,MAN[ClampI(s.ma,0,3)]+" "+IntegerToString(s.p2));
+        ok=OvFill(1,ovH2,0,sym,tf)&&ok;
+        break;
+      case E_WSM:
+        OvAddSeries(0,CL_CY,MAN[ClampI(s.ma,0,3)]+" "+IntegerToString(s.p1));
+        ok=OvFill(0,ovH1,0,sym,tf)&&ok;
+        OvAddSeries(0,CL_MG,MAN[ClampI(Math.trunc(MathRound(s.lv2)),0,3)]+" "+IntegerToString(s.p2));
         ok=OvFill(1,ovH2,0,sym,tf)&&ok;
         break;
       case E_RSI:
@@ -5606,21 +5797,23 @@ function DrawTradeChart(x,y,w,hIn,k,prog,liveView){
   vis=ClampI(vis,1,n);
   let dragging=(liveView&&gDrag>0&&gDragK===k);
   let hi=t.entry,lo=t.entry;
-  if(t.tp>0) {
-    hi=MathMax(hi,t.tp);
-    lo=MathMin(lo,t.tp);
-  }
-  if(t.sl0>0) {
-    hi=MathMax(hi,t.sl0);
-    lo=MathMin(lo,t.sl0);
-  }
-  if(t.sl>0) {
-    hi=MathMax(hi,t.sl);
-    lo=MathMin(lo,t.sl);
-  }
   for(let i=0;i<vis;i++) {
     hi=MathMax(hi,gRp[i].high);
     lo=MathMin(lo,gRp[i].low);
+  }
+  let spn=MathMax(hi-lo,Pt(si)*20),ext=spn*0.4;
+  let c0=lo,c1=hi;
+  if(t.tp>0) {
+    hi=MathMax(hi,MathMin(t.tp,c1+ext));
+    lo=MathMin(lo,MathMax(t.tp,c0-ext));
+  }
+  if(t.sl0>0) {
+    hi=MathMax(hi,MathMin(t.sl0,c1+ext));
+    lo=MathMin(lo,MathMax(t.sl0,c0-ext));
+  }
+  if(t.sl>0) {
+    hi=MathMax(hi,MathMin(t.sl,c1+ext));
+    lo=MathMin(lo,MathMax(t.sl,c0-ext));
   }
   if(dragging) {
     hi=MathMax(hi,gChHi);
@@ -5651,7 +5844,7 @@ function DrawTradeChart(x,y,w,hIn,k,prog,liveView){
   let zx1=x+((ei>=0?Math.trunc((ei*cw)):0));
   let zx2=x+Math.trunc(((((!t.open&&xi>=0&&vis>xi)?xi+1:vis))*cw));
   if(zx2<=zx1) zx2=zx1+2;
-  let yTP=PYp(t.tp,y,h,lo,hi),yEN=PYp(t.entry,y,h,lo,hi),ySL0=PYp(t.sl0,y,h,lo,hi),ySL=PYp(t.sl,y,h,lo,hi);
+  let yTP=ClampI(PYp(t.tp,y,h,lo,hi),y+3,y+h-3),yEN=ClampI(PYp(t.entry,y,h,lo,hi),y+3,y+h-3),ySL0=ClampI(PYp(t.sl0,y,h,lo,hi),y+3,y+h-3),ySL=ClampI(PYp(t.sl,y,h,lo,hi),y+3,y+h-3);
   let hTP=(t.tp>0),hS0=(t.sl0>0),hSL=(t.sl>0);
   if(hTP) cv.RectA(zx1,IMin(yTP,yEN),zx2,IMax(yTP,yEN),CL_UP,40);
   if(hS0) cv.RectA(zx1,IMin(ySL0,yEN),zx2,IMax(ySL0,yEN),CL_DN,40);
@@ -5701,12 +5894,13 @@ function DrawTradeChart(x,y,w,hIn,k,prog,liveView){
   let hint=((liveView&&t.open)?"  drag":"");
   if(hTP) {
     cv.RoundFill(x+pw+2,yTP-8,x+w,yTP+8,4,CL_UP,(hovTP?120:60));
-    Txt(x+pw+6,yTP,"TP "+DoubleToString(t.tp,dg)+hint,CL_TX,8,true,TA_LEFT|TA_VCENTER);
+    Txt(x+pw+6,yTP,"TP "+DoubleToString(t.tp,dg)+((t.tp>hi?" ^":((t.tp<lo?" v":""))))+hint,CL_TX,8,true,TA_LEFT|TA_VCENTER);
   }
   let ys=((liveView&&t.open)?ySL:ySL0);
   if(((liveView&&t.open)?hSL:hS0)) {
     cv.RoundFill(x+pw+2,ys-8,x+w,ys+8,4,CL_DN,(hovSL?120:60));
-    Txt(x+pw+6,ys,"SL "+DoubleToString(((liveView&&t.open)?t.sl:t.sl0),dg)+hint,CL_TX,8,true,TA_LEFT|TA_VCENTER);
+    let slv=((liveView&&t.open)?t.sl:t.sl0);
+    Txt(x+pw+6,ys,"SL "+DoubleToString(slv,dg)+((slv>hi?" ^":((slv<lo?" v":""))))+hint,CL_TX,8,true,TA_LEFT|TA_VCENTER);
   }
   Txt(x+pw+6,yEN,"IN "+DoubleToString(t.entry,dg),CL_CY,8,true,TA_LEFT|TA_VCENTER);
   if(!liveView&&t.sl>0&&MathAbs(t.sl-t.sl0)>Pt(si)) Txt(x+pw+6,ySL,"SL moved",CL_AU,8,true,TA_LEFT|TA_VCENTER);
@@ -5973,12 +6167,12 @@ function RemoveSymbol(si){
     Log(gShort[si]+" has an open trade - remove it after the trade closes",CL_AU);
     return false;
   }
-  (_t88=Release(gH1[si]),gH1[si]=_R[0],_t88);
-  (_t89=Release(gH2[si]),gH2[si]=_R[0],_t89);
-  (_t90=Release(gHT[si]),gHT[si]=_R[0],_t90);
-  (_t91=Release(gHA[si]),gHA[si]=_R[0],_t91);
-  (_t92=Release(gHH1[si]),gHH1[si]=_R[0],_t92);
-  (_t93=Release(gHH2[si]),gHH2[si]=_R[0],_t93);
+  (_t95=Release(gH1[si]),gH1[si]=_R[0],_t95);
+  (_t96=Release(gH2[si]),gH2[si]=_R[0],_t96);
+  (_t97=Release(gHT[si]),gHT[si]=_R[0],_t97);
+  (_t98=Release(gHA[si]),gHA[si]=_R[0],_t98);
+  (_t99=Release(gHH1[si]),gHH1[si]=_R[0],_t99);
+  (_t100=Release(gHH2[si]),gHH2[si]=_R[0],_t100);
   let nm=gShort[si];
   for(let j=si;j<gNS-1;j++) {
     gSym[j]=gSym[j+1];
@@ -6116,16 +6310,16 @@ function PickListBuild(idx){
   ArrayResize(idx,0,()=>0);
   let n=0,tot=ArraySize(gAll);
   let f=gFind;
-  (_t94=StringToUpper(f),f=_R[0],_t94);
+  (_t101=StringToUpper(f),f=_R[0],_t101);
   for(let i=0;i<tot;i++) {
     if(gGrpSel>=0&&gAllG[i]!==gGrpSel) continue;
     if(gGrpSel===-2&&FindSym(gAll[i])<0) continue;
     if(gGrpSel===-3&&!SymbolInfoInteger(gAll[i],SYMBOL_SELECT)) continue;
     if(f!=="") {
       let u=gAll[i];
-      (_t95=StringToUpper(u),u=_R[0],_t95);
+      (_t102=StringToUpper(u),u=_R[0],_t102);
       let d=SymbolInfoString(gAll[i],SYMBOL_DESCRIPTION);
-      (_t96=StringToUpper(d),d=_R[0],_t96);
+      (_t103=StringToUpper(d),d=_R[0],_t103);
       if(StringFind(u,f)<0&&StringFind(d,f)<0) continue;
     }
     ArrayResize(idx,n+1,()=>0);
@@ -6249,7 +6443,7 @@ function BuildRows(){
   let lab="";
   let st=0,mn=0,mx=0;
   let dg=0;
-  for(let k=0;k<5;k++) if((_t97=ParamInfo(s.entry,k,lab,st,mn,mx,dg),lab=_R[0],st=_R[1],mn=_R[2],mx=_R[3],dg=_R[4],_t97)) {
+  for(let k=0;k<5;k++) if((_t104=ParamInfo(s.entry,k,lab,st,mn,mx,dg),lab=_R[0],st=_R[1],mn=_R[2],mx=_R[3],dg=_R[4],_t104)) {
     let v="";
     if(k===0) v=IntegerToString(s.p1);
     if(k===1) v=IntegerToString(s.p2);
@@ -6259,6 +6453,10 @@ function BuildRows(){
     EdAdd("p"+IntegerToString(k),lab,v,0);
   }
   if(s.entry===E_MA) EdAdd("ma","MA type",MAN[ClampI(s.ma,0,3)],1);
+  if(s.entry===E_WSM) {
+    EdAdd("ma","Fast MA type",MAN[ClampI(s.ma,0,3)],1);
+    EdAdd("ma2","Slow MA type",MAN[ClampI(Math.trunc(MathRound(s.lv2)),0,3)],1);
+  }
   EdAdd("trend","Trend filter (EMA)",(s.trend?"ON":"OFF"),2);
   if(s.trend) EdAdd("trendP","Trend EMA period",IntegerToString(s.trendP),0);
   EdAdd("htfOn","Higher TF confirmation (2-TF model)",(s.htfOn?"ON":"OFF"),2);
@@ -6285,11 +6483,14 @@ function BuildRows(){
     EdAdd("cwPull","  Pullback depth",DoubleToString(s.cwPull,0)+" % of SL",0);
     EdAdd("cwN","  Cancel after",IntegerToString(s.cwN)+" candles",0);
   }
-  EdAdd("slMode","SL / TP in",SLN[ClampI(s.slMode,0,2)],1);
-  EdAdd("sl","Stop loss",((s.slMode===0?"$":""))+DoubleToString(s.sl,(s.slMode===1?0:2))+((s.slMode===0?"":SlUnit(s))),0);
-  EdAdd("tp","Take profit",((s.slMode===0?"$":""))+DoubleToString(s.tp,(s.slMode===1?0:2))+((s.slMode===0?"":SlUnit(s))),0);
-  if(s.slMode!==0) EdAdd("lotMode","Lot size",(s.lotMode===0?"Fixed lot":"Risk % of balance"),1);
-  if(s.slMode===0||s.lotMode===0) EdAdd("lot","Lot (broker min "+DoubleToString(MinLot(ClampI(gSelSym,0,NSYM-1)),3)+")",DoubleToString(s.lot,3),0);
+  let dollarSL=(s.entry!==E_WSM&&s.slMode===0);
+  if(s.entry!==E_WSM) {
+    EdAdd("slMode","SL / TP in",SLN[ClampI(s.slMode,0,2)],1);
+    EdAdd("sl","Stop loss",((s.slMode===0?"$":""))+DoubleToString(s.sl,(s.slMode===1?0:2))+((s.slMode===0?"":SlUnit(s))),0);
+    EdAdd("tp","Take profit",((s.slMode===0?"$":""))+DoubleToString(s.tp,(s.slMode===1?0:2))+((s.slMode===0?"":SlUnit(s))),0);
+  }
+  if(!dollarSL) EdAdd("lotMode","Lot size",(s.lotMode===0?"Fixed lot":"Risk % of balance"),1);
+  if(dollarSL||s.lotMode===0) EdAdd("lot","Lot (broker min "+DoubleToString(MinLot(ClampI(gSelSym,0,NSYM-1)),3)+")",DoubleToString(s.lot,3),0);
   else EdAdd("risk","Risk per trade",DoubleToString(s.risk,1)+" %",0);
   EdAdd("be","Move SL to break-even",(s.be?"ON":"OFF"),2);
   if(s.be) EdAdd("beAt","  ... when price reaches",DoubleToString(s.beAt,0)+" % of TP",0);
@@ -6332,12 +6533,15 @@ function SetupSummary(si,s){
     case E_ADX:
       e="+DI/-DI cross with ADX >= "+DoubleToString(s.lv1,0);
       break;
+    case E_WSM:
+      e=MAN[ClampI(s.ma,0,3)]+" "+IntegerToString(s.p1)+" crosses "+MAN[ClampI(Math.trunc(MathRound(s.lv2)),0,3)]+" "+IntegerToString(s.p2)+" (trade the way it crosses)";
+      break;
     case E_RULE:
       e="your rule says so (BUY: "+((gEditRB===""?"-":gEditRB))+" | SELL: "+((gEditRS===""?"-":gEditRS))+")";
       break;
   }
-  let sl=(s.slMode===0?("SL $"+DoubleToString(s.sl,2)+" / TP $"+DoubleToString(s.tp,2)):((s.slMode===1?("SL "+DoubleToString(s.sl,0)+" / TP "+DoubleToString(s.tp,0)+" points"):("SL "+DoubleToString(s.sl,1)+" / TP "+DoubleToString(s.tp,1)+" x ATR"))));
-  let lot=((s.slMode!==0&&s.lotMode===1)?("risk "+DoubleToString(s.risk,1)+"%"):("lot "+DoubleToString(s.lot,3)));
+  let sl=(s.entry===E_WSM?("SL at the "+((s.dir===2?"highest":"lowest"))+" candle body of the last "+IntegerToString(s.p3)+" candles / TP = SL x "+DoubleToString(s.lv1,1)):((s.slMode===0?("SL $"+DoubleToString(s.sl,2)+" / TP $"+DoubleToString(s.tp,2)):((s.slMode===1?("SL "+DoubleToString(s.sl,0)+" / TP "+DoubleToString(s.tp,0)+" points"):("SL "+DoubleToString(s.sl,1)+" / TP "+DoubleToString(s.tp,1)+" x ATR"))))));
+  let lot=(((s.entry===E_WSM||s.slMode!==0)&&s.lotMode===1)?("risk "+DoubleToString(s.risk,1)+"%"):("lot "+DoubleToString(s.lot,3)));
   let hf="";
   if(s.cwMode===1) hf+=", wait "+IntegerToString(s.cwN)+" candles after the signal";
   if(s.cwMode===2) hf+=", wait "+IntegerToString(s.cwN)+" min after the signal";
@@ -6367,7 +6571,7 @@ function EditValue(key,d){
   else if(key==="dir") s.dir=((s.dir+d+3)%3);
   else if(StringSubstr(key,0,1)==="p"&&StringLen(key)===2) {
     let k=StringToInteger(StringSubstr(key,1,1));
-    if((_t98=ParamInfo(s.entry,k,lab,st,mn,mx,dg),lab=_R[0],st=_R[1],mn=_R[2],mx=_R[3],dg=_R[4],_t98)) {
+    if((_t105=ParamInfo(s.entry,k,lab,st,mn,mx,dg),lab=_R[0],st=_R[1],mn=_R[2],mx=_R[3],dg=_R[4],_t105)) {
       if(k===0) s.p1=Math.trunc(Clamp(s.p1+d*st,mn,mx));
       if(k===1) s.p2=Math.trunc(Clamp(s.p2+d*st,mn,mx));
       if(k===2) s.p3=Math.trunc(Clamp(s.p3+d*st,mn,mx));
@@ -6376,6 +6580,7 @@ function EditValue(key,d){
     }
   }
   else if(key==="ma") s.ma=((s.ma+d+4)%4);
+  else if(key==="ma2") s.lv2=(+((((Math.trunc(MathRound(s.lv2)))+d+4)%4)));
   else if(key==="trend") s.trend=!s.trend;
   else if(key==="trendP") s.trendP=ClampI(s.trendP+d*5,5,500);
   else if(key==="slMode") {
@@ -6571,7 +6776,7 @@ function DrawSettings(){
     }
     Txt(ex+16,sy+lines*16,StringSubstr(rest,0,cut),CL_VI,9);
     rest=StringSubstr(rest,cut);
-    (_t99=StringTrimLeft(rest),rest=_R[0],_t99);
+    (_t106=StringTrimLeft(rest),rest=_R[0],_t106);
     lines++;
   }
   gNoTr=oNT;
@@ -6705,12 +6910,17 @@ function AnSelect(a,b,idx){
   }
   return n;
 }
+function JKind(i){
+  if(jTag[i]==="BE"||MathAbs(jPL[i])<=0.005) return 0;
+  return (jPL[i]>0?1:-1);
+}
 function AnCompute(idx,st){
   st._zm();
   let ws=0,ls=0;
   for(let q=0;q<ArraySize(idx);q++) {
     let i=idx[q];
     let pl=jPL[i];
+    let kd=JKind(i);
     st.n++;
     st.net+=pl;
     st.lots+=jLot[i];
@@ -6720,29 +6930,36 @@ function AnCompute(idx,st){
     }
     st.best=MathMax(st.best,pl);
     st.worst=MathMin(st.worst,pl);
-    if(pl>0) {
+    if(pl>0) st.gp+=pl;
+    else st.gl-=pl;
+    if(kd>0) {
       st.wins++;
-      st.gp+=pl;
       ws++;
       ls=0;
     }
-    else {
+    else if(kd<0) {
       st.losses++;
-      st.gl-=pl;
       ls++;
       ws=0;
     }
+    else st.be++;
     st.maxWs=IMax(st.maxWs,ws);
     st.maxLs=IMax(st.maxLs,ls);
+    let tg=jTag[i];
+    if(tg==="TP") st.tpN++;
+    else if(tg==="SL") st.slN++;
+    else if(tg==="BE") st.beN++;
+    else if(tg==="TSL") st.tslN++;
+    else if(tg==="MAN") st.manN++;
     if(jDir[i]>0) {
       st.buys++;
       st.bNet+=pl;
-      if(pl>0) st.bWins++;
+      if(kd>0) st.bWins++;
     }
     else {
       st.sells++;
       st.sNet+=pl;
-      if(pl>0) st.sWins++;
+      if(kd>0) st.sWins++;
     }
   }
 }
@@ -6875,23 +7092,24 @@ function AnCalendar(){
   Panel(x,y,w,h,"",CL_CY);
   Txt(x+18,y+12,MONN[ClampI(s.mon,1,12)-1]+"  "+IntegerToString(s.year),CL_TX,13,true);
   let a=0,b=0;
-  (_t100=AnRange(1,a,b),a=_R[0],b=_R[1],_t100);
+  (_t107=AnRange(1,a,b),a=_R[0],b=_R[1],_t107);
   let idx=[];
   let n=AnSelect(a,b,idx);
   let ms=new AnStat();
   AnCompute(idx,ms);
-  Txt(x+w-16,y+20,"month: "+SMoney(ms.net)+"   "+IntegerToString(ms.n)+" trades   win "+WR(ms.wins,ms.n),PLC(ms.net),9,true,TA_RIGHT|TA_VCENTER);
+  Txt(x+w-16,y+20,"month: "+SMoney(ms.net)+"   "+IntegerToString(ms.n)+" trades   win "+WR(ms.wins,ms.wins+ms.losses),PLC(ms.net),9,true,TA_RIGHT|TA_VCENTER);
   let gx=x+14,gy=y+46,gw=w-28;
   let weekW=74,colW=Math.trunc((gw-weekW)/7),hdrH=20;
   for(let c=0;c<7;c++) Txt(gx+colW*c+Math.trunc(colW/2),gy,DOWN[c],CL_MU,7,true,TA_CENTER);
   Txt(gx+colW*7+Math.trunc(weekW/2),gy,"WEEK",CL_MU,7,true,TA_CENTER);
   let dim=DaysInMonth(s.year,s.mon);
   let dNet=_A(32,()=>0);
-  let dN=_A(32,()=>0),dW=_A(32,()=>0);
+  let dN=_A(32,()=>0),dW=_A(32,()=>0),dB=_A(32,()=>0);
   for(let d=0;d<32;d++) {
     dNet[d]=0;
     dN[d]=0;
     dW[d]=0;
+    dB[d]=0;
   }
   for(let q=0;q<n;q++) {
     let i=idx[q];
@@ -6899,7 +7117,8 @@ function AnCalendar(){
     if(d<1||d>dim) continue;
     dNet[d]+=jPL[i];
     dN[d]++;
-    if(jPL[i]>0) dW[d]++;
+    if(JKind(i)>0) dW[d]++;
+    if(JKind(i)===0) dB[d]++;
   }
   let f=new MqlDateTime();
   TimeToStruct(a,f);
@@ -6928,7 +7147,7 @@ function AnCalendar(){
       Txt(cx+8,cyy+6,IntegerToString(dn),(isT?CL_AU:CL_MU),8,isT);
       if(dN[dn]>0) {
         Txt(cx+Math.trunc(cw/2),cyy+Math.trunc(ch/2)+2,Fit(SMoney(dNet[dn]),(ch>=50?10:8),true,cw-8),PLC(dNet[dn]),(ch>=50?10:8),true,TA_CENTER|TA_VCENTER);
-        if(ch>=46) Txt(cx+Math.trunc(cw/2),cyy+ch-10,IntegerToString(dN[dn])+" tr - "+WR(dW[dn],dN[dn]),CL_MU,7,false,TA_CENTER|TA_VCENTER);
+        if(ch>=46) Txt(cx+Math.trunc(cw/2),cyy+ch-10,IntegerToString(dN[dn])+" tr - "+WR(dW[dn],dN[dn]-dB[dn]),CL_MU,7,false,TA_CENTER|TA_VCENTER);
       }
       AddBtn(cx,cyy,cx+cw,cyy+ch,"anday:"+IntegerToString(dn));
     }
@@ -6949,8 +7168,8 @@ function AnCalendar(){
   let ds=new AnStat();
   AnCompute(di,ds);
   let kw=Math.trunc((pw-36)/2),ky=y+32,kh=58;
-  Kpi(px+12,ky,kw,kh,"NET P/L",SMoney(ds.net),PLC(ds.net),IntegerToString(ds.wins)+"W / "+IntegerToString(ds.losses)+"L");
-  Kpi(px+24+kw,ky,kw,kh,"TRADES",IntegerToString(ds.n),CL_TX,"win "+WR(ds.wins,ds.n));
+  Kpi(px+12,ky,kw,kh,"NET P/L",SMoney(ds.net),PLC(ds.net),IntegerToString(ds.wins)+"W / "+IntegerToString(ds.losses)+"L"+((ds.be>0?" / "+IntegerToString(ds.be)+"BE":"")));
+  Kpi(px+24+kw,ky,kw,kh,"TRADES",IntegerToString(ds.n),CL_TX,"win "+WR(ds.wins,ds.wins+ds.losses)+((ds.be>0?"  BE "+IntegerToString(ds.be):"")));
   ky+=kh+8;
   Kpi(px+12,ky,kw,kh,"PROFIT FACTOR",PF(ds),(ds.gp>=ds.gl?CL_UP:CL_DN),"");
   Kpi(px+24+kw,ky,kw,kh,"BEST / WORST",(ds.n>0?SMoney(ds.best):"-"),CL_UP,(ds.n>0?"worst "+SMoney(ds.worst):""));
@@ -6978,7 +7197,7 @@ function AnCalendar(){
 }
 function AnDashboard(){
   let a=0,b=0;
-  (_t101=AnRange(gAnPer,a,b),a=_R[0],b=_R[1],_t101);
+  (_t108=AnRange(gAnPer,a,b),a=_R[0],b=_R[1],_t108);
   let idx=[];
   let n=AnSelect(a,b,idx);
   let st=new AnStat();
@@ -6989,9 +7208,9 @@ function AnDashboard(){
   let m=10,kx=RX[2],kw=Math.trunc((RW[2]+m+RW[3]-5*m)/6),ky=RX[7],kh=RH[7];
   Kpi(kx,ky,kw,kh,"NET P/L",SMoney(st.net),PLC(st.net),per);
   kx+=kw+m;
-  Kpi(kx,ky,kw,kh,"TRADES",IntegerToString(st.n),CL_TX,IntegerToString(st.wins)+"W / "+IntegerToString(st.losses)+"L");
+  Kpi(kx,ky,kw,kh,"TRADES",IntegerToString(st.n),CL_TX,IntegerToString(st.wins)+"W / "+IntegerToString(st.losses)+"L"+((st.be>0?" / "+IntegerToString(st.be)+"BE":"")));
   kx+=kw+m;
-  Kpi(kx,ky,kw,kh,"WIN RATE",WR(st.wins,st.n),(st.n>0&&st.wins*2>=st.n?CL_UP:CL_AU),"");
+  Kpi(kx,ky,kw,kh,"WIN RATE",WR(st.wins,st.wins+st.losses),((st.wins+st.losses)>0&&st.wins*2>=(st.wins+st.losses)?CL_UP:CL_AU),"BE not counted");
   kx+=kw+m;
   Kpi(kx,ky,kw,kh,"PROFIT FACTOR",PF(st),(st.gp>=st.gl?CL_UP:CL_DN),"GP "+Money(st.gp)+"  GL "+Money(st.gl));
   kx+=kw+m;
@@ -7054,8 +7273,14 @@ function AnDashboard(){
   else Txt(x+Math.trunc(w/2),y+Math.trunc(h/2),"No closed trades in this period",CL_MU,11,false,TA_CENTER|TA_VCENTER);
   let sx=RX[3],sw=RW[3];
   Panel(sx,y,sw,h,"SUMMARY",CL_AU);
-  let sl=_A(8,()=>""),sv=_A(8,()=>"");
-  let sc=_A(8,()=>0);
+  let sl=_A(12,()=>""),sv=_A(12,()=>"");
+  let sc=_A(12,()=>0);
+  let gpW=0,glL=0;
+  for(let q=0;q<n;q++) {
+    let i=idx[q],kd=JKind(i);
+    if(kd>0) gpW+=jPL[i];
+    else if(kd<0) glL-=jPL[i];
+  }
   sl[0]="Gross profit";
   sv[0]=Money(st.gp);
   sc[0]=((CL_UP)>>>0);
@@ -7063,31 +7288,43 @@ function AnDashboard(){
   sv[1]=Money(st.gl);
   sc[1]=((CL_DN)>>>0);
   sl[2]="Average win";
-  sv[2]=(st.wins>0?Money(st.gp/st.wins):"-");
+  sv[2]=(st.wins>0?Money(gpW/st.wins):"-");
   sc[2]=((CL_UP)>>>0);
   sl[3]="Average loss";
-  sv[3]=(st.losses>0?Money(st.gl/st.losses):"-");
+  sv[3]=(st.losses>0?Money(glL/st.losses):"-");
   sc[3]=((CL_DN)>>>0);
-  sl[4]="Best win streak";
-  sv[4]=IntegerToString(st.maxWs);
+  sl[4]="Closed by TP / trailing";
+  sv[4]=IntegerToString(st.tpN)+" / "+IntegerToString(st.tslN);
   sc[4]=((CL_UP)>>>0);
-  sl[5]="Worst loss streak";
-  sv[5]=IntegerToString(st.maxLs);
+  sl[5]="Closed by SL / break-even";
+  sv[5]=IntegerToString(st.slN)+" / "+IntegerToString(st.beN);
   sc[5]=((CL_DN)>>>0);
-  sl[6]="Lots traded";
-  sv[6]=DoubleToString(st.lots,2);
+  sl[6]="Closed by you";
+  sv[6]=IntegerToString(st.manN);
   sc[6]=((CL_TX)>>>0);
-  sl[7]="Trades per day";
+  sl[7]="Best win streak";
+  sv[7]=IntegerToString(st.maxWs);
+  sc[7]=((CL_UP)>>>0);
+  sl[8]="Worst loss streak";
+  sv[8]=IntegerToString(st.maxLs);
+  sc[8]=((CL_DN)>>>0);
+  sl[9]="Lots traded";
+  sv[9]=DoubleToString(st.lots,2);
+  sc[9]=((CL_TX)>>>0);
+  sl[10]="Trades per day";
   let days=1;
   if(gAnPer>0&&n>0) {
     let e1=((b<TimeCurrent()?b:TimeCurrent()));
     let s1=((gAnPer===3)?DayStart(jT1[idx[0]]):a);
     days=MathMax(1.0,(+(e1-s1))/86400.0);
   }
-  sv[7]=(n>0?DoubleToString(n/days,1):"-");
-  sc[7]=((CL_TX)>>>0);
-  let ry=y+34,rh=IMax(16,IMin(26,Math.trunc((h-44)/8)));
-  for(let i=0;i<8;i++) {
+  sv[10]=(n>0?DoubleToString(n/days,1):"-");
+  sc[10]=((CL_TX)>>>0);
+  sl[11]="Break-even trades";
+  sv[11]=IntegerToString(st.be);
+  sc[11]=((CL_AU)>>>0);
+  let ry=y+34,rh=IMax(15,IMin(26,Math.trunc((h-44)/12)));
+  for(let i=0;i<12;i++) {
     if(ry+rh>y+h-4) break;
     if((i%2)===0) cv.RoundFill(sx+8,ry,sx+sw-8,ry+rh-2,5,CL_DARK,110);
     Txt(sx+16,ry+Math.trunc((rh-2)/2),sl[i],CL_MU,8,false,TA_LEFT|TA_VCENTER);
@@ -7119,8 +7356,8 @@ function AnDashboard(){
       uw[f]=0;
     }
     un[f]+=jPL[i];
-    uc[f]++;
-    if(jPL[i]>0) uw[f]++;
+    if(JKind(i)!==0) uc[f]++;
+    if(JKind(i)>0) uw[f]++;
   }
   for(let a1=0;a1<nu;a1++) for(let b1=a1+1;b1<nu;b1++) if(un[b1]>un[a1]) {
     let ts=us[a1];
@@ -7217,21 +7454,21 @@ function ChatAdd(who,tx){
 }
 function NormName(s){
   let r=s;
-  (_t102=StringToUpper(r),r=_R[0],_t102);
+  (_t109=StringToUpper(r),r=_R[0],_t109);
   let o="";
   for(let i=0;i<StringLen(r);i++) {
     let c=StringGetCharacter(r,i);
     if((c>=65&&c<=90)||(c>=48&&c<=57)) o+=ShortToString(c);
   }
-  (_t103=StringReplace(o,"VOLATILITY","V"),o=_R[0],_t103);
-  (_t104=StringReplace(o,"INDEX",""),o=_R[0],_t104);
+  (_t110=StringReplace(o,"VOLATILITY","V"),o=_R[0],_t110);
+  (_t111=StringReplace(o,"INDEX",""),o=_R[0],_t111);
   return o;
 }
 function SymFind(q){
   let u=q;
-  (_t105=StringToLower(u),u=_R[0],_t105);
-  (_t106=StringTrimLeft(u),u=_R[0],_t106);
-  (_t107=StringTrimRight(u),u=_R[0],_t107);
+  (_t112=StringToLower(u),u=_R[0],_t112);
+  (_t113=StringTrimLeft(u),u=_R[0],_t113);
+  (_t114=StringTrimRight(u),u=_R[0],_t114);
   if(u===""||u==="all"||u==="*"||u==="every"||u==="all symbols") return -2;
   let n=NormName(q);
   if(n==="") return -1;
@@ -7293,13 +7530,13 @@ function SymTargets(node,out){
 }
 function TfFrom(v,def){
   let u=v;
-  (_t108=StringToUpper(u),u=_R[0],_t108);
+  (_t115=StringToUpper(u),u=_R[0],_t115);
   for(let i=0;i<NTF;i++) if(TFN[i]===u) return i;
   return def;
 }
 function EntryFrom(v,def){
   let u=v;
-  (_t109=StringToLower(u),u=_R[0],_t109);
+  (_t116=StringToLower(u),u=_R[0],_t116);
   if(u==="ma"||u==="ma cross"||u==="macross") return E_MA;
   if(u==="rsi") return E_RSI;
   if(u==="macd") return E_MACD;
@@ -7311,16 +7548,18 @@ function EntryFrom(v,def){
   if(u==="sar") return E_SAR;
   if(u==="adx"||u==="dmi") return E_ADX;
   if(u==="rule"||u==="ai rule"||u==="custom") return E_RULE;
+  if(u==="wma_smma"||u==="wma smma"||u==="wma x smma"||u==="ma_sl"||u==="ma candle sl") return E_WSM;
   return def;
 }
 function MaFrom(v,def){
   let u=v;
-  (_t110=StringToUpper(u),u=_R[0],_t110);
+  (_t117=StringToUpper(u),u=_R[0],_t117);
+  if(u==="LWMA") return 3;
   for(let i=0;i<4;i++) if(MAN[i]===u) return i;
   return def;
 }
 function EntryKey(e){
-  let k=_AFILL(["ma","rsi","macd","breakout","bb_bounce","bb_break","stoch","cci","sar","adx","rule"],NENTRY,"");
+  let k=_AFILL(["ma","rsi","macd","breakout","bb_bounce","bb_break","stoch","cci","sar","adx","rule","wma_smma"],NENTRY,"");
   return k[ClampI(e,0,NENTRY-1)];
 }
 function ApplySetupChanges(s,rb,rs,ch){
@@ -7338,7 +7577,7 @@ function ApplySetupChanges(s,rb,rs,ch){
     }
     else if(k==="dir") {
       let u=v;
-      (_t111=StringToLower(u),u=_R[0],_t111);
+      (_t118=StringToLower(u),u=_R[0],_t118);
       s.dir=((u==="buy"||u==="buy only")?1:(((u==="sell"||u==="sell only")?2:0)));
     }
     else if(k==="p1") s.p1=Math.trunc(JNum(c,s.p1));
@@ -7347,18 +7586,19 @@ function ApplySetupChanges(s,rb,rs,ch){
     else if(k==="lv1") s.lv1=JNum(c,s.lv1);
     else if(k==="lv2") s.lv2=JNum(c,s.lv2);
     else if(k==="ma") s.ma=MaFrom(v,s.ma);
+    else if(k==="ma2") s.lv2=(+MaFrom(v,Math.trunc(MathRound(s.lv2))));
     else if(k==="trend") s.trend=JBool(c,s.trend);
     else if(k==="trendP") s.trendP=Math.trunc(JNum(c,s.trendP));
     else if(k==="slMode") {
       let u=v;
-      (_t112=StringToLower(u),u=_R[0],_t112);
+      (_t119=StringToLower(u),u=_R[0],_t119);
       s.slMode=((u==="usd"||u==="$"||u==="money")?0:(((u==="points"||u==="pts")?1:(((u==="atr")?2:s.slMode)))));
     }
     else if(k==="sl") s.sl=JNum(c,s.sl);
     else if(k==="tp") s.tp=JNum(c,s.tp);
     else if(k==="lotMode") {
       let u=v;
-      (_t113=StringToLower(u),u=_R[0],_t113);
+      (_t120=StringToLower(u),u=_R[0],_t120);
       s.lotMode=((u==="risk"||u==="risk%")?1:0);
     }
     else if(k==="lot") s.lot=JNum(c,s.lot);
@@ -7372,7 +7612,7 @@ function ApplySetupChanges(s,rb,rs,ch){
     else if(k==="htf") s.htf=TfFrom(v,s.htf);
     else if(k==="htfType") {
       let u=v;
-      (_t114=StringToLower(u),u=_R[0],_t114);
+      (_t121=StringToLower(u),u=_R[0],_t121);
       let hk=_AFILL(["ma","ema","macd","rsi","sar","dmi"],NHT,"");
       for(let i=0;i<NHT;i++) if(hk[i]===u) s.htfType=i;
     }
@@ -7381,7 +7621,7 @@ function ApplySetupChanges(s,rb,rs,ch){
     else if(k==="hma") s.hma=MaFrom(v,s.hma);
     else if(k==="cwMode") {
       let u=v;
-      (_t115=StringToLower(u),u=_R[0],_t115);
+      (_t122=StringToLower(u),u=_R[0],_t122);
       s.cwMode=((u==="candles")?1:(((u==="minutes")?2:(((u==="pullback")?3:0)))));
     }
     else if(k==="cwN") s.cwN=Math.trunc(JNum(c,s.cwN));
@@ -7397,7 +7637,7 @@ function ApplySetupChanges(s,rb,rs,ch){
 }
 function ActType(a){
   let t=JGS(a,"type");
-  (_t116=StringToLower(t),t=_R[0],_t116);
+  (_t123=StringToLower(t),t=_R[0],_t123);
   return t;
 }
 function NeedApproval(a,src){
@@ -7407,13 +7647,13 @@ function NeedApproval(a,src){
   if(t==="open"||t==="setup"||t==="run") return true;
   if(t==="mode") {
     let to=JGS(a,"to");
-    (_t117=StringToLower(to),to=_R[0],_t117);
+    (_t124=StringToLower(to),to=_R[0],_t124);
     return to==="live";
   }
   if(t==="set_sl") {
     let sn=JGet(a,"symbol");
     let sd=JGS(a,"side","all");
-    (_t118=StringToLower(sd),sd=_R[0],_t118);
+    (_t125=StringToLower(sd),sd=_R[0],_t125);
     for(let k=0;k<gTN;k++) if(TradeMatches(k,sn,sd,"any")) {
       let ns=TargetSL(k,a);
       if(ns>0&&(gT[k].sl===0||((gT[k].dir>0?ns<gT[k].sl:ns>gT[k].sl)))) return true;
@@ -7501,7 +7741,7 @@ function ActDescribe(a){
       rs=gRuleS[tg[0]];
     }
     let ch=JGet(a,"changes");
-    let d=((ch>=0)?(_t119=ApplySetupChanges(tmp,rb,rs,ch),rb=_R[0],rs=_R[1],_t119):"");
+    let d=((ch>=0)?(_t126=ApplySetupChanges(tmp,rb,rs,ch),rb=_R[0],rs=_R[1],_t126):"");
     return "SETUP "+((names===""?"(no symbol)":names))+": "+d;
   }
   if(t==="open") return "OPEN "+StringSubstr(JGS(a,"side"),0,4)+" "+JGS(a,"symbol")+((JHas(a,"lot")?" lot "+JGS(a,"lot"):""));
@@ -7514,7 +7754,7 @@ function ExecAction(a,src){
   let t=ActType(a);
   if(t==="show_tab") {
     let tab=JGS(a,"tab");
-    (_t120=StringToLower(tab),tab=_R[0],_t120);
+    (_t127=StringToLower(tab),tab=_R[0],_t127);
     if(tab==="dashboard") gTab=0;
     else if(tab==="live"||tab==="live trades") gTab=1;
     else if(tab==="history") gTab=2;
@@ -7536,18 +7776,18 @@ function ExecAction(a,src){
       gSetView=2;
     }
     let vw=JGS(a,"view");
-    (_t121=StringToLower(vw),vw=_R[0],_t121);
+    (_t128=StringToLower(vw),vw=_R[0],_t128);
     if(vw==="calendar") gAnView=0;
     if(vw==="dashboard") gAnView=1;
     let pr=JGS(a,"period");
-    (_t122=StringToLower(pr),pr=_R[0],_t122);
+    (_t129=StringToLower(pr),pr=_R[0],_t129);
     if(pr==="day") gAnPer=0;
     if(pr==="month") gAnPer=1;
     if(pr==="year") gAnPer=2;
     if(pr==="all") gAnPer=3;
     let dt=JGS(a,"date");
     if(dt!=="") {
-      (_t123=StringReplace(dt,"-","."),dt=_R[0],_t123);
+      (_t130=StringReplace(dt,"-","."),dt=_R[0],_t130);
       let d=StringToTime(dt);
       if(d>0) gAnD=DayStart(d);
     }
@@ -7581,7 +7821,7 @@ function ExecAction(a,src){
   }
   if(t==="screenshot") {
     let tab=JGS(a,"tab");
-    (_t124=StringToLower(tab),tab=_R[0],_t124);
+    (_t131=StringToLower(tab),tab=_R[0],_t131);
     if(src!=="telegram") return "";
     MenuCmd("shot:"+tab);
     return "";
@@ -7620,7 +7860,7 @@ function ExecAction(a,src){
   }
   if(t==="mode") {
     let to=JGS(a,"to");
-    (_t125=StringToLower(to),to=_R[0],_t125);
+    (_t132=StringToLower(to),to=_R[0],_t132);
     if(to==="live") {
       if(gMode===1) return "already LIVE";
       GoLive();
@@ -7632,8 +7872,8 @@ function ExecAction(a,src){
   }
   if(t==="close") {
     let side=JGS(a,"side","all"),only=JGS(a,"only","any");
-    (_t126=StringToLower(side),side=_R[0],_t126);
-    (_t127=StringToLower(only),only=_R[0],_t127);
+    (_t133=StringToLower(side),side=_R[0],_t133);
+    (_t134=StringToLower(only),only=_R[0],_t134);
     let sn=JGet(a,"symbol");
     if(sn>=0&&jsT[sn]===JS_STR&&SymFind(JStr(sn))===-2) sn=-1;
     let n=0;
@@ -7688,7 +7928,7 @@ function ExecAction(a,src){
     let n=0;
     for(let k=0;k<gTN;k++) {
       let sdx=JGS(a,"side","all");
-      (_t128=StringToLower(sdx),sdx=_R[0],_t128);
+      (_t135=StringToLower(sdx),sdx=_R[0],_t135);
       if(!TradeMatches(k,sn,sdx,"any")) continue;
       let v=((t==="set_sl")?TargetSL(k,a):TargetTP(k,a));
       if(v<=0) continue;
@@ -7707,7 +7947,7 @@ function ExecAction(a,src){
       let si=tg[q];
       let s=_cp(gSet[si]);
       let rb=gRuleB[si],rs=gRuleS[si];
-      d=(_t129=ApplySetupChanges(s,rb,rs,ch),rb=_R[0],rs=_R[1],_t129);
+      d=(_t136=ApplySetupChanges(s,rb,rs,ch),rb=_R[0],rs=_R[1],_t136);
       let e1=RuleCheck(rb),e2=RuleCheck(rs);
       if(e1!==""||e2!=="") {
         err=gShort[si]+" rule error: "+((e1!==""?e1:e2));
@@ -7735,7 +7975,7 @@ function ExecAction(a,src){
   if(t==="risk") {
     let scn=JGet(a,"scope");
     let scl=((scn>=0&&jsT[scn]===JS_STR)?JStr(scn):"");
-    (_t130=StringToLower(scl),scl=_R[0],_t130);
+    (_t137=StringToLower(scl),scl=_R[0],_t137);
     let global=(scn<0||(jsT[scn]===JS_STR&&(scl==="global"||scl==="account"||scl==="")));
     {
       if(JHas(a,"dayLossOn")) gdLossOn=JGB(a,"dayLossOn");
@@ -7745,7 +7985,7 @@ function ExecAction(a,src){
       }
       if(JHas(a,"dayLossUnit")) {
         let u=JGS(a,"dayLossUnit");
-        (_t131=StringToLower(u),u=_R[0],_t131);
+        (_t138=StringToLower(u),u=_R[0],_t138);
         gdLossPct=(u==="pct"||u==="%"||u==="percent");
       }
       if(JHas(a,"dayProfitOn")) gdProfOn=JGB(a,"dayProfitOn");
@@ -7755,7 +7995,7 @@ function ExecAction(a,src){
       }
       if(JHas(a,"dayProfitUnit")) {
         let u=JGS(a,"dayProfitUnit");
-        (_t132=StringToLower(u),u=_R[0],_t132);
+        (_t139=StringToLower(u),u=_R[0],_t139);
         gdProfPct=(u==="pct"||u==="%"||u==="percent");
       }
       if(JHas(a,"ddOn")) gdDdOn=JGB(a,"ddOn");
@@ -7805,7 +8045,7 @@ function ExecAction(a,src){
     let si=SymFind(JGS(a,"symbol"));
     if(si<0) return "open: symbol not found";
     let side=JGS(a,"side");
-    (_t133=StringToLower(side),side=_R[0],_t133);
+    (_t140=StringToLower(side),side=_R[0],_t140);
     let dir=((side==="sell")?-1:1);
     let no=GuardCheck(si);
     if(no!=="") return "not opened: "+no;
@@ -7850,7 +8090,7 @@ function ExecAction(a,src){
       let net=0;
       let tr=0;
       let wr=0;
-      r+=((r===""?"":"\n"))+(_t134=BacktestNow(tg[q],bars,net,tr,wr),net=_R[0],tr=_R[1],wr=_R[2],_t134);
+      r+=((r===""?"":"\n"))+(_t141=BacktestNow(tg[q],bars,net,tr,wr),net=_R[0],tr=_R[1],wr=_R[2],_t141);
     }
     return (r===""?"test: no symbol":"TEST "+r);
   }
@@ -7866,7 +8106,7 @@ function ExecAction(a,src){
 }
 function ReportText(kind){
   let k=kind;
-  (_t135=StringToLower(k),k=_R[0],_t135);
+  (_t142=StringToLower(k),k=_R[0],_t142);
   let lv=((gMode===1?1:0));
   if(k==="open") {
     let r="";
@@ -7886,8 +8126,8 @@ function ReportText(kind){
   let n=0,w=0;
   let net=0,best=0,worst=0;
   for(let i=0;i<jN;i++) if(jLive[i]===lv&&jT1[i]>=from) {
-    n++;
-    if(jPL[i]>0) w++;
+    if(JKind(i)!==0) n++;
+    if(JKind(i)>0) w++;
     net+=jPL[i];
     best=MathMax(best,jPL[i]);
     worst=MathMin(worst,jPL[i]);
@@ -8012,11 +8252,11 @@ function HandleAi(src,json,heard){
           let ch2=JGet(bb,"changes");
           let p=_cp(gSet[bsi]);
           let rb=gRuleB[bsi],rs=gRuleS[bsi];
-          (_t136=ApplySetupChanges(p,rb,rs,ch2),rb=_R[0],rs=_R[1],_t136);
+          (_t143=ApplySetupChanges(p,rb,rs,ch2),rb=_R[0],rs=_R[1],_t143);
           let net=0;
           let tr=0;
           let wr=0;
-          testTx+=((testTx===""?"":"\n"))+"TEST (new setup) "+(_t137=BacktestProposal(bsi,p,rb,rs,1000,net,tr,wr),net=_R[0],tr=_R[1],wr=_R[2],_t137);
+          testTx+=((testTx===""?"":"\n"))+"TEST (new setup) "+(_t144=BacktestProposal(bsi,p,rb,rs,1000,net,tr,wr),net=_R[0],tr=_R[1],wr=_R[2],_t144);
         }
         used=true;
       }
@@ -8111,8 +8351,8 @@ function PanelState(){
       uw[f]=0;
     }
     un[f]+=jPL[i];
-    uc[f]++;
-    if(jPL[i]>0) uw[f]++;
+    if(JKind(i)!==0) uc[f]++;
+    if(JKind(i)>0) uw[f]++;
     let t=new MqlDateTime();
     TimeToStruct(jT1[i],t);
     hn[t.hour]+=jPL[i];
@@ -8126,16 +8366,16 @@ function PanelState(){
   return s;
 }
 function ChatSend(text){
-  (_t138=StringTrimLeft(text),text=_R[0],_t138);
-  (_t139=StringTrimRight(text),text=_R[0],_t139);
+  (_t145=StringTrimLeft(text),text=_R[0],_t145);
+  (_t146=StringTrimRight(text),text=_R[0],_t146);
   if(text==="") return;
   ChatAdd(0,text);
   let low=text;
-  (_t140=StringToLower(low),low=_R[0],_t140);
+  (_t147=StringToLower(low),low=_R[0],_t147);
   if(StringSubstr(low,0,5)==="/buy "||StringSubstr(low,0,6)==="/sell ") {
     let b=StringSubstr(low,0,5)==="/buy ";
     let rule=StringSubstr(text,(b?5:6));
-    (_t141=StringTrimLeft(rule),rule=_R[0],_t141);
+    (_t148=StringTrimLeft(rule),rule=_R[0],_t148);
     let e=RuleCheck(rule);
     if(e!=="") {
       ChatAdd(2,"Rule error: "+e);
@@ -8164,7 +8404,7 @@ function ChatSend(text){
     let net=0;
     let tr=0;
     let wr=0;
-    ChatAdd(2,(_t142=BacktestNow(ClampI(gSelSym,0,IMax(0,gNS-1)),1000,net,tr,wr),net=_R[0],tr=_R[1],wr=_R[2],_t142));
+    ChatAdd(2,(_t149=BacktestNow(ClampI(gSelSym,0,IMax(0,gNS-1)),1000,net,tr,wr),net=_R[0],tr=_R[1],wr=_R[2],_t149));
     return;
   }
   if(low==="/help") {
@@ -8334,8 +8574,8 @@ function ChatBoxTake(){
   if(ObjectFind(0,CHATED)<0) return "";
   let t=ObjectGetString(0,CHATED,OBJPROP_TEXT);
   ObjectSetString(0,CHATED,OBJPROP_TEXT,"");
-  (_t143=StringTrimLeft(t),t=_R[0],_t143);
-  (_t144=StringTrimRight(t),t=_R[0],_t144);
+  (_t150=StringTrimLeft(t),t=_R[0],_t150);
+  (_t151=StringTrimRight(t),t=_R[0],_t151);
   return t;
 }
 function ChatAddPart(){
@@ -8784,21 +9024,21 @@ var brTtsModel="";
 var TGOWNFILE="GTM_AI\\bridge\\tg_owner.txt";
 function IsPlaceholder(v){
   let u=v;
-  (_t145=StringTrimLeft(u),u=_R[0],_t145);
-  (_t146=StringTrimRight(u),u=_R[0],_t146);
-  (_t147=StringToUpper(u),u=_R[0],_t147);
+  (_t152=StringTrimLeft(u),u=_R[0],_t152);
+  (_t153=StringTrimRight(u),u=_R[0],_t153);
+  (_t154=StringToUpper(u),u=_R[0],_t154);
   return (u===""||StringFind(u,"PASTE")>=0||StringFind(u,"YOUR ")>=0||StringLen(u)<12);
 }
 function BrKey(){
   let k=InpAiKey;
-  (_t148=StringTrimLeft(k),k=_R[0],_t148);
-  (_t149=StringTrimRight(k),k=_R[0],_t149);
+  (_t155=StringTrimLeft(k),k=_R[0],_t155);
+  (_t156=StringTrimRight(k),k=_R[0],_t156);
   return (IsPlaceholder(k)?"":k);
 }
 function BrTok(){
   let k=InpTgToken;
-  (_t150=StringTrimLeft(k),k=_R[0],_t150);
-  (_t151=StringTrimRight(k),k=_R[0],_t151);
+  (_t157=StringTrimLeft(k),k=_R[0],_t157);
+  (_t158=StringTrimRight(k),k=_R[0],_t158);
   return (IsPlaceholder(k)?"":k);
 }
 function ProvOfKey(k){
@@ -8850,24 +9090,24 @@ function BrDetect(err){
     { const _rv=false; _R=[err]; return _rv; }
   }
   let mine=InpAiModel;
-  (_t152=StringTrimLeft(mine),mine=_R[0],_t152);
-  (_t153=StringTrimRight(mine),mine=_R[0],_t153);
+  (_t159=StringTrimLeft(mine),mine=_R[0],_t159);
+  (_t160=StringTrimRight(mine),mine=_R[0],_t160);
   let autoM=(mine===""||StringCompare(mine,"auto",false)===0);
   if(!autoM) CandAdd(mine);
   let bp=[];
   let bn=StringSplit(InpAiBackup,44,bp);
   for(let i=0;i<bn;i++) {
     let m=bp[i];
-    (_t154=StringTrimLeft(m),m=_R[0],_t154);
-    (_t155=StringTrimRight(m),m=_R[0],_t155);
+    (_t161=StringTrimLeft(m),m=_R[0],_t161);
+    (_t162=StringTrimRight(m),m=_R[0],_t162);
     CandAdd(m);
   }
   let url=((brProv===PV_GEMINI)?PVBASE[brProv]+"/v1beta/models?pageSize=1000":PVBASE[brProv]+"/models");
   let resp="";
-  let code=((brProv===PV_OPENROUTER)?200:(_t156=BrGetH(url,ProvHeaders(brProv,key),resp,20000),resp=_R[0],_t156));
+  let code=((brProv===PV_OPENROUTER)?200:(_t163=BrGetH(url,ProvHeaders(brProv,key),resp,20000),resp=_R[0],_t163));
   if(code<=-1000&&brProv===PV_OPENAI) {
     let r2="";
-    let c2=(_t157=BrGetH(PVBASE[PV_DEEPSEEK]+"/models",ProvHeaders(PV_DEEPSEEK,key),r2,20000),r2=_R[0],_t157);
+    let c2=(_t164=BrGetH(PVBASE[PV_DEEPSEEK]+"/models",ProvHeaders(PV_DEEPSEEK,key),r2,20000),r2=_R[0],_t164);
     if(c2===200) {
       brProv=PV_DEEPSEEK;
       code=200;
@@ -8880,7 +9120,7 @@ function BrDetect(err){
   }
   if((code===401||code===403)&&brProv===PV_OPENAI) {
     let r2="";
-    let c2=(_t158=BrGetH(PVBASE[PV_DEEPSEEK]+"/models",ProvHeaders(PV_DEEPSEEK,key),r2,20000),r2=_R[0],_t158);
+    let c2=(_t165=BrGetH(PVBASE[PV_DEEPSEEK]+"/models",ProvHeaders(PV_DEEPSEEK,key),r2,20000),r2=_R[0],_t165);
     if(c2===200) {
       brProv=PV_DEEPSEEK;
       code=200;
@@ -8979,7 +9219,7 @@ function BrDetect(err){
     }
     if(brCandN===0) for(let j=0;j<hn&&brCandN<3;j++) {
       let l=have[j];
-      (_t159=StringToLower(l),l=_R[0],_t159);
+      (_t166=StringToLower(l),l=_R[0],_t166);
       if(StringFind(l,"embed")>=0||StringFind(l,"tts")>=0||StringFind(l,"whisper")>=0||StringFind(l,"image")>=0||StringFind(l,"audio")>=0||StringFind(l,"realtime")>=0||StringFind(l,"moderation")>=0||StringFind(l,"dall")>=0||StringFind(l,"guard")>=0||StringFind(l,"transcribe")>=0||StringFind(l,"search")>=0||StringFind(l,"live")>=0) continue;
       CandAdd(have[j]);
     }
@@ -9059,26 +9299,26 @@ function AiAsk(src,userText0,audio,mime,heard){
   if(key==="") { const _rv=BrReplyJson("No AI key yet. Paste any AI API key (Gemini, OpenAI, Claude, Groq, OpenRouter, DeepSeek or Grok) in the BRIDGE input 'AI API key'. A free one: aistudio.google.com > Get API key."); _R=[heard]; return _rv; }
   let why="";
   if(!brDetected) {
-    if(!(_t160=BrDetect(why),why=_R[0],_t160)) {
+    if(!(_t167=BrDetect(why),why=_R[0],_t167)) {
       brGemOk=false;
       brErr=why;
       { const _rv=BrReplyJson(why); _R=[heard]; return _rv; }
     }
   }
-  if(!(_t161=BrRateOk(why),why=_R[0],_t161)) { const _rv=BrReplyJson(why); _R=[heard]; return _rv; }
+  if(!(_t168=BrRateOk(why),why=_R[0],_t168)) { const _rv=BrReplyJson(why); _R=[heard]; return _rv; }
   let userText=userText0;
   let voice=(ArraySize(audio)>0);
   if(voice&&brProv!==PV_GEMINI) {
     if(brProv===PV_OPENAI||brProv===PV_GROQ) {
       let tx="",er="";
-      if(!(_t162=BrTranscribe(audio,mime,tx,er),tx=_R[0],er=_R[1],_t162)) { const _rv=BrReplyJson("I could not hear the voice message. "+er); _R=[heard]; return _rv; }
+      if(!(_t169=BrTranscribe(audio,mime,tx,er),tx=_R[0],er=_R[1],_t169)) { const _rv=BrReplyJson("I could not hear the voice message. "+er); _R=[heard]; return _rv; }
       heard=tx;
       userText=tx;
       voice=false;
     }
     else if(AzureOn()) {
       let tx="",er="";
-      if(!(_t163=AzureStt(audio,tx,er),tx=_R[0],er=_R[1],_t163)) { const _rv=BrReplyJson("I could not hear the voice message. "+er); _R=[heard]; return _rv; }
+      if(!(_t170=AzureStt(audio,tx,er),tx=_R[0],er=_R[1],_t170)) { const _rv=BrReplyJson("I could not hear the voice message. "+er); _R=[heard]; return _rv; }
       heard=tx;
       userText=tx;
       voice=false;
@@ -9101,8 +9341,8 @@ function AiAsk(src,userText0,audio,mime,heard){
       let k0=[],b64=[];
       CryptEncode(CRYPT_BASE64,audio,k0,b64);
       let s64=CharArrayToString(b64);
-      (_t164=StringReplace(s64,"\r",""),s64=_R[0],_t164);
-      (_t165=StringReplace(s64,"\n",""),s64=_R[0],_t165);
+      (_t171=StringReplace(s64,"\r",""),s64=_R[0],_t171);
+      (_t172=StringReplace(s64,"\n",""),s64=_R[0],_t172);
       parts+=",{\"text\":\"USER sent a voice message. Put what you heard in 'heard'.\"},{\"inline_data\":{\"mime_type\":"+JQ((mime===""?"audio/ogg":mime))+",\"data\":\""+s64+"\"}}";
     }
     else parts+=",{\"text\":"+JQ("USER: "+userText)+"}";
@@ -9161,7 +9401,7 @@ function AiAsk(src,userText0,audio,mime,heard){
     }
     for(let tryN=0;tryN<2;tryN++) {
       if(tryN>0&&GetTickCount()-aiT0>70000) break;
-      code=(_t166=BrPost(url,hd,body,resp,45000),resp=_R[0],_t166);
+      code=(_t173=BrPost(url,hd,body,resp,45000),resp=_R[0],_t173);
       if(code===-1000-5203) {
         busy=true;
         lastErr=PVNAME[brProv]+" timeout ("+m+")";
@@ -9193,7 +9433,7 @@ function AiAsk(src,userText0,audio,mime,heard){
     if(code===401||code===403) break;
     if(code===400) {
       let l=lastErr;
-      (_t167=StringToLower(l),l=_R[0],_t167);
+      (_t174=StringToLower(l),l=_R[0],_t174);
       if(StringFind(l,"api key")>=0||StringFind(l,"api_key")>=0||StringFind(l,"credit")>=0||StringFind(l,"billing")>=0) break;
     }
   }
@@ -9201,7 +9441,7 @@ function AiAsk(src,userText0,audio,mime,heard){
     brGemOk=false;
     brErr=lastErr;
     let l=lastErr;
-    (_t168=StringToLower(l),l=_R[0],_t168);
+    (_t175=StringToLower(l),l=_R[0],_t175);
     if(code===401||code===403||StringFind(l,"api key")>=0) {
       brDetected=false;
       { const _rv=BrReplyJson(lastErr+"  - check the 'AI API key' in the BRIDGE inputs."); _R=[heard]; return _rv; }
@@ -9253,8 +9493,8 @@ function TgOwnerLoad(){
   brOwner=InpTgChat;
   if(brOwner!==0) return;
   let s=FReadUtf8(TGOWNFILE);
-  (_t169=StringTrimLeft(s),s=_R[0],_t169);
-  (_t170=StringTrimRight(s),s=_R[0],_t170);
+  (_t176=StringTrimLeft(s),s=_R[0],_t176);
+  (_t177=StringTrimRight(s),s=_R[0],_t177);
   if(s!=="") brOwner=StringToInteger(s);
 }
 function TgOwnerSave(id){
@@ -9270,16 +9510,16 @@ function BrCanSpeak(){
   return AzureOn()||brProv===PV_OPENAI||brProv===PV_GEMINI;
 }
 function SsmlEsc(s){
-  (_t171=StringReplace(s,"&","&amp;"),s=_R[0],_t171);
-  (_t172=StringReplace(s,"<","&lt;"),s=_R[0],_t172);
-  (_t173=StringReplace(s,">","&gt;"),s=_R[0],_t173);
-  (_t174=StringReplace(s,"\"","&quot;"),s=_R[0],_t174);
-  (_t175=StringReplace(s,"'","&apos;"),s=_R[0],_t175);
+  (_t178=StringReplace(s,"&","&amp;"),s=_R[0],_t178);
+  (_t179=StringReplace(s,"<","&lt;"),s=_R[0],_t179);
+  (_t180=StringReplace(s,">","&gt;"),s=_R[0],_t180);
+  (_t181=StringReplace(s,"\"","&quot;"),s=_R[0],_t181);
+  (_t182=StringReplace(s,"'","&apos;"),s=_R[0],_t182);
   return s;
 }
 function LocaleOf(code){
   let c=code;
-  (_t176=StringToLower(c),c=_R[0],_t176);
+  (_t183=StringToLower(c),c=_R[0],_t183);
   if(StringLen(c)>2&&StringFind(c,"-")===2) return c;
   let k=["si","en","ta","hi","bn","ml","te","kn","mr","gu","ur","ar","fr","de","es","it","pt","ru","zh","ja","ko","id","ms","th","vi","tr","nl","pl","uk","fa","ne","fil"];
   let v=["si-LK","en-GB","ta-LK","hi-IN","bn-IN","ml-IN","te-IN","kn-IN","mr-IN","gu-IN","ur-PK","ar-SA","fr-FR","de-DE","es-ES","it-IT","pt-BR","ru-RU","zh-CN","ja-JP","ko-KR","id-ID","ms-MY","th-TH","vi-VN","tr-TR","nl-NL","pl-PL","uk-UA","fa-IR","ne-NP","fil-PH"];
@@ -9370,7 +9610,7 @@ function TtsMake(text,code,ogg,out,ext,err){
     StrBytes(ssml,d);
     let hd="Ocp-Apim-Subscription-Key: "+InpTtsKey+"\r\nContent-Type: application/ssml+xml\r\nX-Microsoft-OutputFormat: "+((ogg?"ogg-24khz-16bit-mono-opus":"riff-24khz-16bit-mono-pcm"))+"\r\nUser-Agent: GTMAI\r\n";
     let tx="";
-    let c=(_t177=BrPostRaw("https://"+InpTtsRegion+".tts.speech.microsoft.com/cognitiveservices/v1",hd,d,out,tx,60000),tx=_R[0],_t177);
+    let c=(_t184=BrPostRaw("https://"+InpTtsRegion+".tts.speech.microsoft.com/cognitiveservices/v1",hd,d,out,tx,60000),tx=_R[0],_t184);
     if(c===200&&ArraySize(out)>100) {
       ext=(ogg?"ogg":"wav");
       { const _rv=true; _R=[ext,err]; return _rv; }
@@ -9384,11 +9624,11 @@ function TtsMake(text,code,ogg,out,ext,err){
     let d=[];
     StrBytes(body,d);
     let tx="";
-    let c=(_t178=BrPostRaw(PVBASE[PV_OPENAI]+"/audio/speech",ProvHeaders(PV_OPENAI,key),d,out,tx,90000),tx=_R[0],_t178);
+    let c=(_t185=BrPostRaw(PVBASE[PV_OPENAI]+"/audio/speech",ProvHeaders(PV_OPENAI,key),d,out,tx,90000),tx=_R[0],_t185);
     if(c!==200) {
       body="{\"model\":\"tts-1\",\"voice\":\"onyx\",\"input\":"+JQ(text)+",\"response_format\":\""+((ogg?"opus":"wav"))+"\"}";
       StrBytes(body,d);
-      c=(_t179=BrPostRaw(PVBASE[PV_OPENAI]+"/audio/speech",ProvHeaders(PV_OPENAI,key),d,out,tx,90000),tx=_R[0],_t179);
+      c=(_t186=BrPostRaw(PVBASE[PV_OPENAI]+"/audio/speech",ProvHeaders(PV_OPENAI,key),d,out,tx,90000),tx=_R[0],_t186);
     }
     if(c===200&&ArraySize(out)>100) {
       ext=(ogg?"ogg":"wav");
@@ -9401,7 +9641,7 @@ function TtsMake(text,code,ogg,out,ext,err){
     let m=((brTtsModel!=="")?brTtsModel:"gemini-2.5-flash-preview-tts");
     let body="{\"contents\":[{\"parts\":[{\"text\":"+JQ("Read this aloud in a calm, friendly voice, in its own language:\n"+text)+"}]}],"+"\"generationConfig\":{\"responseModalities\":[\"AUDIO\"],\"speechConfig\":{\"voiceConfig\":{\"prebuiltVoiceConfig\":{\"voiceName\":\"Charon\"}}}}}";
     let resp="";
-    let c=(_t180=BrPost(PVBASE[PV_GEMINI]+"/v1beta/models/"+m+":generateContent",ProvHeaders(PV_GEMINI,key),body,resp,120000),resp=_R[0],_t180);
+    let c=(_t187=BrPost(PVBASE[PV_GEMINI]+"/v1beta/models/"+m+":generateContent",ProvHeaders(PV_GEMINI,key),body,resp,120000),resp=_R[0],_t187);
     if(c===200) {
       let pcm=[];
       if(B64Field(resp,pcm)&&ArraySize(pcm)>100) {
@@ -9433,8 +9673,8 @@ function AzureStt(audio,text,err){
     { const _rv=false; _R=[text,err]; return _rv; }
   }
   let loc=InpSpeechLang;
-  (_t181=StringTrimLeft(loc),loc=_R[0],_t181);
-  (_t182=StringTrimRight(loc),loc=_R[0],_t182);
+  (_t188=StringTrimLeft(loc),loc=_R[0],_t188);
+  (_t189=StringTrimRight(loc),loc=_R[0],_t189);
   if(loc==="") loc="si-LK";
   let d=[];
   let n=ArraySize(audio);
@@ -9442,7 +9682,7 @@ function AzureStt(audio,text,err){
   for(let i=0;i<n;i++) d[i]=audio[i];
   let out=[];
   let tx="";
-  let c=(_t183=BrPostRaw("https://"+InpTtsRegion+".stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language="+loc+"&format=simple","Ocp-Apim-Subscription-Key: "+InpTtsKey+"\r\nContent-Type: audio/ogg; codecs=opus\r\nAccept: application/json\r\n",d,out,tx,60000),tx=_R[0],_t183);
+  let c=(_t190=BrPostRaw("https://"+InpTtsRegion+".stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language="+loc+"&format=simple","Ocp-Apim-Subscription-Key: "+InpTtsKey+"\r\nContent-Type: audio/ogg; codecs=opus\r\nAccept: application/json\r\n",d,out,tx,60000),tx=_R[0],_t190);
   if(c<=-1000) {
     err="Add https://"+InpTtsRegion+".stt.speech.microsoft.com to Allow WebRequest";
     { const _rv=false; _R=[text,err]; return _rv; }
@@ -9469,9 +9709,9 @@ function AiSimple(sys,user,out,err){
     err="no AI key";
     { const _rv=false; _R=[out,err]; return _rv; }
   }
-  if(!brDetected&&!(_t184=BrDetect(err),err=_R[0],_t184)) { const _rv=false; _R=[out,err]; return _rv; }
+  if(!brDetected&&!(_t191=BrDetect(err),err=_R[0],_t191)) { const _rv=false; _R=[out,err]; return _rv; }
   let why="";
-  if(!(_t185=BrRateOk(why),why=_R[0],_t185)) {
+  if(!(_t192=BrRateOk(why),why=_R[0],_t192)) {
     err=why;
     { const _rv=false; _R=[out,err]; return _rv; }
   }
@@ -9491,10 +9731,10 @@ function AiSimple(sys,user,out,err){
       body="{\"model\":"+JQ(m)+","+((brProv===PV_OPENAI&&StringFind(m,"gpt-5")===0?"\"reasoning_effort\":\"low\",":""))+"\"messages\":[{\"role\":\"system\",\"content\":"+JQ(sys)+"},{\"role\":\"user\",\"content\":"+JQ(user)+"}]"+((brProv===PV_OPENAI?",\"max_completion_tokens\":6000":",\"max_tokens\":4096"))+((brProv!==PV_OPENROUTER?",\"response_format\":{\"type\":\"json_object\"}":""))+"}";
     }
     let resp="";
-    let code=(_t186=BrPost(url,hd,body,resp,90000),resp=_R[0],_t186);
+    let code=(_t193=BrPost(url,hd,body,resp,90000),resp=_R[0],_t193);
     if(code===503||code===500||code===529) {
       Sleep(1500);
-      code=(_t187=BrPost(url,hd,body,resp,90000),resp=_R[0],_t187);
+      code=(_t194=BrPost(url,hd,body,resp,90000),resp=_R[0],_t194);
     }
     if(code<=-1000) {
       err=WebReqHelp(brProv,-(code+1000));
@@ -9537,7 +9777,7 @@ function BrTranslate(r){
   let out="",err="";
   brBusy=true;
   BridgeBeat();
-  let okT=(_t188=AiSimple(sys,list,out,err),out=_R[0],err=_R[1],_t188);
+  let okT=(_t195=AiSimple(sys,list,out,err),out=_R[0],err=_R[1],_t195);
   brBusy=false;
   if(!okT) {
     Print(InpAIName," bridge: translate failed - ",err);
@@ -9562,7 +9802,7 @@ function BrTtsJob(r){
     let t="";
     brBusy=true;
     BridgeBeat();
-    if((_t189=AiSimple(sys,text,out,err),out=_R[0],err=_R[1],_t189)) t=JGS(JParse(out),"t");
+    if((_t196=AiSimple(sys,text,out,err),out=_R[0],err=_R[1],_t196)) t=JGS(JParse(out),"t");
     brBusy=false;
     if(t==="") {
       MailSend("b2p_","{\"kind\":\"tts\",\"key\":"+JQ(key)+",\"ok\":false,\"err\":\"translation failed\"}");
@@ -9574,7 +9814,7 @@ function BrTtsJob(r){
   let ext="",err="";
   brBusy=true;
   BridgeBeat();
-  let okS=(_t190=TtsMake(text,code,false,wav,ext,err),ext=_R[0],err=_R[1],_t190);
+  let okS=(_t197=TtsMake(text,code,false,wav,ext,err),ext=_R[0],err=_R[1],_t197);
   brBusy=false;
   if(!okS) {
     brErr=err;
@@ -9615,7 +9855,7 @@ function TgUpload(method,field,fname,mime,bytes,caption,extra=""){
   for(let i=0;i<nb;i++) data[na+nv+i]=b[i];
   let out=[];
   let tx="";
-  let c=(_t191=BrPostRaw("https://api.telegram.org/bot"+tok+"/"+method,"Content-Type: multipart/form-data; boundary="+bd+"\r\n",data,out,tx,60000),tx=_R[0],_t191);
+  let c=(_t198=BrPostRaw("https://api.telegram.org/bot"+tok+"/"+method,"Content-Type: multipart/form-data; boundary="+bd+"\r\n",data,out,tx,60000),tx=_R[0],_t198);
   if(c!==200) {
     brErr="Telegram "+method+" "+IntegerToString(c)+" "+StringSubstr(JGS(JParse(tx),"description"),0,80);
     Print(InpAIName," bridge: ",brErr);
@@ -9642,10 +9882,10 @@ function TgSendPhoto(rel,cap){
 function TgVoiceReply(text,code){
   if(text===""||brOwner===0) return;
   let r="";
-  (_t192=TgCall("sendChatAction","{\"chat_id\":"+IntegerToString(brOwner)+",\"action\":\"record_voice\"}",r),r=_R[0],_t192);
+  (_t199=TgCall("sendChatAction","{\"chat_id\":"+IntegerToString(brOwner)+",\"action\":\"record_voice\"}",r),r=_R[0],_t199);
   let au=[];
   let ext="",err="";
-  if(!(_t193=TtsMake(text,code,true,au,ext,err),ext=_R[0],err=_R[1],_t193)) {
+  if(!(_t200=TtsMake(text,code,true,au,ext,err),ext=_R[0],err=_R[1],_t200)) {
     TgSend(brOwner,"🔇 Voice reply failed: "+err);
     return;
   }
@@ -9663,11 +9903,11 @@ function TgMenuKb(){
 }
 function TgMenu(){
   let resp="";
-  (_t194=TgCall("sendMessage","{\"chat_id\":"+IntegerToString(brOwner)+",\"text\":"+JQ("🎛 "+InpAIName+" remote control")+",\"reply_markup\":"+TgMenuKb()+"}",resp),resp=_R[0],_t194);
+  (_t201=TgCall("sendMessage","{\"chat_id\":"+IntegerToString(brOwner)+",\"text\":"+JQ("🎛 "+InpAIName+" remote control")+",\"reply_markup\":"+TgMenuKb()+"}",resp),resp=_R[0],_t201);
 }
 function TgConfirm(what,cb){
   let resp="";
-  (_t195=TgCall("sendMessage","{\"chat_id\":"+IntegerToString(brOwner)+",\"text\":"+JQ("⚠ "+what+" - are you sure?")+",\"reply_markup\":{\"inline_keyboard\":[[{\"text\":\"✅ YES\",\"callback_data\":\"m:"+cb+"!"+IntegerToString(TimeLocal())+"\"},{\"text\":\"✖ NO\",\"callback_data\":\"m:none\"}]]}}",resp),resp=_R[0],_t195);
+  (_t202=TgCall("sendMessage","{\"chat_id\":"+IntegerToString(brOwner)+",\"text\":"+JQ("⚠ "+what+" - are you sure?")+",\"reply_markup\":{\"inline_keyboard\":[[{\"text\":\"✅ YES\",\"callback_data\":\"m:"+cb+"!"+IntegerToString(TimeLocal())+"\"},{\"text\":\"✖ NO\",\"callback_data\":\"m:none\"}]]}}",resp),resp=_R[0],_t202);
 }
 function TgMenuPress(cmd){
   if(cmd==="none") return;
@@ -9701,13 +9941,13 @@ function TgMenuPress(cmd){
 }
 function TgSetCommands(){
   let resp="";
-  (_t196=TgCall("setMyCommands","{\"commands\":["+"{\"command\":\"menu\",\"description\":\"Remote control buttons\"},"+"{\"command\":\"status\",\"description\":\"Account and trades now\"},"+"{\"command\":\"chart\",\"description\":\"Picture of the trade chart\"},"+"{\"command\":\"shot\",\"description\":\"Picture of the panel\"},"+"{\"command\":\"report\",\"description\":\"Today / week / month\"},"+"{\"command\":\"voice\",\"description\":\"Voice replies on / off\"},"+"{\"command\":\"help\",\"description\":\"What you can say\"}]}",resp),resp=_R[0],_t196);
+  (_t203=TgCall("setMyCommands","{\"commands\":["+"{\"command\":\"menu\",\"description\":\"Remote control buttons\"},"+"{\"command\":\"status\",\"description\":\"Account and trades now\"},"+"{\"command\":\"chart\",\"description\":\"Picture of the trade chart\"},"+"{\"command\":\"shot\",\"description\":\"Picture of the panel\"},"+"{\"command\":\"report\",\"description\":\"Today / week / month\"},"+"{\"command\":\"voice\",\"description\":\"Voice replies on / off\"},"+"{\"command\":\"help\",\"description\":\"What you can say\"}]}",resp),resp=_R[0],_t203);
 }
 function TgUrl(method){
   return "https://api.telegram.org/bot"+BrTok()+"/"+method;
 }
 function TgCall(method,json,resp){
-  let code=(_t197=BrPost(TgUrl(method),"Content-Type: application/json\r\n",json,resp,15000),resp=_R[0],_t197);
+  let code=(_t204=BrPost(TgUrl(method),"Content-Type: application/json\r\n",json,resp,15000),resp=_R[0],_t204);
   if(code<=-1000) {
     let e=-(code+1000);
     brTgOk=false;
@@ -9729,13 +9969,13 @@ function TgSend(chat,text,approveId=0){
   if(approveId>0) js+=",\"reply_markup\":{\"inline_keyboard\":[[{\"text\":\"✅ APPLY\",\"callback_data\":\"ok:"+IntegerToString(approveId)+"\"},{\"text\":\"✖ CANCEL\",\"callback_data\":\"no:"+IntegerToString(approveId)+"\"}]]}";
   js+="}";
   let resp="";
-  (_t198=TgCall("sendMessage",js,resp),resp=_R[0],_t198);
+  (_t205=TgCall("sendMessage",js,resp),resp=_R[0],_t205);
 }
 function TgDownload(fileId,bytes){
   let resp="";
   brBusy=true;
   BridgeBeat();
-  let dlOk=((_t199=TgCall("getFile","{\"file_id\":"+JQ(fileId)+"}",resp),resp=_R[0],_t199)===200);
+  let dlOk=((_t206=TgCall("getFile","{\"file_id\":"+JQ(fileId)+"}",resp),resp=_R[0],_t206)===200);
   if(!dlOk) {
     brBusy=false;
     return false;
@@ -9752,12 +9992,12 @@ function TgDownload(fileId,bytes){
 function BrHandleUser(src,chat,text,audio,mime){
   if(src==="telegram") {
     let r="";
-    (_t200=TgCall("sendChatAction","{\"chat_id\":"+IntegerToString(chat)+",\"action\":\"typing\"}",r),r=_R[0],_t200);
+    (_t207=TgCall("sendChatAction","{\"chat_id\":"+IntegerToString(chat)+",\"action\":\"typing\"}",r),r=_R[0],_t207);
   }
   let heard="";
   brBusy=true;
   BridgeBeat();
-  let js=(_t201=AiAsk(src,text,audio,mime,heard),heard=_R[0],_t201);
+  let js=(_t208=AiAsk(src,text,audio,mime,heard),heard=_R[0],_t208);
   brBusy=false;
   MailSend("b2p_","{\"kind\":\"ai\",\"source\":"+JQ(src)+",\"heard\":"+JQ(heard)+",\"json\":"+JQ(js)+"}");
   let vm=VoiceMode();
@@ -9777,7 +10017,7 @@ function TgPoll(){
   if(BrTok()==="") return;
   let resp="";
   let js="{\"offset\":"+IntegerToString(brTgOffset)+",\"timeout\":0,\"limit\":5,\"allowed_updates\":[\"message\",\"callback_query\"]}";
-  if((_t202=TgCall("getUpdates",js,resp),resp=_R[0],_t202)!==200) return;
+  if((_t209=TgCall("getUpdates",js,resp),resp=_R[0],_t209)!==200) return;
   let root=JParse(resp),res=JGet(root,"result");
   let n=JLen(res);
   let chats=[];
@@ -9837,7 +10077,7 @@ function TgPoll(){
     if(chats[i]!==brOwner) continue;
     if(kinds[i]===3) {
       let r="";
-      (_t203=TgCall("answerCallbackQuery","{\"callback_query_id\":"+JQ(cbIds[i])+"}",r),r=_R[0],_t203);
+      (_t210=TgCall("answerCallbackQuery","{\"callback_query_id\":"+JQ(cbIds[i])+"}",r),r=_R[0],_t210);
       let d=cbData[i];
       if(StringSubstr(d,0,3)==="ok:"||StringSubstr(d,0,3)==="no:") MailSend("b2p_","{\"kind\":\"approve\",\"id\":"+StringSubstr(d,3)+",\"ok\":"+((StringSubstr(d,0,3)==="ok:"?"true":"false"))+"}");
       else if(StringSubstr(d,0,2)==="m:") TgMenuPress(StringSubstr(d,2));
@@ -9846,7 +10086,7 @@ function TgPoll(){
     if(kinds[i]===1) {
       let t=texts[i];
       let tl=t;
-      (_t204=StringToLower(tl),tl=_R[0],_t204);
+      (_t211=StringToLower(tl),tl=_R[0],_t211);
       let at=StringFind(tl,"@");
       if(at>0&&StringSubstr(tl,0,1)==="/") tl=StringSubstr(tl,0,at);
       if(tl==="/menu") {
@@ -9875,8 +10115,8 @@ function TgPoll(){
       }
       {
         let w=tl;
-        (_t205=StringTrimLeft(w),w=_R[0],_t205);
-        (_t206=StringTrimRight(w),w=_R[0],_t206);
+        (_t212=StringTrimLeft(w),w=_R[0],_t212);
+        (_t213=StringTrimRight(w),w=_R[0],_t213);
         if(w==="menu"||w==="buttons") {
           TgMenu();
           continue;
@@ -9938,7 +10178,7 @@ function TgPoll(){
       }
       {
         let r0="";
-        (_t207=TgCall("sendChatAction","{\"chat_id\":"+IntegerToString(chats[i])+",\"action\":\"typing\"}",r0),r0=_R[0],_t207);
+        (_t214=TgCall("sendChatAction","{\"chat_id\":"+IntegerToString(chats[i])+",\"action\":\"typing\"}",r0),r0=_R[0],_t214);
       }
       Print(InpAIName," bridge: voice message ",ArraySize(bytes)," bytes");
       let mm=mimes[i];
@@ -9960,12 +10200,12 @@ function BridgeInit(){
   TgOwnerLoad();
   if(BrKey()!=="") {
     let er="";
-    if(!(_t208=BrDetect(er),er=_R[0],_t208)) brErr=er;
+    if(!(_t215=BrDetect(er),er=_R[0],_t215)) brErr=er;
   }
   if(BrTok()!=="") {
     let resp="";
-    if((_t209=TgCall("getMe","{}",resp),resp=_R[0],_t209)===200) brTgName="@"+JGS(JGet(JParse(resp),"result"),"username");
-    if(brOwner!==0&&(_t210=TgCall("getUpdates","{\"offset\":-1,\"timeout\":0}",resp),resp=_R[0],_t210)===200) {
+    if((_t216=TgCall("getMe","{}",resp),resp=_R[0],_t216)===200) brTgName="@"+JGS(JGet(JParse(resp),"result"),"username");
+    if(brOwner!==0&&(_t217=TgCall("getUpdates","{\"offset\":-1,\"timeout\":0}",resp),resp=_R[0],_t217)===200) {
       let r=JParse(resp),res=JGet(r,"result");
       if(JLen(res)>0) brTgOffset=Math.trunc(JGN(JAt(res,JLen(res)-1),"update_id"))+1;
     }
@@ -10046,8 +10286,8 @@ function BridgePrompt(){
   p+="{\"type\":\"indicator_code\",\"name\":\"MyIndicator\",\"code\":\"<complete MQL5 indicator source that compiles>\"}  = when the user wants a new indicator\n";
   p+="\n";
   p+="SETUP \"changes\" keys:\n";
-  p+="on (bool); tf \"M1\",\"M5\",\"M15\",\"M30\",\"H1\",\"H4\"; entry \"ma\",\"rsi\",\"macd\",\"breakout\",\"bb_bounce\",\"bb_break\",\"stoch\",\"cci\",\"sar\",\"adx\",\"rule\"; dir \"both\",\"buy\",\"sell\"\n";
-  p+="p1 p2 p3 lv1 lv2 = entry parameters. ma: p1 fast, p2 slow, ma \"SMA\",\"EMA\",\"SMMA\",\"LWMA\". rsi: p1 period, lv1 buy level, lv2 sell level. macd: p1 fast, p2 slow, p3 signal. breakout: p1 candles. bb_bounce / bb_break: p1 period, lv1 deviation. stoch: p1 %K, p2 %D, p3 slowing, lv1 oversold, lv2 overbought. cci: p1 period, lv1 level. sar: lv1 step, lv2 maximum. adx: p1 period, lv1 minimum ADX.\n";
+  p+="on (bool); tf \"M1\",\"M5\",\"M15\",\"M30\",\"H1\",\"H4\"; entry \"ma\",\"rsi\",\"macd\",\"breakout\",\"bb_bounce\",\"bb_break\",\"stoch\",\"cci\",\"sar\",\"adx\",\"rule\",\"wma_smma\"; dir \"both\",\"buy\",\"sell\"\n";
+  p+="p1 p2 p3 lv1 lv2 = entry parameters. ma: p1 fast, p2 slow, ma \"SMA\",\"EMA\",\"SMMA\",\"WMA\". wma_smma (the default entry): p1 fast MA period (7), p2 slow MA period (39), ma = fast MA type (WMA), ma2 = slow MA type (SMMA), p3 = stop loss looks back this many candles (10; SL = lowest candle body for BUY / highest for SELL, wicks ignored), lv1 = take profit as a multiple of the SL (1 = 1:1, 3 = 1:3); it trades in the direction of the cross and ignores slMode / sl / tp. rsi: p1 period, lv1 buy level, lv2 sell level. macd: p1 fast, p2 slow, p3 signal. breakout: p1 candles. bb_bounce / bb_break: p1 period, lv1 deviation. stoch: p1 %K, p2 %D, p3 slowing, lv1 oversold, lv2 overbought. cci: p1 period, lv1 level. sar: lv1 step, lv2 maximum. adx: p1 period, lv1 minimum ADX.\n";
   p+="trend (bool) + trendP = EMA trend filter on the same timeframe\n";
   p+="htfOn (bool), htf (timeframe), htfType \"ma\",\"ema\",\"macd\",\"rsi\",\"sar\",\"dmi\", hp1, hp2, hma = trade only when the higher timeframe agrees (the 2-timeframe model)\n";
   p+="cwMode \"none\",\"candles\",\"minutes\",\"pullback\", cwN, cwPull (% of SL) = wait after the signal\n";
@@ -10068,7 +10308,7 @@ function BridgePrompt(){
   p+="Example: \"stop V10 1s for the day when it loses 10 dollars\" -> {\"type\":\"risk\",\"scope\":\"V10.1s\",\"symLoss\":10}\n";
   p+="\n";
   p+="The robot itself asks the user to approve opening trades, LIVE mode, new setups and looser risk rules; you still return those actions and it shows them for approval. Navigation, replay, closing, break-even, trailing and reports run at once. Keep replies short.\n";
-  (_t211=StringReplace(p,"{NAME}",InpAIName),p=_R[0],_t211);
+  (_t218=StringReplace(p,"{NAME}",InpAIName),p=_R[0],_t218);
   return p;
 }
 function LangFont(code){
@@ -10104,12 +10344,12 @@ function LangWant(s){
 function Lng(s){
   if(gLang==="en"||s===""||gNoTr) return s;
   let v="";
-  if((_t212=gTr.TryGetValue(s,v),v=_R[0],_t212)) return v;
+  if((_t219=gTr.TryGetValue(s,v),v=_R[0],_t219)) return v;
   let z=false;
-  if((_t213=gTrV.TryGetValue(s,z),z=_R[0],_t213)) return s;
+  if((_t220=gTrV.TryGetValue(s,z),z=_R[0],_t220)) return s;
   if(gMiss.Count()<3000&&LangWant(s)) {
     let q=0;
-    if(!(_t214=gMiss.TryGetValue(s,q),q=_R[0],_t214)) {
+    if(!(_t221=gMiss.TryGetValue(s,q),q=_R[0],_t221)) {
       gMiss.Add(s,0);
       gMissN++;
     }
@@ -10123,10 +10363,10 @@ function LangSave(){
   let out="";
   for(let i=0;i<n;i++) {
     let a=k[i],b=v[i];
-    (_t215=StringReplace(a,"\t"," "),a=_R[0],_t215);
-    (_t216=StringReplace(a,"\n"," "),a=_R[0],_t216);
-    (_t217=StringReplace(b,"\t"," "),b=_R[0],_t217);
-    (_t218=StringReplace(b,"\n"," "),b=_R[0],_t218);
+    (_t222=StringReplace(a,"\t"," "),a=_R[0],_t222);
+    (_t223=StringReplace(a,"\n"," "),a=_R[0],_t223);
+    (_t224=StringReplace(b,"\t"," "),b=_R[0],_t224);
+    (_t225=StringReplace(b,"\n"," "),b=_R[0],_t225);
     out+=a+"\t"+b+"\n";
   }
   FWriteAtomic("GTM_AI\\lang_"+gLang+".txt",out);
@@ -10142,7 +10382,7 @@ function LangLoad(){
     let p=StringFind(ln[i],"\t");
     if(p<=0) continue;
     let a=StringSubstr(ln[i],0,p),b=StringSubstr(ln[i],p+1);
-    (_t219=StringReplace(b,"\r",""),b=_R[0],_t219);
+    (_t226=StringReplace(b,"\r",""),b=_R[0],_t226);
     if(b!=="") {
       gTr.TrySetValue(a,b);
       gTrV.TrySetValue(b,true);
@@ -10150,9 +10390,9 @@ function LangLoad(){
   }
 }
 function LangSet(code,name){
-  (_t220=StringTrimLeft(code),code=_R[0],_t220);
-  (_t221=StringTrimRight(code),code=_R[0],_t221);
-  (_t222=StringToLower(code),code=_R[0],_t222);
+  (_t227=StringTrimLeft(code),code=_R[0],_t227);
+  (_t228=StringTrimRight(code),code=_R[0],_t228);
+  (_t229=StringToLower(code),code=_R[0],_t229);
   if(StringLen(code)>3&&StringFind(code,"-")!==2) code=StringSubstr(code,0,2);
   if(code==="") return;
   if(name==="") name=code;
@@ -10176,8 +10416,8 @@ function LangInit(){
   let p=StringFind(s,"\t");
   if(p>0) {
     let c=StringSubstr(s,0,p),nm=StringSubstr(s,p+1);
-    (_t223=StringReplace(nm,"\r",""),nm=_R[0],_t223);
-    (_t224=StringReplace(nm,"\n",""),nm=_R[0],_t224);
+    (_t230=StringReplace(nm,"\r",""),nm=_R[0],_t230);
+    (_t231=StringReplace(nm,"\n",""),nm=_R[0],_t231);
     gLang=c;
     gLangName=nm;
     gLangFont=((c==="en")?"":LangFont(c));
@@ -10347,7 +10587,7 @@ function VPhrase(type){
   if(gLang==="en") return false;
   let rel="";
   let ms=0;
-  if((_t225=VAiFile(type,rel,ms),rel=_R[0],ms=_R[1],_t225)) {
+  if((_t232=VAiFile(type,rel,ms),rel=_R[0],ms=_R[1],_t232)) {
     VPushF(rel,ms);
     return true;
   }
@@ -10366,7 +10606,7 @@ function VLearnTick(){
   for(let t=0;t<NVOICE;t++) {
     let rel="";
     let ms=0;
-    if((_t226=VAiFile(t,rel,ms),rel=_R[0],ms=_R[1],_t226)) continue;
+    if((_t233=VAiFile(t,rel,ms),rel=_R[0],ms=_R[1],_t233)) continue;
     VAiAsk(VKey(gLang+"|"+VPHR[t]),VPHR[t],gLang,false,true);
     return;
   }
@@ -10377,7 +10617,7 @@ function VLearnDone(){
   let c=0;
   let rel="";
   let ms=0;
-  for(let t=0;t<NVOICE;t++) if((_t227=VAiFile(t,rel,ms),rel=_R[0],ms=_R[1],_t227)) c++;
+  for(let t=0;t<NVOICE;t++) if((_t234=VAiFile(t,rel,ms),rel=_R[0],ms=_R[1],_t234)) c++;
   return c;
 }
 function VSpeak(text,translate,code){
@@ -11106,8 +11346,8 @@ function OnChartEvent(id,lparam,dparam,sparam){
   }
   if(id===CHARTEVENT_OBJECT_ENDEDIT&&sparam===EDNAME) {
     gFind=ObjectGetString(0,EDNAME,OBJPROP_TEXT);
-    (_t228=StringTrimLeft(gFind),gFind=_R[0],_t228);
-    (_t229=StringTrimRight(gFind),gFind=_R[0],_t229);
+    (_t235=StringTrimLeft(gFind),gFind=_R[0],_t235);
+    (_t236=StringTrimRight(gFind),gFind=_R[0],_t236);
     gPage=0;
     Draw();
     { _R=[lparam,dparam,sparam]; return; }
@@ -11197,6 +11437,23 @@ function AnimTick(){
   if(gBeF>0) gBeF--;
   if(gReplayProg<1.0) gReplayProg=MathMin(1.0,gReplayProg+0.01);
 }
+var gAccChkT=((0)>>>0);
+function AccountWatch(){
+  let nw=((Now())>>>0);
+  if(nw-gAccChkT<5000) return;
+  gAccChkT=((nw)>>>0);
+  let k=AccountKeyNow();
+  if(k===""||k===gAccKey) return;
+  gAccKey=k;
+  for(let i=0;i<gNS;i++) {
+    gAvail[i]=!!(SymbolSelect(gSym[i],true));
+    gVppC[i]=0;
+  }
+  let nl=LotsToBroker();
+  for(let i=0;i<gNS;i++) MakeHandles(i);
+  SaveAll();
+  Log("New account "+k+": lot sizes set to this broker's smallest lot on "+IntegerToString(nl)+" symbol(s).",CL_AU);
+}
 function OnTimer(){
   if(InpRole===ROLE_BRIDGE) {
     BridgeTimer();
@@ -11225,6 +11482,7 @@ function OnTimer(){
     GuardMonitor();
     LangTick();
     VLearnTick();
+    AccountWatch();
   }
   ShotTick();
   if(now-gLastManage>=250) {
@@ -11305,8 +11563,8 @@ function OnInit(){
   gNS=0;
   for(let i=0;i<n&&gNS<NSYM;i++) {
     let sy=parts[i];
-    (_t230=StringTrimLeft(sy),sy=_R[0],_t230);
-    (_t231=StringTrimRight(sy),sy=_R[0],_t231);
+    (_t237=StringTrimLeft(sy),sy=_R[0],_t237);
+    (_t238=StringTrimRight(sy),sy=_R[0],_t238);
     if(sy==="") continue;
     InitSymbol(gNS,sy);
     if(!fromFile&&!gAvail[gNS]) continue;
@@ -11333,6 +11591,12 @@ function OnInit(){
     LoadAll();
     LangInit();
     GuardLoad();
+  }
+  gAccKey=AccountKeyNow();
+  if(!gTester&&gAccKey!==""&&gSavedAcc!==gAccKey) {
+    let nl=LotsToBroker();
+    SaveAll();
+    Log("Account "+gAccKey+": lot sizes set to this broker's smallest lot on "+IntegerToString(nl)+" symbol(s). Raise them per symbol on SETTINGS if you want more.",CL_AU);
   }
   if(gdPeak<=0) gdPeak=Equity();
   if(!gTester) {
@@ -11398,12 +11662,12 @@ function OnDeinit(reason){
   }
   if(gNoDraw) {
     for(let i=0;i<gNS;i++) {
-      (_t232=Release(gH1[i]),gH1[i]=_R[0],_t232);
-      (_t233=Release(gH2[i]),gH2[i]=_R[0],_t233);
-      (_t234=Release(gHT[i]),gHT[i]=_R[0],_t234);
-      (_t235=Release(gHA[i]),gHA[i]=_R[0],_t235);
-      (_t236=Release(gHH1[i]),gHH1[i]=_R[0],_t236);
-      (_t237=Release(gHH2[i]),gHH2[i]=_R[0],_t237);
+      (_t239=Release(gH1[i]),gH1[i]=_R[0],_t239);
+      (_t240=Release(gH2[i]),gH2[i]=_R[0],_t240);
+      (_t241=Release(gHT[i]),gHT[i]=_R[0],_t241);
+      (_t242=Release(gHA[i]),gHA[i]=_R[0],_t242);
+      (_t243=Release(gHH1[i]),gHH1[i]=_R[0],_t243);
+      (_t244=Release(gHH2[i]),gHH2[i]=_R[0],_t244);
     }
     RHandlesRelease();
     OvRelease();
@@ -11420,12 +11684,12 @@ function OnDeinit(reason){
   RHandlesRelease();
   PlaySound(null);
   for(let i=0;i<gNS;i++) {
-    (_t238=Release(gH1[i]),gH1[i]=_R[0],_t238);
-    (_t239=Release(gH2[i]),gH2[i]=_R[0],_t239);
-    (_t240=Release(gHT[i]),gHT[i]=_R[0],_t240);
-    (_t241=Release(gHA[i]),gHA[i]=_R[0],_t241);
-    (_t242=Release(gHH1[i]),gHH1[i]=_R[0],_t242);
-    (_t243=Release(gHH2[i]),gHH2[i]=_R[0],_t243);
+    (_t245=Release(gH1[i]),gH1[i]=_R[0],_t245);
+    (_t246=Release(gH2[i]),gH2[i]=_R[0],_t246);
+    (_t247=Release(gHT[i]),gHT[i]=_R[0],_t247);
+    (_t248=Release(gHA[i]),gHA[i]=_R[0],_t248);
+    (_t249=Release(gHH1[i]),gHH1[i]=_R[0],_t249);
+    (_t250=Release(gHH2[i]),gHH2[i]=_R[0],_t250);
   }
   ObjectDelete(0,EDNAME);
   cv.Destroy();
