@@ -635,3 +635,13 @@ body.adminpage textarea,body.adminpage input{transition:none}
 .tri-one .tf{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 14px;font-size:13px;border-top:1px solid var(--line)}
 .tri-conf{display:inline-block;padding:2px 8px;border-radius:999px;font-weight:800;font-size:12px;border:1px solid}
 @media(max-width:700px){.tri-tabs{grid-template-columns:1fr}.tri-one .tc{height:300px}}
+
+/* Elliott wave section */
+.ew-ctl{display:flex;flex-wrap:wrap;gap:10px 22px;padding:10px 14px;border-top:1px solid var(--line)}
+.ew-g{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:13px}
+.ew-g small{color:var(--dim)}
+.ew-info{padding:10px 14px;font-size:13px;border-top:1px solid var(--line);display:grid;gap:6px}
+.ew-now{font-size:15px}
+.ew-inv{color:#fda4af}
+.ew-fl div{padding:2px 0}
+@media(max-width:700px){#ew-chart{height:340px!important}}
