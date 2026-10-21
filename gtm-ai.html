@@ -12,19 +12,19 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="G TRADERS">
 <meta property="og:title" content="GTM AI Trade Core — AI trading assistant for MT5 (try it live)">
-<meta property="og:description" content="The real GTM AI panel in your browser with live prices: six AI agents, entry models, AI chat, Account Guard, replay and voice. Simulator only — no money needed.">
+<meta property="og:description" content="The real GTM AI panel in your browser with live prices: six AI agents, entry models, AI chat, Account Guard, replay and voice. Simulator money, or connect Binance Futures (Testnet first).">
 <meta property="og:url" content="https://gtraderslk.github.io/gtm-ai.html">
 <meta property="og:image" content="https://gtraderslk.github.io/assets/img/gtm-ai.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GTM AI Trade Core — AI trading assistant for MT5 (try it live)">
-<meta name="twitter:description" content="The real GTM AI panel in your browser with live prices. Simulator only.">
+<meta name="twitter:description" content="The real GTM AI panel in your browser with live prices. Simulator, or Binance Futures.">
 <meta name="twitter:image" content="https://gtraderslk.github.io/assets/img/gtm-ai.jpg">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css?v=46">
-<link rel="stylesheet" href="assets/gtmai/gtmai.css?v=47">
+<link rel="stylesheet" href="assets/gtmai/gtmai.css?v=49">
 <style>.gtm-cover{background:linear-gradient(rgba(2,6,15,.72),rgba(2,6,15,.86)),url(assets/img/gtm-ai-dashboard.jpg) center/cover}</style>
 <script src="assets/js/config.js?v=46"></script>
 <script src="assets/js/site.js?v=46"></script>
@@ -50,7 +50,7 @@
 
 <section class="section tight" id="try"><div class="gtm-wrap">
   <div class="wrap" style="padding:0"><h2 style="margin:0 0 6px">Try the real panel — live prices, simulator money</h2>
-  <p class="muted" style="margin:0 0 14px">This is the same GTM AI code that runs in MetaTrader 5, running in your browser. Prices are live market prices; every trade here is a <b>simulator trade with a virtual $1,000</b> — no account, no money. Click the tabs, drag SL / TP on LIVE TRADES, replay trades on HISTORY, add symbols on SETTINGS and talk to the AI on AI CHAT.</p></div>
+  <p class="muted" style="margin:0 0 14px">This is the same GTM AI code that runs in MetaTrader 5, running in your browser. Prices are live market prices; every trade here is a <b>simulator trade with a virtual $1,000</b> — no account, no money. <b>New:</b> connect <b>Binance Futures</b> (Testnet first) in the box below and the panel's LIVE mode opens real USDT-M futures orders for your crypto symbols, with SL / TP placed on Binance. Click the tabs, drag SL / TP on LIVE TRADES, replay trades on HISTORY, add symbols on SETTINGS and talk to the AI on AI CHAT.</p></div>
   <div class="gtm-bar">
     <span class="ai-state" id="ai-state">AI: Demo AI (no key needed)</span>
     <input type="password" id="ai-key" placeholder="Optional: paste your own AI key (Gemini, OpenAI, Claude, Groq...)" autocomplete="off">
@@ -61,8 +61,9 @@
     <button class="btn small ghost" id="fs" type="button">⛶ Full screen</button>
     <button class="btn small ghost" id="rst" type="button">↺ Reset</button>
   </div>
+  <div id="gtm-bn"></div>
   <div id="gtm-sim"></div>
-  <p class="gtm-note"><b>Tip:</b> on a phone, turn it sideways and press Full screen — the panel is made for a computer screen. Your simulator trades and settings stay in this browser only. An AI key you paste is kept in this browser and sent only to that AI service. In MetaTrader 5 you also get LIVE trading, Telegram text / voice control, chart pictures and voice alerts in more languages. Signals and AI answers are predictions, not promises.</p>
+  <p class="gtm-note"><b>Tip:</b> on a phone, turn it sideways and press Full screen — the panel is made for a computer screen. Your simulator trades and settings stay in this browser only. An AI key you paste is kept in this browser and sent only to that AI service. Binance keys stay in this browser too (the secret only signs orders; never allow withdrawals on the key). In MetaTrader 5 you also get LIVE trading on your broker, Telegram text / voice control, chart pictures and voice alerts in more languages. Signals and AI answers are predictions, not promises.</p>
 </div></section>
 
 <section class="section tight"><div class="wrap">
@@ -112,11 +113,12 @@
 <div id="site-footer"></div>
 
 <script src="assets/js/deriv.js?v=46"></script>
-<script src="assets/gtmai/rt.js?v=47"></script>
-<script src="assets/gtmai/canvas.js?v=47"></script>
-<script src="assets/gtmai/market.js?v=47"></script>
-<script src="assets/gtmai/ea.js?v=47"></script>
-<script src="assets/gtmai/host.js?v=47"></script>
+<script src="assets/gtmai/rt.js?v=49"></script>
+<script src="assets/gtmai/canvas.js?v=49"></script>
+<script src="assets/gtmai/market.js?v=49"></script>
+<script src="assets/gtmai/binance.js?v=49"></script>
+<script src="assets/gtmai/ea.js?v=49"></script>
+<script src="assets/gtmai/host.js?v=49"></script>
 <script>
 (function () {
   const P = GT_CONFIG.products, me = P.find(x => x.key === 'gtmai');
@@ -125,10 +127,11 @@
     <a class="card product hover" href="${x.page}" style="color:inherit"><img class="thumb" src="${GT.esc(x.img)}" alt="" loading="lazy">
       <div class="body"><h3>${GT.esc(x.name)}</h3><p>${GT.esc(x.text)}</p><span class="gold small"><b>${GT.esc(x.price)}</b></span></div></a>`).join('');
 
-  const sim = window.gtmSim = new GTMAISim(document.getElementById('gtm-sim'), { base: 'assets/gtmai/', v: '45' });
+  const sim = window.gtmSim = new GTMAISim(document.getElementById('gtm-sim'), { base: 'assets/gtmai/', v: '49' });
   const st = document.getElementById('ai-state'), key = document.getElementById('ai-key');
   const show = d => { st.textContent = d.demo ? 'AI: Demo AI (no key needed)' : 'AI: your own key'; st.classList.toggle('key', !d.demo); };
   document.getElementById('gtm-sim').addEventListener('gtm-ai', e => show(e.detail));
+  if (window.GTMBinance) GTMBinance.mount(document.getElementById('gtm-bn'), { started: () => sim.started });
   show({ demo: !sim.aiKey() });
   document.getElementById('ai-save').onclick = () => { if (!key.value.trim()) { key.focus(); return; } sim.setAi(key.value); key.value = ''; };
   document.getElementById('ai-demo').onclick = () => { sim.setAi(''); };
