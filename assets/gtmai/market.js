@@ -128,7 +128,7 @@ Object.assign(G, {
     switch (p) {
       case G.SYMBOL_DIGITS: return o.spec.digits;
       case G.SYMBOL_SELECT: return M.sel.has(name) ? 1 : 0;
-      case G.SYMBOL_TRADE_MODE: return G.SYMBOL_TRADE_MODE_FULL;
+      case G.SYMBOL_TRADE_MODE: { const b = RT.broker && RT.broker.ready ? RT.broker : null; return b ? b.tradeMode(name) : G.SYMBOL_TRADE_MODE_FULL; }
       case G.SYMBOL_SPREAD: return o.spec.spread;
       default: return 0;     // stops level / freeze level 0
     }
@@ -147,9 +147,9 @@ Object.assign(G, {
         if (/^frx/.test(o.meta.symbol) && sp.quote !== 'USD') { const px = s && s.bid > 0 ? s.bid : 1; v = sp.base === 'USD' ? v / px : v / (sp.quote === 'JPY' ? 150 : 1); }
         return v;
       }
-      case G.SYMBOL_VOLUME_MIN: return sp.min;
-      case G.SYMBOL_VOLUME_STEP: return sp.step;
-      case G.SYMBOL_VOLUME_MAX: return 100;
+      case G.SYMBOL_VOLUME_MIN: { const b = RT.broker && RT.broker.ready ? RT.broker : null; return (b && b.volMin(name)) || sp.min; }      // Binance: lot size + minimum order value
+      case G.SYMBOL_VOLUME_STEP: { const b = RT.broker && RT.broker.ready ? RT.broker : null; return (b && b.volStep(name)) || sp.step; }
+      case G.SYMBOL_VOLUME_MAX: { const b = RT.broker && RT.broker.ready ? RT.broker : null; return (b && b.volMax(name)) || 100; }
       case G.SYMBOL_VOLUME_LIMIT: return 0;
       case G.SYMBOL_TRADE_CONTRACT_SIZE: return sp.contract;
       default: return 0;

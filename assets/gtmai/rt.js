@@ -303,21 +303,43 @@ G.ObjectsDeleteAll = () => { RT.objs.clear(); };
 RT.sound = { play: () => false, stop: () => { } };
 G.PlaySound = f => { if (f == null) { RT.sound.stop(); return true; } return RT.sound.play(String(f)); };
 
-/* ---------------- trading: the web version is SIMULATOR only ---------------- */
+/* ---------------- trading: SIMULATOR, or LIVE through a connected broker (binance.js) ---------------- */
+const BK = () => (RT.broker && RT.broker.ready) ? RT.broker : null;
+const NOBK = 'LIVE needs a connected broker: connect Binance Futures in the box above the panel (MT5 markets trade in MetaTrader 5)';
 class CTrade {
-  SetExpertMagicNumber() { } SetDeviationInPoints() { } SetTypeFillingBySymbol() { return true; } SetTypeFilling() { }
-  Buy() { return false; } Sell() { return false; } PositionClose() { return false; } PositionModify() { return false; }
-  ResultRetcode() { return K.TRADE_RETCODE_REJECT; } ResultRetcodeDescription() { return 'LIVE trading is only in MetaTrader 5'; }
-  ResultOrder() { return 0; } ResultDeal() { return 0; } ResultPrice() { return 0; }
+  constructor() { this.magic = 0; this.r = { code: K.TRADE_RETCODE_REJECT, desc: NOBK, order: 0, price: 0 }; }
+  SetExpertMagicNumber(m) { this.magic = m; } SetDeviationInPoints() { } SetTypeFillingBySymbol() { return true; } SetTypeFilling() { }
+  _no() { this.r = { code: K.TRADE_RETCODE_REJECT, desc: NOBK, order: 0, price: 0 }; return false; }
+  Buy(lot, sym, px, sl, tp, c) { const b = BK(); return b ? b.open(this, 1, lot, sym, sl, tp, c) : this._no(); }
+  Sell(lot, sym, px, sl, tp, c) { const b = BK(); return b ? b.open(this, -1, lot, sym, sl, tp, c) : this._no(); }
+  PositionClose(t) { const b = BK(); return b ? b.close(this, t) : this._no(); }
+  PositionModify(t, sl, tp) { const b = BK(); return b ? b.modify(this, t, sl, tp) : this._no(); }
+  ResultRetcode() { return this.r.code; } ResultRetcodeDescription() { return this.r.desc; }
+  ResultOrder() { return this.r.order; } ResultDeal() { return 0; } ResultPrice() { return this.r.price; }
 }
 G.CTrade = CTrade;
 Object.assign(G, {
-  PositionsTotal: () => 0, PositionGetTicket: () => 0, PositionSelectByTicket: () => false, PositionSelect: () => false,
-  PositionGetInteger: () => 0, PositionGetDouble: () => 0, PositionGetString: () => '',
-  HistorySelect: () => false, HistorySelectByPosition: () => false, HistoryDealsTotal: () => 0, HistoryDealGetTicket: () => 0,
-  HistoryDealSelect: () => false, HistoryDealGetInteger: () => 0, HistoryDealGetDouble: () => 0, HistoryDealGetString: () => '',
-  OrderCalcMargin: (t, s, lot, px) => { G._R = [0]; return true; }
+  PositionsTotal: () => { const b = BK(); return b ? b.posTotal() : 0; },
+  PositionGetTicket: i => { const b = BK(); return b ? b.posTicket(i) : 0; },
+  PositionSelectByTicket: t => { const b = BK(); return b ? b.posSelect(t) : false; },
+  PositionSelect: s => { const b = BK(); return b ? b.posSelectSym(s) : false; },
+  PositionGetInteger: p => { const b = BK(); return b ? b.posInt(p) : 0; },
+  PositionGetDouble: p => { const b = BK(); return b ? b.posDbl(p) : 0; },
+  PositionGetString: p => { const b = BK(); return b ? b.posStr(p) : ''; },
+  HistorySelect: (f, t) => { const b = BK(); return b ? b.histSelect(f, t) : false; },
+  HistorySelectByPosition: t => { const b = BK(); return b ? b.histSelectPos(t) : false; },
+  HistoryDealsTotal: () => { const b = BK(); return b ? b.dealTotal() : 0; },
+  HistoryDealGetTicket: i => { const b = BK(); return b ? b.dealTicket(i) : 0; },
+  HistoryDealSelect: id => { const b = BK(); return b ? !!b.deal(id) : false; },
+  HistoryDealGetInteger: (id, p) => { const b = BK(); return b ? b.dealInt(id, p) : 0; },
+  HistoryDealGetDouble: (id, p) => { const b = BK(); return b ? b.dealDbl(id, p) : 0; },
+  HistoryDealGetString: (id, p) => { const b = BK(); return b ? b.dealStr(id, p) : ''; },
+  OrderCalcMargin: (t, s, lot, px) => { const b = BK(); G._R = [b ? b.margin(s, lot, px) : 0]; return true; }
 });
+/* the account: the broker's numbers when it is connected */
+G.AccountInfoDouble = p => { const b = BK(); if (!b) return 0; return p === K.ACCOUNT_BALANCE ? b.acct.bal : (p === K.ACCOUNT_EQUITY ? b.acct.eq : (p === K.ACCOUNT_MARGIN_FREE ? b.acct.free : 0)); };
+G.AccountInfoInteger = p => { const b = BK(); if (p === K.ACCOUNT_TRADE_MODE) return b && b.live ? K.ACCOUNT_TRADE_MODE_REAL : K.ACCOUNT_TRADE_MODE_DEMO; return 0; };
+G.AccountInfoString = p => { const b = BK(); if (!b) return 'G TRADERS web simulator'; return p === K.ACCOUNT_CURRENCY ? 'USDT' : b.name; };
 
 /* ---------------- network (BRIDGE only, in the worker) ---------------- */
 G.WebRequest = (method, url, headers, timeout, data, result, rhdr) => {

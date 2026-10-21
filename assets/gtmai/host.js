@@ -81,6 +81,7 @@ class GTMAISim {
   }
   async prepare() {
     RT.fsLoad();
+    this.bnWait = window.GTMBinance ? window.GTMBinance.auto().catch(() => false) : null;   // reconnects Binance while the prices load
     try { await RT.market.init(); } catch (e) { }
     this.loadTx.textContent = RT.market.list.length ? 'Live prices ready - ' + RT.market.list.length + ' markets' : 'Live prices are not reachable right now - the panel still opens.';
   }
@@ -88,13 +89,20 @@ class GTMAISim {
     const want = ['XAUUSD', 'EURUSD', 'GBPUSD', 'USDJPY', 'Volatility 75 Index', 'Volatility 25 (1s) Index', 'Volatility 100 Index', 'BTCUSD', 'ETHUSD'];
     return want.filter(n => RT.market.byName.has(n)).join(',') || want.join(',');
   }
-  start() {
+  async start() {
     if (this.started) return; this.started = true;
+    this.sound.unlock();
+    if (this.bnWait) { this.loadTx.textContent = 'Connecting to Binance...'; await this.bnWait; }
     this.sound.unlock(); this.sound.preload(0, 142);
     this.cover.style.display = 'none';
     const self = this;
-    RT.onTimerSet = ms => { clearInterval(self.timer); self.timer = ms ? setInterval(() => self.tick(), ms) : null; };
-    this.EA = GTMAI_EA({ InpSymbols: this.defaultsFor(), InpAllowLive: false, InpSimBalance: 1000, InpFrameMs: 60, InpFont: 'Bahnschrift', InpAIName: 'GTM AI' });
+    // the timer runs in a small worker: a hidden tab still checks entries and moves stops (page timers get slowed down there)
+    let tw = null;
+    try { tw = new Worker(URL.createObjectURL(new Blob(['let t=0;onmessage=e=>{clearInterval(t);if(e.data>0)t=setInterval(()=>postMessage(0),e.data)}'], { type: 'text/javascript' }))); tw.onmessage = () => self.tick(); } catch (e) { tw = null; }
+    RT.onTimerSet = ms => { if (tw) { tw.postMessage(ms || 0); return; } clearInterval(self.timer); self.timer = ms ? setInterval(() => self.tick(), ms) : null; };
+    const live = !!(RT.broker && RT.broker.ready);
+    window.addEventListener('beforeunload', e => { if (RT.broker && RT.broker.ready && RT.broker.posTotal() > 0) { e.preventDefault(); e.returnValue = ''; } });
+    this.EA = GTMAI_EA({ InpSymbols: this.defaultsFor(), InpAllowLive: live, InpSimBalance: 1000, InpFrameMs: 60, InpFont: 'Bahnschrift', InpAIName: 'GTM AI' });
     try { this.EA.OnInit(); } catch (e) { this.fail(e); }
     this.bindMouse();
     window.addEventListener('resize', () => this.onResize());
@@ -102,8 +110,10 @@ class GTMAISim {
     this.startBridge();
   }
   tick() {
-    if (this.busy) return; this.busy = true;
+    const t = performance.now(); if (t - (this._lt || 0) < (RT.timerMs || 60) * 0.6) return;   // never catch up a backlog
+    if (this.busy) return; this.busy = true; this._lt = t;
     try { this.EA.OnTimer(); } catch (e) { this.fail(e); }
+    if (RT.broker) RT.broker.pump();
     this.busy = false;
   }
   fail(e) {
