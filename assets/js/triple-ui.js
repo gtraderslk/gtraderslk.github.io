@@ -3,7 +3,7 @@
   const $ = id => document.getElementById(id), root = $('tri'); if (!root || !window.GTSigLC || !window.GTTriple) return;
   const lc = window.GTSigLC, T = window.GTTriple;
   const M = [
-    { k: 'advanced', name: '⚡ Advanced signal', fn: (c, h) => T.advanced(c, h), about: 'Higher-timeframe trend + ADX + Supertrend + pullback to EMA 21, scored with MACD, RSI, volatility and structure. SL 1.5 × ATR, TP 1 : 2.' },
+    { k: 'advanced', name: '⚡ Advanced signal', fn: (c, h) => T.advanced(c, h), about: 'Higher-timeframe trend + ADX 25+ + Supertrend + pullback to EMA 21. SL 3 × ATR, TP 1 : 3 (about 3 wins in 10 is normal for 1 : 3). The score only counts how many extra checks passed (MACD, RSI, volatility, structure) - it is not a probability. Skipped when the stop is under 0.3% of the price.' },
     { k: 'bollinger', name: 'Bollinger Bands signal', fn: c => T.bollinger(c), about: 'Reversion back inside the band in a ranging market, and squeeze breakouts when the bands were tight.' },
     { k: 'ma', name: 'Moving Average signal', fn: c => T.ma(c), about: 'EMA 9 / 21 cross, only with the EMA 200 trend, a sloping EMA 21 and a market that is not flat. SL 1.5 × ATR, TP 1 : 2.' }
   ];
