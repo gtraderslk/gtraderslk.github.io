@@ -22,9 +22,9 @@
 <meta name="twitter:image" content="https://gtraderslk.github.io/assets/img/og-image.jpg">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
-<link rel="stylesheet" href="assets/css/site.css?v=46">
-<script src="assets/js/config.js?v=46"></script>
-<script src="assets/js/site.js?v=46"></script>
+<link rel="stylesheet" href="assets/css/site.css?v=48">
+<script src="assets/js/config.js?v=48"></script>
+<script src="assets/js/site.js?v=48"></script>
 </head>
 <body class="smc">
 <div id="site-header"></div>
@@ -81,6 +81,26 @@
   <p class="small muted" style="padding:6px 14px 12px;margin:0">Signals use closed candles only and do not repaint. “Confidence score” counts how many extra checks agreed — it is not a probability. “History” is a walk-forward check of the signals on the chart (stop first if both are hit in one candle). Past results do not promise future results.</p>
 </div>
 
+<div class="panel ew" id="ew" style="margin-top:18px">
+  <div class="bar tri-bar"><span class="title">🌊 Elliott Wave count</span>
+    <span class="small muted" id="ew-sym">—</span>
+    <button class="btn ghost small" id="ew-up" type="button">Change market / timeframe ↑</button>
+    <span class="grow" style="flex:1"></span>
+    <label class="small muted">Wave size
+      <select class="inline" id="ew-deg"><option value="large">Large (fewer, bigger waves)</option><option value="medium">Medium</option><option value="small">Small (more, smaller waves)</option></select></label></div>
+  <div class="ew-ctl">
+    <div class="ew-g"><b style="color:#38bdf8">Trend count</b> <small>(the 5-wave impulse)</small>
+      <label class="chk"><input type="checkbox" id="ew-tl"> Lines</label><label class="chk"><input type="checkbox" id="ew-tt"> Labels</label></div>
+    <div class="ew-g"><b style="color:#f59e0b">Counter-trend count</b> <small>(the A-B-C correction against it)</small>
+      <label class="chk"><input type="checkbox" id="ew-cl"> Lines</label><label class="chk"><input type="checkbox" id="ew-ct"> Labels</label></div>
+    <div class="ew-g"><b>Extras</b>
+      <label class="chk"><input type="checkbox" id="ew-inv"> Cancel level</label><label class="chk"><input type="checkbox" id="ew-tgt"> Fibonacci targets</label><label class="chk"><input type="checkbox" id="ew-failed"> Show cancelled counts</label></div>
+  </div>
+  <div id="ew-chart" style="height:440px"></div>
+  <div id="ew-info" class="ew-info"></div>
+  <p class="small muted" style="padding:6px 14px 12px;margin:0">This is a <b>wave count, not a trade signal</b>: it shows how the price can be read with the Elliott hard rules (wave 2 never beyond the start of wave 1 · wave 3 never the shortest · wave 4 never inside wave 1) and the usual A-B-C correction rules. Only closed candles are used and a wave is shown only after the price has turned away from it, so confirmed waves never move. When the price breaks the cancel level the count is removed, the computer counts again from the new waves, and the wrong count stays in the history. Triangles, combinations and diagonals are not counted. Elliott counting is an interpretation: another trader can count the same chart differently, and a valid count does not mean the price will follow it. Independent tests have found no proven profit from trading Elliott counts — use it to understand structure, not as a promise.</p>
+</div>
+
 <div class="panel" style="margin-top:18px" id="scanner">
   <div class="bar"><span class="title">Signal scanner</span>
     <select class="inline" id="sc-cat"><option value="crypto">Crypto — top 40 by volume</option><option value="forex">Forex &amp; metals</option><option value="deriv">Deriv synthetic indices</option><option value="indices">Stock indices</option></select>
@@ -104,11 +124,11 @@
 </div>
 </div>
 <div id="site-footer"></div>
-<script src="assets/js/lib/lightweight-charts.js?v=46"></script>
-<script src="assets/js/deriv.js?v=46"></script>
-<script src="assets/js/indicators.js?v=46"></script>
-<script src="assets/js/strategies/ema-cross.js?v=46"></script><script src="assets/js/strategies/bollinger.js?v=46"></script>
-<script src="assets/js/strategies/triple.js?v=46"></script><script src="assets/js/strategies/smc.js?v=46"></script><script src="assets/js/strategies/gtm.js?v=46"></script><script src="assets/js/strategies/multi.js?v=46"></script>
-<script src="assets/js/engines.js?v=46"></script><script src="assets/js/chartdraw.js?v=46"></script><script src="assets/js/signals.js?v=46"></script><script src="assets/js/triple-ui.js?v=46"></script>
+<script src="assets/js/lib/lightweight-charts.js?v=48"></script>
+<script src="assets/js/deriv.js?v=48"></script>
+<script src="assets/js/indicators.js?v=48"></script>
+<script src="assets/js/strategies/ema-cross.js?v=48"></script><script src="assets/js/strategies/bollinger.js?v=48"></script>
+<script src="assets/js/strategies/triple.js?v=48"></script><script src="assets/js/strategies/smc.js?v=48"></script><script src="assets/js/strategies/gtm.js?v=48"></script><script src="assets/js/strategies/multi.js?v=48"></script>
+<script src="assets/js/engines.js?v=48"></script><script src="assets/js/chartdraw.js?v=48"></script><script src="assets/js/signals.js?v=48"></script><script src="assets/js/triple-ui.js?v=48"></script><script src="assets/js/strategies/elliott.js?v=48"></script><script src="assets/js/elliott-ui.js?v=48"></script>
 </body>
 </html>
