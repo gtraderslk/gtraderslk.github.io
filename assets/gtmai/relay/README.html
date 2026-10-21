@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Binance relay setup | GTM AI</title>
+<link rel="icon" href="../../../favicon.ico">
+<link rel="stylesheet" href="../../css/site.css?v=46">
+<style>
+body{padding:24px 0}
+.wrap{max-width:900px}
+h1{font-size:30px;margin:0 0 6px}
+h2{font-size:21px;margin:28px 0 8px;color:#3fe0ff}
+ol li,ul li{line-height:1.75;margin-bottom:4px}
+code{background:#050b18;border:1px solid #1b3557;border-radius:6px;padding:1px 6px;font-size:14px}
+.si{border-left:4px solid #f0b90b;background:rgba(240,185,11,.07);border-radius:10px;padding:12px 16px;margin-top:10px}
+.warn{border-left:4px solid #ff4d6d;background:rgba(255,77,109,.08);border-radius:10px;padding:12px 16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p><a href="../../../gtm-ai.html">← back to GTM AI</a></p>
+<h1>Connect GTM AI to Binance Futures</h1>
+<p class="muted">The panel signs every order in your browser with your secret key. Binance does not accept orders straight from a web page, so the signed order goes through a small <b>relay</b> that you own. The relay cannot change an order and never sees your secret key.</p>
+
+<h2>1. Make an API key (start with practice money)</h2>
+<ol>
+  <li><b>Testnet:</b> open <code>testnet.binancefuture.com</code>, log in, open the <b>API Key</b> tab and copy the API key and the secret key. — or —</li>
+  <li><b>Demo trading:</b> binance.com → Futures → <b>Demo Trading</b> → API Management → create a key.</li>
+  <li><b>Real account (later):</b> binance.com → API Management → Create API. Tick <b>Enable Futures</b> only. <b>Never</b> tick withdrawals. You can restrict the key to your relay's IP address.</li>
+</ol>
+<div class="si">සිංහලෙන්: මුලින්ම <b>Testnet</b> එකේ key එකක් හදන්න (බොරු සල්ලි). Real account එකේ key එකක් හදනවා නම් <b>Enable Futures</b> විතරක් tick කරන්න. <b>Withdraw කිසිම වෙලාවක enable කරන්න එපා.</b></div>
+
+<h2>2. Make your relay (pick one, both are free)</h2>
+<p><b>A) Cloudflare Worker</b> — works 24/7, also from a phone</p>
+<ol>
+  <li>Make a free account at <code>dash.cloudflare.com</code>.</li>
+  <li><b>Workers &amp; Pages → Create → Worker</b>, give it a name (for example <code>gtm-relay</code>) and press Deploy.</li>
+  <li>Press <b>Edit code</b>, delete what is there and paste <a href="binance-relay-worker.js" target="_blank">binance-relay-worker.js</a>. Press <b>Deploy</b>.</li>
+  <li>Copy the address, for example <code>https://gtm-relay.yourname.workers.dev</code>.</li>
+</ol>
+<p><b>B) relay.py on your own computer</b> — no account needed</p>
+<ol>
+  <li>Install Python 3 from python.org (tick "Add to PATH").</li>
+  <li>Download <a href="relay.py" download>relay.py</a> and double-click it (or run <code>python relay.py</code>). Keep the window open.</li>
+  <li>The address is <code>http://127.0.0.1:8787</code>. If Chrome asks to allow access to your local network, press <b>Allow</b>.</li>
+</ol>
+<div class="si">සිංහලෙන්: Relay එක කියන්නේ ඔබේ order එක Binance එකට යවන පොඩි "තැපැල්කරුවෙක්". <b>A)</b> Cloudflare Worker එක පැය 24ම වැඩ කරනවා. <b>B)</b> relay.py ඔබේ PC එකේ දුවනවා, PC එක on වෙලා තියෙන්න ඕනේ. දෙකම free.</div>
+
+<h2>3. Connect on the GTM AI page</h2>
+<ol>
+  <li>Open the <b>Binance Futures</b> box above the panel. Choose <b>Testnet</b>, paste the API key, the secret key and the relay address.</li>
+  <li>Leave <b>Hedge mode</b> on if you want long and short on the same coin at the same time. Set the leverage.</li>
+  <li>Press <b>Connect</b>. The box shows your USDT balance.</li>
+  <li>Press <b>START</b> on the panel, add crypto symbols (BTCUSD = BTCUSDT) on SETTINGS, set their entry setups, then press <b>SIMULATOR → LIVE</b> at the top right and confirm.</li>
+  <li>Keep the tab open: new entries, break-even and trailing run in the page. SL and TP are real Binance orders, so they stay even if you close it.</li>
+</ol>
+<div class="warn"><b>Risk warning:</b> futures with leverage can lose more than you expect, quickly. Test on Testnet / Demo trading for weeks first. Back-tests and simulator results do not guarantee future results. Signals and AI answers are predictions, not promises. G TRADERS never holds your money or your keys.</div>
+</div>
+</body>
+</html>
