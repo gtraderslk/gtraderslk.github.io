@@ -84,6 +84,8 @@ class GTMAISim {
     this.bnWait = window.GTMBinance ? window.GTMBinance.auto().catch(() => false) : null;   // reconnects Binance while the prices load
     try { await RT.market.init(); } catch (e) { }
     this.loadTx.textContent = RT.market.list.length ? 'Live prices ready - ' + RT.market.list.length + ' markets' : 'Live prices are not reachable right now - the panel still opens.';
+    let auto = false; try { auto = sessionStorage.getItem('gtmai_autostart') === '1'; sessionStorage.removeItem('gtmai_autostart'); } catch (e) { }
+    if (auto) this.start();                                // came back after connecting Binance
   }
   defaultsFor() {
     const want = ['XAUUSD', 'EURUSD', 'GBPUSD', 'USDJPY', 'Volatility 75 Index', 'Volatility 25 (1s) Index', 'Volatility 100 Index', 'BTCUSD', 'ETHUSD'];
@@ -100,14 +102,61 @@ class GTMAISim {
     let tw = null;
     try { tw = new Worker(URL.createObjectURL(new Blob(['let t=0;onmessage=e=>{clearInterval(t);if(e.data>0)t=setInterval(()=>postMessage(0),e.data)}'], { type: 'text/javascript' }))); tw.onmessage = () => self.tick(); } catch (e) { tw = null; }
     RT.onTimerSet = ms => { if (tw) { tw.postMessage(ms || 0); return; } clearInterval(self.timer); self.timer = ms ? setInterval(() => self.tick(), ms) : null; };
-    const live = !!(RT.broker && RT.broker.ready);
-    window.addEventListener('beforeunload', e => { if (RT.broker && RT.broker.ready && RT.broker.posTotal() > 0) { e.preventDefault(); e.returnValue = ''; } });
+    const BK = RT.broker && RT.broker.ready ? RT.broker : null, live = !!BK;
+    if (BK) RT.market.addFutures(BK.info);
+    window.addEventListener('beforeunload', e => { if (RT.broker && RT.broker.ready && !RT.broker.watch && RT.broker.ownOpen() > 0) { e.preventDefault(); e.returnValue = ''; } });
     this.EA = GTMAI_EA({ InpSymbols: this.defaultsFor(), InpAllowLive: live, InpSimBalance: 1000, InpFrameMs: 60, InpFont: 'Bahnschrift', InpAIName: 'GTM AI' });
     try { this.EA.OnInit(); } catch (e) { this.fail(e); }
+    if (BK) this.binanceStart(BK);
     this.bindMouse();
     window.addEventListener('resize', () => this.onResize());
     document.addEventListener('fullscreenchange', () => setTimeout(() => this.onResize(), 50));
     this.startBridge();
+  }
+  /* ---------- Binance: show the account's positions and history on the panel ---------- */
+  eaLog(msg, col) { try { this.EA.call('Log', [msg, this.EA.get(col || 'CL_CY')]); } catch (e) { } }
+  addSym(name) {
+    const EA = this.EA; if (!EA) return;
+    try {
+      if (EA.call('FindSym', [name]) >= 0) return;
+      if (!EA.call('AddSymbol', [name])) return;
+      const i = EA.call('FindSym', [name]);
+      let done = []; try { done = JSON.parse(localStorage.getItem('gtmai_bn_added') || '[]'); } catch (e) { }
+      if (i >= 0 && done.indexOf(name) < 0) {          // added for a Binance position: its own entries stay OFF
+        EA.get('gSet[' + i + '].on=false'); EA.call('SaveAll');
+        done.push(name); try { localStorage.setItem('gtmai_bn_added', JSON.stringify(done.slice(-60))); } catch (e) { }
+      }
+      this.eaLog(name + ' added for your Binance position (its own entries are OFF)');
+    } catch (e) { this.fail(e); }
+  }
+  binanceStart(BK) {
+    const EA = this.EA;
+    BK.live_().forEach(e => this.addSym(e.name));
+    RT.onBrokerSymbol = name => this.addSym(name);
+    if (BK.watch) {
+      try { EA.call('GoLive'); EA.get('gRun=false'); } catch (e) { this.fail(e); }
+      this.eaLog('WATCH ONLY: your Binance trades show here. Agents are paused; the panel sends no orders.', 'CL_AU');
+    } else this.eaLog('Binance connected: switch SIMULATOR -> LIVE to trade on ' + BK.name, 'CL_AU');
+    const apply = list => { if (!Array.isArray(list)) return; try { this.applyHistory(BK, list); } catch (e) { this.fail(e); } };
+    if (BK.hist) apply(BK.hist); else if (BK.histP) BK.histP.then(apply);
+  }
+  /* closed Binance trades -> the journal (Data Analyzer, calendar, profit curve) and the HISTORY tab (replay) */
+  applyHistory(BK, list) {
+    const EA = this.EA, JR = 'GTM_AI\\journal.csv';
+    const f = RT.FS.get(JR.toLowerCase());
+    const keep = f ? new TextDecoder().decode(f.data).split('\n').filter(l => /^S;/.test(l)) : [];
+    const rows = list.map(t => ['L', t.name, t.dir, t.qty.toFixed(5), t.entry.toFixed(8), t.exit.toFixed(8), t.t0, t.t1, t.pl.toFixed(2), t.tag].join(';'));
+    RT.fsPut(JR, new TextEncoder().encode(keep.concat(rows).join('\n') + (keep.length + rows.length ? '\n' : '')), true);
+    EA.call('JLoad');
+    let n = 0;
+    list.slice(-60).forEach(t => {
+      const si = EA.call('FindSym', [t.name]); if (si < 0) return;
+      const j = EA.get('new JTrade()');
+      Object.assign(j, { open: false, live: true, ticket: 0, si, dir: t.dir, tf: EA.get('gSet[' + si + '].tf'), lot: t.qty, entry: t.entry, sl: 0, tp: 0, sl0: 0,
+        t0: t.t0, t1: t.t1, exitP: t.exit, pl: t.pl, win: t.tag !== 'BE' && t.pl > 0.005, id: EA.get('gNextId++') });
+      if (EA.call('AddTrade', [j]) >= 0) n++;
+    });
+    this.eaLog('Binance history: ' + list.length + ' closed trade(s) in the journal / Data Analyzer' + (n ? ', ' + n + ' on HISTORY' : ''));
   }
   tick() {
     const t = performance.now(); if (t - (this._lt || 0) < (RT.timerMs || 60) * 0.6) return;   // never catch up a backlog
@@ -127,11 +176,12 @@ class GTMAISim {
     const c = this.cv; let down = false;
     c.addEventListener('pointermove', e => { const [x, y] = this.pos(e); this.ev(CHARTEVENT_MOUSE_MOVE, x, y, down ? '1' : '0'); });
     c.addEventListener('pointerdown', e => {
+      RT.userAt = Date.now();
       const ae = document.activeElement; if (ae && ae.classList && ae.classList.contains('gtm-edit')) ae.blur();   // like MT5: the edit box ends first
       this.sound.unlock(); c.setPointerCapture(e.pointerId); down = true;
       const [x, y] = this.pos(e); this.ev(CHARTEVENT_MOUSE_MOVE, x, y, '1'); this.ev(CHARTEVENT_CLICK, x, y, '');
     });
-    const up = e => { if (!down) return; down = false; const [x, y] = this.pos(e); this.ev(CHARTEVENT_MOUSE_MOVE, x, y, '0'); };
+    const up = e => { if (!down) return; down = false; RT.userAt = Date.now(); const [x, y] = this.pos(e); this.ev(CHARTEVENT_MOUSE_MOVE, x, y, '0'); };
     c.addEventListener('pointerup', up); c.addEventListener('pointercancel', up);
     c.addEventListener('pointerleave', e => { if (!down) this.ev(CHARTEVENT_MOUSE_MOVE, -1, -1, '0'); });
     c.addEventListener('wheel', e => { const [x, y] = this.pos(e); e.preventDefault(); this.ev(CHARTEVENT_MOUSE_WHEEL, (x & 0xFFFF) | ((y & 0xFFFF) << 16), -e.deltaY, ''); }, { passive: false });
@@ -146,7 +196,7 @@ class GTMAISim {
     const o = RT.objs.get(name); if (!o || o.type !== OBJ_EDIT) return;
     if (!el) {
       el = document.createElement('input'); el.type = 'text'; el.dataset.o = name; el.className = 'gtm-edit'; el.autocomplete = 'off'; el.spellcheck = false;
-      el.addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') { o.s[OBJPROP_TEXT] = el.value; this.ev(CHARTEVENT_OBJECT_ENDEDIT, 0, 0, name); el._sent = el.value; } });
+      el.addEventListener('keydown', e => { e.stopPropagation(); RT.userAt = Date.now(); if (e.key === 'Enter') { o.s[OBJPROP_TEXT] = el.value; this.ev(CHARTEVENT_OBJECT_ENDEDIT, 0, 0, name); el._sent = el.value; } });
       el.addEventListener('input', () => { o.s[OBJPROP_TEXT] = el.value; });
       el.addEventListener('blur', () => { if (el.value === (el._sent || '')) return; o.s[OBJPROP_TEXT] = el.value; el._sent = el.value; this.ev(CHARTEVENT_OBJECT_ENDEDIT, 0, 0, name); el._sent = el.value; });
       this.inputs.appendChild(el);

@@ -60,3 +60,5 @@
 .gtm-bn .bn-info b{color:#e4f3ff}
 .gtm-bn .bn-log{margin:0;max-height:140px;overflow:auto;font:12px/1.5 Consolas,monospace;color:#9fb6d6;background:#050b18;border-radius:8px;padding:8px 10px;white-space:pre-wrap}
 .gtm-bn .bn-log:empty{display:none}
+.gtm-bn [hidden]{display:none!important}
+.gtm-bn .bn-watch-tip{border-left:4px solid #3fe0ff;background:rgba(63,224,255,.08);border-radius:8px;padding:8px 12px;color:#cfe9ff}

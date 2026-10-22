@@ -52,6 +52,21 @@ M.init = async function () {
   M.ready = true;
 };
 
+/* ---------- Binance futures symbols (when the Binance box is connected) ---------- */
+M.addFutures = function (info) {
+  let n = 0;
+  info.forEach(m => {
+    const name = m.symbol.replace(/USDT$/, 'USD');
+    let o = M.byName.get(name);
+    const meta = { symbol: m.symbol, src: 'binance', fut: true, cat: 'crypto', display_name: m.symbol.replace(/USDT$/, '/USDT') + ' perp', group: 'Binance Futures', pip: m.tick, exchange_is_open: 1 };
+    if (o) { if (M.sel.has(name)) return; o.meta = meta; o.spec = spec(name, meta); return; }
+    o = { name, path: 'Binance Futures\\' + name, desc: meta.display_name, meta, spec: spec(name, meta) };
+    M.list.push(o); M.byName.set(name, o); n++;
+  });
+  return n;
+};
+const BK = () => (RT.broker && RT.broker.ready) ? RT.broker : null;
+
 /* ---------- live prices ---------- */
 function st(name) { return M.sel.get(name); }
 M.select = function (name) {
@@ -60,7 +75,8 @@ M.select = function (name) {
   const o = M.byName.get(name);
   const s = { o, bid: 0, ask: 0, t: 0, series: new Map(), stop: null };
   M.sel.set(name, s);
-  G.GTFeed.ticks(o.meta, (px, epoch) => tick(s, +px, +epoch)).then(stop => { s.stop = stop; }).catch(() => { });
+  if (o.meta.fut && BK()) BK().subscribe(o.meta.symbol, (px, epoch) => tick(s, +px, +epoch));
+  else G.GTFeed.ticks(o.meta, (px, epoch) => tick(s, +px, +epoch)).then(stop => { s.stop = stop; }).catch(() => { });
   // a first price from M1 history (markets that are closed still show their last price)
   loadSeries(s, 1);
   return true;
@@ -99,7 +115,7 @@ function loadSeries(s, tf) {
   ser = { bars: [], ok: false, loading: true, ver: 0, tick: 0 };
   s.series.set(tf, ser);
   const gran = TFSEC[tf] || 60;
-  queue(() => G.GTFeed.history(s.o.meta, gran, 1000)).then(c => {
+  queue(() => (s.o.meta.fut && BK()) ? BK().klines(s.o.meta.symbol, gran, 1000) : G.GTFeed.history(s.o.meta, gran, 1000)).then(c => {
     ser.bars = (c || []).map(x => { const r = new G.MqlRates(); r.time = +x.time; r.open = +x.open; r.high = +x.high; r.low = +x.low; r.close = +x.close; r.tick_volume = +(x.vol || 1); return r; });
     ser.ok = ser.bars.length > 0; ser.loading = false; ser.ver++;
     const l = ser.bars[ser.bars.length - 1];
@@ -216,7 +232,8 @@ function ratesRange(sym, tf, from, to, out) {
     const meta = st.o.meta, F = G.GTFeed;
     let p;
     try {
-    if (meta.src === 'binance') p = F.Binance.get('/api/v3/klines?symbol=' + meta.symbol + '&interval=' + ({ 60: '1m', 300: '5m', 900: '15m', 1800: '30m', 3600: '1h', 14400: '4h', 86400: '1d' }[sec] || '1m') + '&startTime=' + from * 1000 + '&endTime=' + to * 1000 + '&limit=1000')
+    if (meta.fut && BK()) p = BK().klines(meta.symbol, sec, 1500, from, to);
+    else if (meta.src === 'binance') p = F.Binance.get('/api/v3/klines?symbol=' + meta.symbol + '&interval=' + ({ 60: '1m', 300: '5m', 900: '15m', 1800: '30m', 3600: '1h', 14400: '4h', 86400: '1d' }[sec] || '1m') + '&startTime=' + from * 1000 + '&endTime=' + to * 1000 + '&limit=1000')
       .then(r => r.map(k => ({ time: Math.floor(k[0] / 1000), open: +k[1], high: +k[2], low: +k[3], close: +k[4] })));
     else p = F.deriv.connect().then(() => F.deriv.send({ ticks_history: meta.symbol, start: from, end: Math.min(to, Math.floor(Date.now() / 1000)), granularity: sec, style: 'candles', adjust_start_time: 1 }))
       .then(r => (r.candles || []).map(x => ({ time: +x.epoch, open: +x.open, high: +x.high, low: +x.low, close: +x.close })));
