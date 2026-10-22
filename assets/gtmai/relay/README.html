@@ -24,6 +24,15 @@ code{background:#050b18;border:1px solid #1b3557;border-radius:6px;padding:1px 6
 <h1>Connect GTM AI to Binance Futures</h1>
 <p class="muted">The panel signs every order in your browser with your secret key. Binance does not accept orders straight from a web page, so the signed order goes through a small <b>relay</b> that you own. The relay cannot change an order and never sees your secret key.</p>
 
+<h2>Watch only: see your Binance / TradingView trades on the panel</h2>
+<ol>
+  <li>binance.com → <b>API Management</b> → Create API → tick only <b>Enable Reading</b> (no trading, no withdrawals).</li>
+  <li>On the GTM AI page open the <b>Binance Futures</b> box: <b>Watch only</b>, <b>REAL account</b>, paste the API key and secret, press <b>Connect</b>. No relay is needed.</li>
+  <li>Press <b>START</b>. The panel opens in LIVE with the agents paused and shows every USDT-M futures position with its SL / TP. Closed trades go to HISTORY (replay), the journal and the Data Analyzer; the last 30 days are loaded from Binance.</li>
+  <li>To trade from TradingView: TradingView → <b>Trading Panel</b> → <b>Binance</b> → Connect. Trades you place there appear on the panel within a few seconds.</li>
+</ol>
+<div class="si">සිංහලෙන්: TradingView එකෙන් Binance එකට trade දාලා, ඒවා GTM AI panel එකේ බලන්න <b>Watch only</b> තෝරන්න. API key එකේ <b>Enable Reading</b> විතරක් tick කරන්න. Relay එකක් ඕනේ නෑ. Panel එක කිසිම order එකක් යවන්නේ නෑ.</div>
+
 <h2>1. Make an API key (start with practice money)</h2>
 <ol>
   <li><b>Testnet:</b> open <code>testnet.binancefuture.com</code>, log in, open the <b>API Key</b> tab and copy the API key and the secret key. — or —</li>
@@ -32,7 +41,7 @@ code{background:#050b18;border:1px solid #1b3557;border-radius:6px;padding:1px 6
 </ol>
 <div class="si">සිංහලෙන්: මුලින්ම <b>Testnet</b> එකේ key එකක් හදන්න (බොරු සල්ලි). Real account එකේ key එකක් හදනවා නම් <b>Enable Futures</b> විතරක් tick කරන්න. <b>Withdraw කිසිම වෙලාවක enable කරන්න එපා.</b></div>
 
-<h2>2. Make your relay (pick one, both are free)</h2>
+<h2>2. Trade mode only: make your relay (pick one, both are free)</h2>
 <p><b>A) Cloudflare Worker</b> — works 24/7, also from a phone</p>
 <ol>
   <li>Make a free account at <code>dash.cloudflare.com</code>.</li>
@@ -48,9 +57,9 @@ code{background:#050b18;border:1px solid #1b3557;border-radius:6px;padding:1px 6
 </ol>
 <div class="si">සිංහලෙන්: Relay එක කියන්නේ ඔබේ order එක Binance එකට යවන පොඩි "තැපැල්කරුවෙක්". <b>A)</b> Cloudflare Worker එක පැය 24ම වැඩ කරනවා. <b>B)</b> relay.py ඔබේ PC එකේ දුවනවා, PC එක on වෙලා තියෙන්න ඕනේ. දෙකම free.</div>
 
-<h2>3. Connect on the GTM AI page</h2>
+<h2>3. Trade mode: connect on the GTM AI page</h2>
 <ol>
-  <li>Open the <b>Binance Futures</b> box above the panel. Choose <b>Testnet</b>, paste the API key, the secret key and the relay address.</li>
+  <li>Open the <b>Binance Futures</b> box above the panel. Choose <b>Trade</b> and <b>Testnet</b>, paste the API key, the secret key and the relay address.</li>
   <li>Leave <b>Hedge mode</b> on if you want long and short on the same coin at the same time. Set the leverage.</li>
   <li>Press <b>Connect</b>. The box shows your USDT balance.</li>
   <li>Press <b>START</b> on the panel, add crypto symbols (BTCUSD = BTCUSDT) on SETTINGS, set their entry setups, then press <b>SIMULATOR → LIVE</b> at the top right and confirm.</li>
