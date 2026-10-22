@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css?v=46">
-<link rel="stylesheet" href="assets/gtmai/gtmai.css?v=49">
+<link rel="stylesheet" href="assets/gtmai/gtmai.css?v=50">
 <style>.gtm-cover{background:linear-gradient(rgba(2,6,15,.72),rgba(2,6,15,.86)),url(assets/img/gtm-ai-dashboard.jpg) center/cover}</style>
 <script src="assets/js/config.js?v=46"></script>
 <script src="assets/js/site.js?v=46"></script>
@@ -50,7 +50,7 @@
 
 <section class="section tight" id="try"><div class="gtm-wrap">
   <div class="wrap" style="padding:0"><h2 style="margin:0 0 6px">Try the real panel — live prices, simulator money</h2>
-  <p class="muted" style="margin:0 0 14px">This is the same GTM AI code that runs in MetaTrader 5, running in your browser. Prices are live market prices; every trade here is a <b>simulator trade with a virtual $1,000</b> — no account, no money. <b>New:</b> connect <b>Binance Futures</b> (Testnet first) in the box below and the panel's LIVE mode opens real USDT-M futures orders for your crypto symbols, with SL / TP placed on Binance. Click the tabs, drag SL / TP on LIVE TRADES, replay trades on HISTORY, add symbols on SETTINGS and talk to the AI on AI CHAT.</p></div>
+  <p class="muted" style="margin:0 0 14px">This is the same GTM AI code that runs in MetaTrader 5, running in your browser. Prices are live market prices; every trade here is a <b>simulator trade with a virtual $1,000</b> — no account, no money. <b>New:</b> connect <b>Binance Futures</b> in the box below. <b>Watch only</b> (a read-only API key) shows every Binance futures trade you open on Binance or in TradingView: LIVE TRADES with SL / TP, celebrations, HISTORY with replay, the journal and the Data Analyzer. <b>Trade</b> mode lets the panel open real USDT-M orders itself (Testnet first). Click the tabs, drag SL / TP on LIVE TRADES, replay trades on HISTORY, add symbols on SETTINGS and talk to the AI on AI CHAT.</p></div>
   <div class="gtm-bar">
     <span class="ai-state" id="ai-state">AI: Demo AI (no key needed)</span>
     <input type="password" id="ai-key" placeholder="Optional: paste your own AI key (Gemini, OpenAI, Claude, Groq...)" autocomplete="off">
@@ -113,12 +113,12 @@
 <div id="site-footer"></div>
 
 <script src="assets/js/deriv.js?v=46"></script>
-<script src="assets/gtmai/rt.js?v=49"></script>
-<script src="assets/gtmai/canvas.js?v=49"></script>
-<script src="assets/gtmai/market.js?v=49"></script>
-<script src="assets/gtmai/binance.js?v=49"></script>
-<script src="assets/gtmai/ea.js?v=49"></script>
-<script src="assets/gtmai/host.js?v=49"></script>
+<script src="assets/gtmai/rt.js?v=50"></script>
+<script src="assets/gtmai/canvas.js?v=50"></script>
+<script src="assets/gtmai/market.js?v=50"></script>
+<script src="assets/gtmai/binance.js?v=50"></script>
+<script src="assets/gtmai/ea.js?v=50"></script>
+<script src="assets/gtmai/host.js?v=50"></script>
 <script>
 (function () {
   const P = GT_CONFIG.products, me = P.find(x => x.key === 'gtmai');
@@ -127,7 +127,7 @@
     <a class="card product hover" href="${x.page}" style="color:inherit"><img class="thumb" src="${GT.esc(x.img)}" alt="" loading="lazy">
       <div class="body"><h3>${GT.esc(x.name)}</h3><p>${GT.esc(x.text)}</p><span class="gold small"><b>${GT.esc(x.price)}</b></span></div></a>`).join('');
 
-  const sim = window.gtmSim = new GTMAISim(document.getElementById('gtm-sim'), { base: 'assets/gtmai/', v: '49' });
+  const sim = window.gtmSim = new GTMAISim(document.getElementById('gtm-sim'), { base: 'assets/gtmai/', v: '50' });
   const st = document.getElementById('ai-state'), key = document.getElementById('ai-key');
   const show = d => { st.textContent = d.demo ? 'AI: Demo AI (no key needed)' : 'AI: your own key'; st.classList.toggle('key', !d.demo); };
   document.getElementById('gtm-sim').addEventListener('gtm-ai', e => show(e.detail));
