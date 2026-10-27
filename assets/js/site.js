@@ -347,6 +347,31 @@
       ? `<button class="btn ghost small" type="button" onclick="GT.content.openFile('${GT.esc(x.file)}',false,this)">View</button><button class="btn ghost small" type="button" onclick="GT.content.openFile('${GT.esc(x.file)}',true,this)">Download</button>`
       : `<a class="btn ghost small" href="${GT.esc(x.url)}" target="_blank" rel="noopener">View</a><a class="btn ghost small" href="${GT.esc(x.url)}" download>Download</a>`}</div>`).join('')}</div>`;
   };
+  // screenshot gallery of a product (config: shots[]) with a full-screen viewer
+  GT.galleryHtml = p => {
+    const s = (p.shots || []).filter(Boolean); if (!s.length) return '';
+    GT._gal = s;
+    return `<section class="section tight"><div class="wrap"><h2 class="center" style="margin-bottom:8px">Screenshots</h2>
+      <p class="center muted small" style="margin:0 0 18px">Real screenshots from MetaTrader 5 — click to enlarge.</p>
+      <div class="gal">${s.map((u, i) => `<button type="button" class="gal-it" onclick="GT.galOpen(${i})"><img src="${GT.esc(u)}" alt="${GT.esc(p.name)} screenshot ${i + 1}" loading="lazy"></button>`).join('')}</div>
+      ${p.guide ? `<p class="center" style="margin-top:18px"><a class="btn ghost" href="${GT.esc(p.guide.url)}" target="_blank" rel="noopener">${GT.esc(p.guide.title)} ↗</a></p>` : ''}
+    </div></section>`;
+  };
+  GT.galOpen = i => {
+    const s = GT._gal || []; if (!s.length) return;
+    let el = document.getElementById('gal-lb');
+    if (!el) {
+      el = document.createElement('div'); el.id = 'gal-lb'; el.className = 'gal-lb';
+      el.innerHTML = '<button type="button" class="gal-x" aria-label="Close">×</button><button type="button" class="gal-nav prev" aria-label="Previous">‹</button><img alt=""><button type="button" class="gal-nav next" aria-label="Next">›</button><div class="gal-n"></div>';
+      document.body.appendChild(el);
+      el.addEventListener('click', e => { if (e.target === el || e.target.classList.contains('gal-x')) el.classList.remove('on'); });
+      el.querySelector('.prev').onclick = () => GT.galOpen((GT._galI - 1 + GT._gal.length) % GT._gal.length);
+      el.querySelector('.next').onclick = () => GT.galOpen((GT._galI + 1) % GT._gal.length);
+      document.addEventListener('keydown', e => { if (!el.classList.contains('on')) return;
+        if (e.key === 'Escape') el.classList.remove('on'); else if (e.key === 'ArrowRight') el.querySelector('.next').click(); else if (e.key === 'ArrowLeft') el.querySelector('.prev').click(); });
+    }
+    GT._galI = i; el.querySelector('img').src = s[i]; el.querySelector('.gal-n').textContent = (i + 1) + ' / ' + s.length; el.classList.add('on');
+  };
   GT.limit = (u, k) => (u && u.limits && u.limits[k] != null && u.limits[k] !== '') ? +u.limits[k] : +GT.site().limits[k];
   GT.feature = (k, u) => { const me = GT.auth.current(); if (me && GT.isAdmin(me)) return true; return GT.site().features[k] !== false && !(u && u.features && u.features[k] === false); };
 

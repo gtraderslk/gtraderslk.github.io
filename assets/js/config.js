@@ -7,7 +7,7 @@ window.GT_CONFIG = {
   tagline: 'Trading tools for MetaTrader 5 — build, test and run your own robots.',
   email: 'supportgtraders@gmail.com',
   year: new Date().getFullYear(),
-  build: 'v4.6',
+  build: 'v4.7',
 
   // Deriv: market data for charts, signals and the demo.
   // 1089 is Deriv's public test app id. Register your own free app id at
@@ -50,6 +50,23 @@ window.GT_CONFIG = {
   // id      = MQL5 product number (used for the live MQL5 widget and reviews)
   // page    = the Details page on this site
   products: [
+    {
+      key: 'propguard', id: 204334, name: 'GTM Prop Guard', full: 'GTM Prop Guard — Prop Firm Risk Manager', type: 'Utility · MT5', badge: 'New',
+      price: '$45', img: 'assets/img/propguard/01_hero.jpg', icon: 'assets/img/propguard/logo.jpg',
+      shots: ['assets/img/propguard/01_hero.jpg', 'assets/img/propguard/02_entry.jpg', 'assets/img/propguard/03_trades.jpg', 'assets/img/propguard/04_journey.jpg', 'assets/img/propguard/05_limits.jpg', 'assets/img/propguard/06_actions.jpg', 'assets/img/propguard/07_behaviour.jpg', 'assets/img/propguard/08_locked.jpg'],
+      docs: [{ title: 'User guide (English)', url: 'docs/GTM_Prop_Guard_Guide_English.pdf' }],
+      guide: { title: 'How prop firms count daily loss and max loss', url: 'https://www.mql5.com/en/blogs/post/778570' },
+      text: 'Never break a prop firm rule by accident: room left today, the safe lot before you trade, the price where the account would fail, and a guard that warns, blocks, closes and locks before a limit breaks.',
+      features: ['ROOM LEFT TODAY and SAFE LOT NOW — counted on the worst case of every open stop, pending orders, commission and spread',
+        'Watches the whole account from one chart: every symbol, every EA and trades from the phone',
+        'Daily loss from balance, equity or the higher of both at the reset; max loss static or trailing',
+        'Warn at 80 %, close new trades at 90 %, close everything and lock at 95 % (all can be changed); hard lock option',
+        'ENTRY tab: safe ticket for any symbol — risk as a share of the room or the account, AUTO / MANUAL lot, SL and TP lines',
+        'TRADES tab: pick a trade to close, take half off, move to break even or add a safe stop',
+        'Behaviour guard: trades per day, pause after losses, trading hours, allowed symbols, news blackout, weekend close',
+        'JOURNEY tab: profit target, P/L calendar, consistency planner and payout readiness',
+        'Alerts: popup, sound, phone push and Telegram. It never opens a trade by itself — your firm\'s rules always win']
+    },
     {
       key: 'gtmai', id: 200540, name: 'GTM AI Trade Core', full: 'GTM AI Trade Core — AI Trading Assistant EA', type: 'Expert Advisor · MT5', badge: 'New',
       price: '$149 · rent from $39 / month', img: 'assets/img/gtm-ai.jpg', page: 'gtm-ai.html',
@@ -95,6 +112,9 @@ window.GT_CONFIG = {
     {
       key: 'panelpro', id: 189009, name: 'GTM Panel Pro', full: 'GTM PANEL PRO — Manual Trade & Group Management', type: 'Utility · MT5',
       price: '$55', img: 'assets/img/gtm-panel-hero.jpg', page: 'product-panelpro.html',
+      shots: ['assets/img/panelpro/01_hero.jpg', 'assets/img/panelpro/02_panel.jpg', 'assets/img/panelpro/03_limit.jpg', 'assets/img/panelpro/04_ai.jpg', 'assets/img/panelpro/05_help.jpg', 'assets/img/panelpro/06_themes.jpg', 'assets/img/panelpro/07_bot.jpg', 'assets/img/panelpro/08_telegram.jpg'],
+      docs: [{ title: 'User guide 2.53 (English)', url: 'docs/GTM_Panel_Pro_Guide_English.pdf' }],
+      guide: { title: 'GTM Panel Pro 2.53 — what is new', url: 'https://www.mql5.com/en/blogs/post/778539' },
       text: 'Manual execution and risk management: trade groups, drag-to-adjust prices, pending orders, breakeven and trailing, Telegram monitoring and remote control.',
       features: ['Four independent trade groups (A–D), each with its own magic number, lot, stop, target and statistics',
         'Limit desk with four pending-order slots — BUY / SELL LIMIT / STOP with OCO and auto-expiry',
@@ -134,6 +154,57 @@ window.GT_CONFIG = {
         'Read-only: it never places, changes or closes trades']
     },
     {
+      key: 'background', id: 191593, name: 'Chart Image Pro', full: 'Background Image and Logo for MT5 chart', type: 'Utility · MT5',
+      price: '$30', img: 'assets/img/chartimage-promo.jpg', page: 'product-background.html',
+      text: 'Put your own picture and logo behind the MT5 chart.',
+      features: ['Your own picture behind the candles of any MT5 chart',
+        'Your logo on the chart — for streams, screenshots and branding',
+        'Works with any symbol and timeframe',
+        'Does not trade — a display tool only']
+    },
+    {
+      key: 'zones', id: 203559, name: 'GTM FVG & Order Block Zones', full: 'GTM FVG and Order Block Zones', type: 'Indicator · MT5', badge: 'Free',
+      price: 'Free', img: 'assets/img/zones/01_hero.jpg',
+      shots: ['assets/img/zones/01_hero.jpg', 'assets/img/zones/02_fvg_modes.jpg', 'assets/img/zones/03_structure.jpg', 'assets/img/zones/04_htf_zones.jpg', 'assets/img/zones/05_settings.jpg', 'assets/img/zones/06_alerts_light.jpg'],
+      text: 'Fair value gaps, order blocks and market structure (BOS / CHoCH, strong and weak levels) drawn from closed candles, with higher-timeframe zones, a live panel and alerts.',
+      features: ['Fair value gaps measured by wicks (ICT) or bodies, with a minimum size from ATR and an optional 50 % line',
+        'Order blocks: the last opposite candle before a break of the last swing — full candle or body only',
+        'Market structure: BOS, CHoCH and strong / weak highs and lows',
+        'Broken zones faded, hidden or kept; only the newest zones are drawn so the chart stays clean',
+        'Higher-timeframe zones (M15 to W1) on a lower chart with a dotted border and label',
+        'Panel: trend, last BOS / CHoCH, nearest zone above and below, zones the price is in',
+        'Alerts for a new zone, entering a zone, a broken zone, BOS or CHoCH — popup, sound and phone push',
+        'Built from closed candles, so zones do not move or vanish. It does not trade and gives no buy / sell arrows']
+    },
+    {
+      key: 'sessions', id: 203513, name: 'GTM Sessions & Killzones', full: 'GTM Sessions, Killzones and Session Alerts', type: 'Indicator · MT5', badge: 'Free',
+      price: 'Free', img: 'assets/img/sessions/01_hero.jpg',
+      shots: ['assets/img/sessions/01_hero.jpg', 'assets/img/sessions/02_daylight_saving.jpg', 'assets/img/sessions/03_killzones.jpg', 'assets/img/sessions/04_levels.jpg', 'assets/img/sessions/05_settings.jpg', 'assets/img/sessions/06_alerts_light.jpg'],
+      text: 'Sydney, Tokyo, London and New York sessions and the ICT killzones on your broker\'s server time — no GMT offset to type, daylight saving handled for you.',
+      features: ['Four sessions with their own colours and short labels, plus the ICT killzones (Asian, London, NY AM, NY PM)',
+        'Broker time zone and daylight saving found automatically; the boxes move on the right day',
+        'Boxes, outlines or full-height bands — fills stay soft on dark and white charts',
+        'Session high / low lines and the Asian range, carried forward until price breaks them',
+        'Key levels: previous day and week high / low, daily open and New York midnight open',
+        'Panel: sessions open now, the next one and how long until it opens, today\'s range against the average',
+        'Alerts when a session opens, a session high / low breaks or price touches the previous day high / low',
+        'Light on the terminal and controlled from the panel. It does not trade and gives no signals']
+    },
+    {
+      key: 'timer', id: 203100, name: 'GTM Candle Timer', full: 'GTM Candle Timer — Countdown and Spread', type: 'Indicator · MT5', badge: 'Free',
+      price: 'Free', img: 'assets/img/timer/01_hero.jpg',
+      shots: ['assets/img/timer/01_hero.jpg', 'assets/img/timer/02_auto_theme.jpg', 'assets/img/timer/03_settings.jpg', 'assets/img/timer/04_alerts.jpg', 'assets/img/timer/05_info_rows.jpg', 'assets/img/timer/06_folded.jpg'],
+      text: 'How long the current candle has left, on your broker\'s server time, in a small panel you can drag anywhere — with spread, range against ADR and alerts before the close.',
+      features: ['Big countdown with a progress bar that turns red in the last seconds',
+        'Several timeframes at once (M1 to MN1) under the main timer',
+        'Spread, today\'s range against the average daily range, day change and candle size',
+        'Your open positions on the symbol: count, lots and profit',
+        'Server and local time, and which sessions are open now',
+        'A small timer that follows the price beside the last candle',
+        'Alerts before the candle closes and when a new candle opens — popup, sound and phone push',
+        'Auto dark / light theme, keeps counting when no ticks arrive. It does not trade']
+    },
+    {
       key: 'maspanel', id: 194257, name: 'MA Signal Panel', full: 'Multiple Moving Average Signal Panel', type: 'Indicator · MT5', badge: 'Free',
       price: 'Free', img: 'assets/img/smc-bot-square.jpg', page: 'product-maspanel.html',
       text: 'Eight moving averages on one chart with BUY / SELL signals when two chosen averages cross, all set from an on-chart panel.',
@@ -145,15 +216,6 @@ window.GT_CONFIG = {
         'Settings saved per symbol and timeframe',
         'Sound, push and popup alerts; custom arrow styles and colours',
         'No account access, no orders, no network use']
-    },
-    {
-      key: 'background', id: 191593, name: 'Chart Image Pro', full: 'Background Image and Logo for MT5 chart', type: 'Utility · MT5',
-      price: '$30', img: 'assets/img/chartimage-promo.jpg', page: 'product-background.html',
-      text: 'Put your own picture and logo behind the MT5 chart.',
-      features: ['Your own picture behind the candles of any MT5 chart',
-        'Your logo on the chart — for streams, screenshots and branding',
-        'Works with any symbol and timeframe',
-        'Does not trade — a display tool only']
     }
   ]
 };
