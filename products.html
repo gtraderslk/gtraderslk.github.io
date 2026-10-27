@@ -22,9 +22,9 @@
 <meta name="twitter:image" content="https://gtraderslk.github.io/assets/img/og-image.jpg">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/img/gt-emblem.png">
-<link rel="stylesheet" href="assets/css/site.css?v=46">
-<script src="assets/js/config.js?v=46"></script>
-<script src="assets/js/site.js?v=46"></script>
+<link rel="stylesheet" href="assets/css/site.css?v=49">
+<script src="assets/js/config.js?v=49"></script>
+<script src="assets/js/site.js?v=49"></script>
 </head>
 <body class="">
 <div id="site-header"></div>
@@ -40,7 +40,7 @@
 <div class="grid g3" id="prod-grid"></div>
 <script>
 (function(){
-  document.getElementById('prod-grid').innerHTML = GT_CONFIG.products.slice(0, 99).map(p => `
+  const card = p => `
   <div class="card product hover">
     <img class="thumb" src="${GT.esc(p.img)}" alt="${GT.esc(p.name)}" loading="lazy">
     <div class="body">
@@ -53,7 +53,11 @@
         <a class="btn ghost small" href="${p.reviews}" target="_blank" rel="noopener">Reviews ↗</a>
       </div>
     </div>
-  </div>`).join('');
+  </div>`;
+  const all = GT_CONFIG.products.slice(0, 99), free = all.filter(p => /^free$/i.test(p.price || '')), paid = all.filter(p => !free.includes(p));
+  const grid = document.getElementById('prod-grid'), head = (t, n) => `<div class="prod-group"><h2>${t}</h2><span class="muted small">${n}</span></div>`;
+  grid.outerHTML = head('Trading tools', 'Utilities and Expert Advisors - free demo in the Strategy Tester') + `<div class="grid g3">${paid.map(card).join('')}</div>`
+    + (free.length ? `<div style="height:34px"></div>` + head('Free indicators', 'Free on the MQL5 Market - no paid full version') + `<div class="grid g3">${free.map(card).join('')}</div>` : '');
 })();
 </script>
   <p class="center" style="margin-top:30px"><a class="btn ghost" href="#" id="seller-link" target="_blank" rel="noopener">See all on my MQL5 seller page</a></p>
